@@ -13,10 +13,14 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="BookingSuccessful">
+      <Stack.Navigator screenOptions={{
+          headerShown: false
+        }} initialRouteName="BookingSuccessful">
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="AllDoctors" component={AllDoctors} />
-        <Stack.Screen name="BookingSuccessful" component={BookingSuccessful} />
+        <Stack.Screen 
+        name="BookingSuccessful" 
+        component={BookingSuccessful} />
         <Stack.Screen name="Appointments" component={Appointments} />
       </Stack.Navigator>
     </NavigationContainer>
