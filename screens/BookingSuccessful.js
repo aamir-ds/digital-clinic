@@ -17,7 +17,10 @@ const BookingSuccessful = () => {
           </TouchableOpacity>
           </View>
         </View>
-        <Button title='Got it' color={colors.primary}/>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>GOT IT</Text>
+        </TouchableOpacity>
+        
     </View>
   )
 }
@@ -28,7 +31,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    padding: 15,
+    padding: 18,
   },
   bookingSection: {
     flex: 1,
@@ -53,17 +56,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '800',
     color: colors.black,
     lineHeight: 30
   },
   subtitle: {
     fontSize: 16,
-    color: colors.black,
+    color: '#808080',
     textAlign: 'center',
     lineHeight: 20,
     marginTop: 10,
-    marginHorizontal: 15
+    marginHorizontal: 15,
+    fontWeight: '500'
   },
   viewDetails: {
     marginTop: 20
@@ -72,5 +76,19 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: 16,
     fontWeight: 'bold'
+  },
+  button:{
+    backgroundColor: colors.primary,
+    height: 50,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5
+  },
+  buttonText:{
+    color: colors.white,
+    fontSize: 17,
+    fontWeight: 'bold'
   }
+ 
 })
