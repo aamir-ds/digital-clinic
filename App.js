@@ -56,7 +56,7 @@ const App = () => {
             },
           }}
           name="Clinics" component={Clinics} />
-               <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
+          <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
 
       </Stack.Navigator>
     </NavigationContainer>
