@@ -2,7 +2,6 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react
 import React from 'react'
 import { clinics } from '../config/dummy';
 import colors from '../config/colors';
-import ItemSeperator from '../components/ItemSeperator';
 
 
 
@@ -64,7 +63,7 @@ const Clinics = () => {
                 data={clinics}
                 renderItem={renderItem}
                 keyExtractor={(item, i) => i}
-                ItemSeparatorComponent={ItemSeperator}
+            // ItemSeparatorComponent={ItemSeperator}
             />
         </View>
     )
@@ -75,10 +74,11 @@ export default Clinics
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginVertical: 16
+        // marginVertical: 16
     },
     item: {
         marginHorizontal: 16,
-        backgroundColor: colors.white
+        backgroundColor: colors.white,
+        marginVertical: 10
     },
 })
