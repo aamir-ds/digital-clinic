@@ -8,6 +8,7 @@ import BookingSuccessful from './screens/BookingSuccessful';
 import Appointments from './screens/Appointments';
 import Clinics from './screens/Clinics';
 import colors from './config/colors';
+import Tabs from './navigation/tabs';
 
 
 const Stack = createNativeStackNavigator();
@@ -15,19 +16,19 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Clinics">
+      <Stack.Navigator initialRouteName="Home">
 
         <Stack.Screen
           options={{
             headerShown: false
           }}
-          name="Home" component={Home} />
+          name="Home" component={Tabs} />
 
         <Stack.Screen
           options={{
             headerShown: false
           }}
-          name="AllDoctors" component={AllDoctors} />
+          name="All Doctors" component={AllDoctors} />
 
         <Stack.Screen
           options={{
