@@ -3,6 +3,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/Home';
+import BottomTabNavigation from './navigation/BottomTabNavigation';
 import AllDoctors from './screens/AllDoctors';
 import BookingSuccessful from './screens/BookingSuccessful';
 import Appointments from './screens/Appointments';
@@ -55,6 +56,7 @@ const App = () => {
             },
           }}
           name="Clinics" component={Clinics} />
+               <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
 
       </Stack.Navigator>
     </NavigationContainer>
