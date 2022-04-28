@@ -6,6 +6,7 @@ import Home from './screens/Home';
 import BottomTabNavigation from './navigation/BottomTabNavigation';
 import AllDoctors from './screens/AllDoctors';
 import BookingSuccessful from './screens/BookingSuccessful';
+import DoctorProfile from './screens/DoctorProfile';
 import Appointments from './screens/Appointments';
 import Clinics from './screens/Clinics';
 import colors from './config/colors';
@@ -16,7 +17,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Clinics">
+      <Stack.Navigator initialRouteName="DoctorProfile">
 
         <Stack.Screen
           options={{
@@ -55,7 +56,8 @@ const App = () => {
             },
           }}
           name="Clinics" component={Clinics} />
-               <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
+        <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
+        <Stack.Screen name="DoctorProfile" component={DoctorProfile} />
 
       </Stack.Navigator>
     </NavigationContainer>
