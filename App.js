@@ -17,43 +17,43 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Clinics">
 
-        <Stack.Screen 
-        options={{
-           headerShown: false
-        }} 
-        name="Home" component={Home} />
-
-        <Stack.Screen 
+        <Stack.Screen
           options={{
             headerShown: false
-          }} 
-        name="AllDoctors" component={AllDoctors} />
-
-        <Stack.Screen 
-            options={{
-              headerShown: false
           }}
-        name="BookingSuccessful" 
-        component={BookingSuccessful} />
+          name="Home" component={Home} />
 
         <Stack.Screen
           options={{
-              headerShown: false
+            headerShown: false
           }}
-        name="Appointments" component={Appointments} />
+          name="AllDoctors" component={AllDoctors} />
 
-        <Stack.Screen 
-        options={{
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: colors.white,
-          headerTitleStyle: {
-            fontWeight: '400',
-            fontSize: 18
-          },
-        }}
-        name="Clinics" component={Clinics} />
+        <Stack.Screen
+          options={{
+            headerShown: false
+          }}
+          name="BookingSuccessful"
+          component={BookingSuccessful} />
+
+        <Stack.Screen
+          options={{
+            headerShown: false
+          }}
+          name="Appointments" component={Appointments} />
+
+        <Stack.Screen
+          options={{
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+              fontWeight: '400',
+              fontSize: 20
+            },
+          }}
+          name="Clinics" component={Clinics} />
 
       </Stack.Navigator>
     </NavigationContainer>

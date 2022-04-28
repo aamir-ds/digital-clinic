@@ -34,9 +34,14 @@ const Item = ({ name, distance, address, ratings, image }) => (
         </View>
 
         <View style={{
-            padding: 20
+            padding: 20,
+            flexDirection: 'row',
+            alignItems: 'center'
         }}>
-            <Text style={{ color: colors.greyFont }}>{address}</Text>
+            <View style={{ height: 40, width: 40, borderColor: colors.lightGrey, borderWidth: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 5, marginRight: 10 }}>
+                <Text>H</Text>
+            </View>
+            <Text style={{ color: colors.greyFont, fontSize: 16 }}>{address}</Text>
         </View>
 
     </TouchableOpacity>
