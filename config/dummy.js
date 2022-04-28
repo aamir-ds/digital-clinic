@@ -1,63 +1,73 @@
 const clinics = [
     {
-        name: 'name of clinic',
+        name: 'Name of clinic',
         distance: '68km',
         address: '987 Blaise Drive Suite 420',
-        ratings: 4.0
+        ratings: '4.7',
+        image: require('../assets/images/clinic.jpg')
     },
     {
         name: 'name of clinic',
         distance: '68km',
         address: '987 Blaise Drive Suite 420',
-        ratings: 4.0
+        ratings: '4.0',
+        image: require('../assets/images/clinic.jpg')
+    },
+    {
+        name: 'Name of clinic',
+        distance: '68km',
+        address: '987 Blaise Drive Suite 420',
+        ratings: '4.0',
+        image: require('../assets/images/clinic.jpg')
     },
     {
         name: 'name of clinic',
         distance: '68km',
         address: '987 Blaise Drive Suite 420',
-        ratings: 4.0
+        ratings: '4.0',
+        image: require('../assets/images/clinic.jpg')
     },
     {
         name: 'name of clinic',
         distance: '68km',
         address: '987 Blaise Drive Suite 420',
-        ratings: 4.0
+        ratings: '4.0',
+        image: require('../assets/images/clinic.jpg')
     },
     {
         name: 'name of clinic',
         distance: '68km',
         address: '987 Blaise Drive Suite 420',
-        ratings: 4.0
+        ratings: '4.0',
+        image: require('../assets/images/clinic.jpg')
     },
     {
         name: 'name of clinic',
         distance: '68km',
         address: '987 Blaise Drive Suite 420',
-        ratings: 4.0
+        ratings: '4.0',
+        image: require('../assets/images/clinic.jpg')
     },
     {
         name: 'name of clinic',
         distance: '68km',
         address: '987 Blaise Drive Suite 420',
-        ratings: 4.0
+        ratings: '4.0',
+        image: require('../assets/images/clinic.jpg')
     },
     {
         name: 'name of clinic',
         distance: '68km',
         address: '987 Blaise Drive Suite 420',
-        ratings: 4.0
+        ratings: '4.0',
+        image: require('../assets/images/clinic.jpg')
     },
     {
         name: 'name of clinic',
         distance: '68km',
         address: '987 Blaise Drive Suite 420',
-        ratings: 4.0
-    },
-    {
-        name: 'name of clinic',
-        distance: '68km',
-        address: '987 Blaise Drive Suite 420',
-        ratings: 4.0
+        ratings: '4.0',
+        image: require('../assets/images/clinic.jpg')
     },
 ]
 
@@ -136,7 +146,7 @@ const doctors = [
     },
 ]
 
-const paymentMethods=[
+const paymentMethods = [
     {
         name: 'visa'
     },
@@ -179,4 +189,4 @@ const homePageListing = [
 ]
 
 
-export {clinics, doctors, paymentMethods, homePageListing}
+export { clinics, doctors, paymentMethods, homePageListing }
