@@ -1,7 +1,7 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Links = () => {
+const Links = ({ navigation }) => {
     return (
         <View>
             <Button
