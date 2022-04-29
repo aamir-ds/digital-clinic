@@ -62,7 +62,7 @@ const Clinics = () => {
             <FlatList
                 data={clinics}
                 renderItem={renderItem}
-                keyExtractor={(item, i) => i}
+                keyExtractor={(item) => item.id}
             // ItemSeparatorComponent={ItemSeperator}
             />
         </View>

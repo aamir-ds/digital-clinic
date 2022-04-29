@@ -61,7 +61,6 @@ const App = () => {
         <Stack.Screen name="DoctorProfile" component={DoctorProfile} options={{
           headerTitle:"Doctor's Profile"
         }} />
-
       </Stack.Navigator>
     </NavigationContainer>
   )
