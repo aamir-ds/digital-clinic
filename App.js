@@ -58,7 +58,9 @@ const App = () => {
           }}
           name="Clinics" component={Clinics} />
         <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
-        <Stack.Screen name="DoctorProfile" component={DoctorProfile} />
+        <Stack.Screen name="DoctorProfile" component={DoctorProfile} options={{
+          headerTitle:"Doctor's Profile"
+        }} />
 
       </Stack.Navigator>
     </NavigationContainer>
