@@ -7,6 +7,7 @@ import AllDoctors from '../screens/AllDoctors'
 import Clinics from '../screens/Clinics'
 import Appointments from '../screens/Appointments'
 import colors from '../config/colors'
+import Links from '../screens/Links'
 const Tab = createBottomTabNavigator()
 
 const Tabs = () => {
@@ -39,6 +40,10 @@ const Tabs = () => {
             <Tab.Screen
                 name="Appointments"
                 component={Appointments}
+            />
+            <Tab.Screen
+                name="Links"
+                component={Links}
             />
         </Tab.Navigator >
     )
