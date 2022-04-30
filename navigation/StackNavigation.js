@@ -11,6 +11,7 @@ import Appointments from '../screens/Appointments';
 import Clinics from '../screens/Clinics';
 import colors from '../config/colors';
 import Tabs from './tabs';
+import DoctorCalling from '../screens/DoctorCalling';
 
 const Stack = createNativeStackNavigator();
 
@@ -62,6 +63,9 @@ export default function StackNavigation() {
       <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
       <Stack.Screen name="DoctorProfile" component={DoctorProfile} options={{
         headerTitle: "Doctor's Profile"
+      }} />
+      <Stack.Screen name="DoctorCalling" component={DoctorCalling} options={{
+        headerShown: false,
       }} />
     </Stack.Navigator>
   )

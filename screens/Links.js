@@ -16,6 +16,10 @@ const Links = ({ navigation }) => {
                 title="Go to Doctor Profile page"
                 onPress={() => navigation.navigate('DoctorProfile')}
             />
+            <Button
+                title="Call doctor"
+                onPress={() => navigation.navigate('DoctorCalling')}
+            />
 
         </View>
     )

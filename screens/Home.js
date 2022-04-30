@@ -11,7 +11,7 @@ import { homePageListing } from '../config/dummy';
 const Emergency = () => (
   <View style={{ marginVertical: 20, paddingHorizontal: 10, alignItems: 'center', height: 80, width: '100%', backgroundColor: colors.white, borderRadius: 3, flexDirection: 'row' }}>
     <View style={{ justifyContent: 'center', alignItems: 'center', height: 60, width: 60, backgroundColor: colors.lightGrey, borderRadius: 5 }}>
-      <Fontisto size={40} color={colors.red} name={'bandage'} />
+      <Fontisto size={40} color={colors.redIcon} name={'bandage'} />
 
     </View>
     <View style={{ flex: 1, marginLeft: 20 }}>
