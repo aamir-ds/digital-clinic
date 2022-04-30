@@ -12,6 +12,10 @@ const Links = ({ navigation }) => {
                 title="Go to Bookings successfull page"
                 onPress={() => navigation.navigate('BookingSuccessful')}
             />
+            <Button
+                title="Go to Doctor Profile"
+                onPress={() => navigation.navigate('DoctorProfile')}
+            />
         </View>
     )
 }
