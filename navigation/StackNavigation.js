@@ -22,7 +22,7 @@ export default function StackNavigation() {
         options={{
           headerShown: false
         }}
-        name="Home" component={Tabs} />
+        name="Tabs" component={Tabs} />
 
       <Stack.Screen
         options={{

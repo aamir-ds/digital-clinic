@@ -28,13 +28,16 @@ const Tabs = () => {
         >
             <Tab.Screen
                 options={{
-                    headerShown: false,
-                    tabBarLabel: 'Home',
-                    // tabBarIcon: ({ color, size }) => (
-                    //     <MaterialCommunityIcons name="account" color={color} size={size} />
-                    // ),
+                    headerStyle: {
+                        backgroundColor: colors.primary,
+                    },
+                    headerTintColor: colors.white,
+                    headerTitleStyle: {
+                        fontWeight: '400',
+                        fontSize: 22
+                    },
                 }}
-                name="Tab Home"
+                name="Home Page"
                 component={Home}
             />
             <Tab.Screen
