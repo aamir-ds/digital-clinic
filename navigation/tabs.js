@@ -15,6 +15,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const Tab = createBottomTabNavigator()
 
+
 const Tabs = () => {
 
     return (
@@ -34,7 +35,7 @@ const Tabs = () => {
                     headerTintColor: colors.white,
                     headerTitleStyle: {
                         fontWeight: '400',
-                        fontSize: 22
+                        fontSize: 22,
                     },
                 }}
                 name="Home Page"

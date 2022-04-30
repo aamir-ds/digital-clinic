@@ -6,5 +6,6 @@ export default {
     white: '#ffffff',
     black: '#000',
     greyFont: '#8f9bb3',
-    greenOutline: '#1ec760'
+    greenOutline: '#1ec760',
+    red: '#ff4e32'
 };

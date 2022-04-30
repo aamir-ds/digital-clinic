@@ -53,6 +53,7 @@ export default function StackNavigation() {
           headerTitleStyle: {
             fontWeight: '400',
             fontSize: 20
+            
           },
         }}
         name="Clinics" component={Clinics} />
