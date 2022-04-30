@@ -13,10 +13,10 @@ import Fa from 'react-native-vector-icons/FontAwesome';
 
 
 
-const Item = ({ name, distance, ratings, image, reviews, type, video }) => (
+const Item = ({ name, distance, ratings, image, reviews, type, video, navigation }) => (
 
 
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('DoctorProfile')}>
         <View style={{
             flexDirection: 'row',
             padding: 20,
@@ -67,7 +67,7 @@ const Item = ({ name, distance, ratings, image, reviews, type, video }) => (
 );
 
 
-const DoctorsList = () => {
+const DoctorsList = ({ navigation }) => {
 
     const renderItem = ({ item }) => (
         <Item name={item.name}
@@ -81,7 +81,8 @@ const DoctorsList = () => {
             location={item.location}
             online={item.online}
             video={item.video}
-            image={item.image} />
+            image={item.image}
+            navigation={navigation} />
     );
 
     return (

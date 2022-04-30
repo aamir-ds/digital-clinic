@@ -18,48 +18,49 @@ export default function StackNavigation() {
   return (
     <Stack.Navigator initialRouteName="Tabs">
 
-    <Stack.Screen
-      options={{
-        headerShown: false
-      }}
-      name="Home" component={Tabs} />
+      <Stack.Screen
+        options={{
+          headerShown: false
+        }}
+        name="Home" component={Tabs} />
 
-    <Stack.Screen
-      options={{
-        headerShown: false
-      }}
-      name="All Doctors" component={AllDoctors} />
+      <Stack.Screen
+        options={{
+          headerShown: false
+        }}
+        name="All Doctors" component={AllDoctors} />
 
-    <Stack.Screen
-      options={{
-        headerShown: false
-      }}
-      name="BookingSuccessful"
-      component={BookingSuccessful} />
+      <Stack.Screen
+        options={{
+          headerShown: false
+        }}
+        name="BookingSuccessful"
+        component={BookingSuccessful} />
 
-    <Stack.Screen
-      options={{
-        headerShown: false
-      }}
-      name="Appointments" component={Appointments} />
+      <Stack.Screen
+        options={{
+          headerShown: false
+        }}
+        name="Appointments" component={Appointments} />
 
-    <Stack.Screen
-      options={{
-        headerStyle: {
-          backgroundColor: colors.primary,
-        },
-        headerTintColor: colors.white,
-        headerTitleStyle: {
-          fontWeight: '400',
-          fontSize: 20
-        },
-      }}
-      name="Clinics" component={Clinics} />
-    <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
-    <Stack.Screen name="DoctorProfile" component={DoctorProfile} options={{
-      headerTitle:"Doctor's Profile"
-    }} />
-  </Stack.Navigator>
+      <Stack.Screen
+        options={{
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerTintColor: colors.white,
+          headerTitleStyle: {
+            fontWeight: '400',
+            fontSize: 20
+          },
+        }}
+        name="Clinics" component={Clinics} />
+
+      <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
+      <Stack.Screen name="DoctorProfile" component={DoctorProfile} options={{
+        headerTitle: "Doctor's Profile"
+      }} />
+    </Stack.Navigator>
   )
 }
 
