@@ -1,20 +1,15 @@
 import React, {useLayoutEffect} from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Image, Button, ScrollView } from 'react-native'
+import { StyleSheet, Text, StatusBar, View, TouchableOpacity, Image, Button, ScrollView, useWindowDimensions } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Icon } from 'react-native-vector-icons/FontAwesome';
 import colors from '../config/colors'
 
+
 const DoctorProfile = ({navigation}) => {
+  const window = useWindowDimensions();
 
     useLayoutEffect(() => {
         navigation.setOptions({
-        //   headerTitle: props => (
-        //     <Text
-        //       {...props}
-        //       style={{color: 'white', fontWeight: 'bold', fontSize: 18}}>
-        //       Doctor's Profile
-        //     </Text>
-        //   ),
-
           headerLeft: () => (
             <TouchableOpacity
               onPress={() => alert('Left Menu Clicked')}
@@ -41,61 +36,62 @@ const DoctorProfile = ({navigation}) => {
         });
       }, [navigation]);
   return (
-    <View style={styles.container}>
+      <ScrollView>
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#6574CF" />
 
-        <View style={styles.profileSection}>
-            <View style={styles.actionLinks}>
-                <Text style={styles.videoLink}>Video Visit</Text>
-                <TouchableOpacity>
-                    <Text style={styles.videoLink}>Chat</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.profilePic}>
-                <Image style={styles.image} source={require('../assets/images/doctorProfile.jpg')}/>
-                <Text style={styles.fullName}>Dr. Kenjo Assou</Text>
-                <Text style={styles.designation}>Opthalmologist</Text>
-                <View style={styles.drScore}>
-                  <Text style={styles.ratings}>4.7</Text>
-                  <Text style={styles.reviews}>(12 reviews)</Text>
+          <View style={styles.profileSection}>
+              <View style={styles.actionLinks}>
+                  <Text style={styles.videoLink}>Video Visit</Text>
+                  <TouchableOpacity>
+                      <Text style={styles.videoLink}>Chat</Text>
+                  </TouchableOpacity>
+              </View>
+              <View style={styles.profilePic}>
+                  <Image style={styles.image} source={require('../assets/images/doctorProfile.jpg')}/>
+                  <Text style={styles.fullName}>Dr. Kenjo Assou</Text>
+                  <Text style={styles.designation}>Opthalmologist</Text>
+                  <View style={styles.drScore}>
+                    <Text style={styles.ratings}>4.7</Text>
+                    <Text style={styles.reviews}>(12 reviews)</Text>
+                  </View>
+              </View>
+              <View style={styles.flexItems}>
+                <View style={[styles.item, {borderRightWidth: 1, borderRightColor: '#eee'}]}>
+                  <Text style={styles.itemName}>Newyork</Text>
+                  <Text style={styles.itemDesc}>Location</Text>
                 </View>
-            </View>
-            <View style={styles.flexItems}>
-              <View style={[styles.item, {borderRightWidth: 1, borderRightColor: '#eee'}]}>
-                <Text style={styles.itemName}>Newyork</Text>
-                <Text style={styles.itemDesc}>Location</Text>
+                <View style={styles.item}>
+                  <Text style={styles.itemName}>20 Years</Text>
+                  <Text style={styles.itemDesc}>Experience</Text>
+                </View>
               </View>
-              <View style={styles.item}>
-                <Text style={styles.itemName}>20 Years</Text>
-                <Text style={styles.itemDesc}>Experience</Text>
+              <View style={styles.getTimingsBtn}>
+                <TouchableOpacity style={styles.bookingBtn} activeOpacity={0.8}>
+                  <Text style={styles.btnText}>Available Timings</Text>
+                </TouchableOpacity>
               </View>
-            </View>
-            <View style={styles.getTimingsBtn}>
-              <TouchableOpacity style={styles.bookingBtn} activeOpacity={0.8}>
-                <Text style={styles.btnText}>Available Timings</Text>
-              </TouchableOpacity>
-            </View>
-        </View>
-        <View style={styles.menuSection}>
-        <ScrollView>
+          </View>
+          <View style={styles.menuSection}>
 
-            <View style={styles.listCard}>
-            <Text style={styles.menuTitle}>Valid Insurance</Text>
-            </View>
-            <View style={styles.listCard}>
-            <Text style={styles.menuTitle}>Experience & Qualification</Text>
-            </View>
-            <View style={styles.listCard}>
-            <Text style={styles.menuTitle}>Personal Information</Text>
-            </View>
-            <View style={styles.listCard}>
-            <Text style={styles.menuTitle}>Reviews</Text>
-            </View>
-            <View style={styles.listCard}>
-            <Text style={styles.menuTitle}>Working Address</Text>
-            </View>
-          </ScrollView>
-        </View>
-    </View>
+              <View style={styles.listCard}>
+              <Text style={styles.menuTitle}>Valid Insurance</Text>
+              </View>
+              <View style={styles.listCard}>
+              <Text style={styles.menuTitle}>Experience & Qualification</Text>
+              </View>
+              <View style={styles.listCard}>
+              <Text style={styles.menuTitle}>Personal Information</Text>
+              </View>
+              <View style={styles.listCard}>
+              <Text style={styles.menuTitle}>Reviews</Text>
+              </View>
+              <View style={styles.listCard}>
+              <Text style={styles.menuTitle}>Working Address</Text>
+              </View>
+          </View>
+    </SafeAreaView>
+            </ScrollView>
   )
 }
 
@@ -104,15 +100,14 @@ export default DoctorProfile;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        height: window.height,
     },
     profileSection: {
-        height: 400,
         backgroundColor: colors.white,
         padding: 15,
         flex: 3.5
     },
     actionLinks: {
-        // flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
@@ -123,8 +118,7 @@ const styles = StyleSheet.create({
     profilePic: {
         flex: 1,
         alignItems: 'center',
-        marginTop: 5
-        // height: 125
+        marginTop: 5,
     },
     image: {
         borderRadius: 100,
@@ -180,7 +174,6 @@ const styles = StyleSheet.create({
       color: '#afafaf'
     },
     getTimingsBtn: {
-      // flex: 1,
       marginTop: 10,
       alignItems: 'center',
       justifyContent: 'center'
@@ -199,8 +192,6 @@ const styles = StyleSheet.create({
     },
     menuSection: {
       flex: 3,
-      height: 300,
-      // padding: 10
     },
     listCard: {
       backgroundColor: colors.white,
