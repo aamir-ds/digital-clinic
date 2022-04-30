@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
 import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
 
 import React from 'react'
@@ -8,6 +8,11 @@ import Clinics from '../screens/Clinics'
 import Appointments from '../screens/Appointments'
 import colors from '../config/colors'
 import Links from '../screens/Links'
+import Entypo from 'react-native-vector-icons/Entypo';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+
+
 const Tab = createBottomTabNavigator()
 
 const Tabs = () => {
@@ -38,6 +43,14 @@ const Tabs = () => {
             />
 
             <Tab.Screen
+                options={{
+                    headerRight: () => (
+                        <View style={{ flexDirection: 'row' }}>
+                            <Entypo style={{ marginRight: 20 }} size={25} color={colors.greyFont} name={'calendar'} />
+                            <MaterialCommunityIcons style={{ marginRight: 15 }} size={25} color={colors.greyFont} name={'bell-outline'} />
+                        </View>
+                    ),
+                }}
                 name="Appointments"
                 component={Appointments}
             />

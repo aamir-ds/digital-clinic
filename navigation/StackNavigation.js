@@ -39,7 +39,8 @@ export default function StackNavigation() {
 
       <Stack.Screen
         options={{
-          headerShown: false
+          headerShown: false,
+
         }}
         name="Appointments" component={Appointments} />
 
@@ -55,6 +56,7 @@ export default function StackNavigation() {
           },
         }}
         name="Clinics" component={Clinics} />
+
 
       <Stack.Screen name="BottomTabNavigation" component={BottomTabNavigation} />
       <Stack.Screen name="DoctorProfile" component={DoctorProfile} options={{

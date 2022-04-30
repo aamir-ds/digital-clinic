@@ -5,5 +5,6 @@ export default {
     lightPurple: '#c5cee0',
     white: '#ffffff',
     black: '#000',
-    greyFont: '#8f9bb3'
+    greyFont: '#8f9bb3',
+    greenOutline: '#1ec760'
 };
