@@ -7,6 +7,7 @@ import Ant from 'react-native-vector-icons/AntDesign';
 import Octi from 'react-native-vector-icons/Octicons';
 import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
+import EvilIco from 'react-native-vector-icons/EvilIcons';
 import Ion from 'react-native-vector-icons/Ionicons';
 import Fa from 'react-native-vector-icons/FontAwesome';
 
@@ -82,30 +83,55 @@ const DoctorProfile = ({ navigation }) => {
 
         <View style={styles.menuSection}>
 
-          <View style={styles.listCard}>
-            <MatIco name='briefcase' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
-            <Text style={styles.menuTitle}>Valid Insurance</Text>
-          </View>
+          <TouchableOpacity style={styles.listCard}>
+            <View style={styles.listItems}>
+              <MatIco name='briefcase' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+              <Text style={styles.menuTitle}>Valid Insurance</Text>
+            </View>
+            <View>
+              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }}/>
+            </View>
+          </TouchableOpacity>
 
-          <View style={styles.listCard}>
-            <Ion name="ribbon-outline" color={colors.primary} size={20} style={{ marginRight: 8 }}/>
-            <Text style={styles.menuTitle}>Experience & Qualification</Text>
-          </View>
+          <TouchableOpacity style={styles.listCard}>
+          <View  style={styles.listItems}>
+              <Ion name="ribbon-outline" color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+              <Text style={styles.menuTitle}>Experience & Qualification</Text>
+            </View>
+            <View>
+              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }}/>
+            </View>
+          </TouchableOpacity>
 
-          <View style={styles.listCard}>
-            <Feather name='user' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
-            <Text style={styles.menuTitle}>Personal Information</Text>
-          </View>
+          <TouchableOpacity style={styles.listCard}>
+            <View  style={styles.listItems}>
+              <Feather name='user' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+              <Text style={styles.menuTitle}>Personal Information</Text>
+            </View>
+            <View>
+              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }}/>
+            </View>
+          </TouchableOpacity>
 
-          <View style={styles.listCard}>
-          <Fa name='star-o' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
-            <Text style={styles.menuTitle}>Reviews</Text>
-          </View>
+          <TouchableOpacity style={styles.listCard}>
+            <View  style={styles.listItems}>
+              <Fa name='star-o' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+              <Text style={styles.menuTitle}>Reviews</Text>
+            </View>
+            <View>
+              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }}/>
+            </View>
+          </TouchableOpacity>
 
-          <View style={styles.listCard}>
-          <Octi name='location' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
-            <Text style={styles.menuTitle}>Working Address</Text>
-          </View>
+          <TouchableOpacity style={styles.listCard}>
+            <View  style={styles.listItems}>
+              <Octi name='location' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+              <Text style={styles.menuTitle}>Working Address</Text>
+            </View>
+            <View>
+              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }}/>
+            </View>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     </ScrollView>
@@ -209,17 +235,23 @@ const styles = StyleSheet.create({
   },
   menuSection: {
     flex: 3,
+    margin: 15
   },
   listCard: {
     backgroundColor: colors.white,
-    padding: 20,
-    margin: 15,
+    paddingHorizontal: 20,
+    paddingVertical: 25,
+    marginBottom: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    borderRadius: 2
+    borderRadius: 5
   },
   menuTitle: {
     color: colors.black,
     fontSize: 16,
+  },
+  listItems: {
+    flexDirection: 'row',
+    alignItems: 'center'
   }
 })
