@@ -1,7 +1,6 @@
 import React, {useLayoutEffect} from 'react'
 import { StyleSheet, Text, StatusBar, View, TouchableOpacity, Image, Button, ScrollView, useWindowDimensions } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Icon } from 'react-native-vector-icons/FontAwesome';
 import colors from '../config/colors'
 
 

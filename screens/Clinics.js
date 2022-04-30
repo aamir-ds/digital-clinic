@@ -48,7 +48,6 @@ const Item = ({ name, distance, address, ratings, image }) => (
 
 
 const Clinics = () => {
-
     const renderItem = ({ item }) => (
         <Item name={item.name}
             distance={item.distance}
