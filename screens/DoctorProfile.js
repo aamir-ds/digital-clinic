@@ -16,19 +16,21 @@ const DoctorProfile = ({ navigation }) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
+      headerStyle: () => (
+        <Text style={{fontWeight: 'normal'}}>Doctor's Profile</Text>
+      ),
       headerLeft: () => (
         <TouchableOpacity
           onPress={() => alert('Left Menu Clicked')}
-          style={{marginRight: 10}}>
-            {/* <Icon name="home" size={20}/> */}
-          <Text style={{color: 'white'}}>Back</Text>
+          style={{marginRight: 20, alignItems: 'center'}}>
+            <Feather name='arrow-left' size={20} color={colors.white}/>
         </TouchableOpacity>
       ),
       headerRight: () => (
         <TouchableOpacity
           onPress={() => alert('Right Menu Clicked')}
           style={{ marginLeft: 10 }}>
-          <Text style={{ color: 'white' }}>Map View</Text>
+            <Ion name='location-outline' size={20} color={colors.white}/>
         </TouchableOpacity>
       ),
 
@@ -48,9 +50,13 @@ const DoctorProfile = ({ navigation }) => {
 
         <View style={styles.profileSection}>
           <View style={styles.actionLinks}>
-            <Text style={styles.videoLink}>Video Visit</Text>
-            <TouchableOpacity>
-              <Text style={styles.videoLink}>Chat</Text>
+            <TouchableOpacity activeOpacity={0.8} style={{flexDirection: 'row',alignItems: 'center'}}>
+              <Feather name='video' size={20} color={colors.primary}/>
+              <Text style={styles.videoLink}>Video Visit</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.chatBtn}>
+              {/* <Text style={styles.videoLink}>Chat</Text> */}
+              <Ion name='chatbubble-ellipses-outline' size={20} color={colors.primary} />
             </TouchableOpacity>
           </View>
           <View style={styles.profilePic}>
@@ -65,16 +71,23 @@ const DoctorProfile = ({ navigation }) => {
           </View>
           <View style={styles.flexItems}>
             <View style={[styles.item, { borderRightWidth: 1, borderRightColor: '#eee' }]}>
-              <Text style={styles.itemName}>Newyork</Text>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Octi name='location' color={colors.greyFont} size={20} style={{ marginRight: 8 }}/>
+                <Text style={styles.itemName}>Newyork</Text>
+              </View>
               <Text style={styles.itemDesc}>Location</Text>
             </View>
             <View style={styles.item}>
-              <Text style={styles.itemName}>20 Years</Text>
+              <View style={{flexDirection: 'row', alignItems:'center'}}>
+                <Feather name='zap' color={colors.greyFont} size={20} style={{ marginRight: 8 }}/>
+                <Text style={styles.itemName}>20 Years</Text>
+              </View>
               <Text style={styles.itemDesc}>Experience</Text>
             </View>
           </View>
           <View style={styles.getTimingsBtn}>
             <TouchableOpacity style={styles.bookingBtn} activeOpacity={0.8}>
+              <MatIco name='calendar-week' size={20} color={colors.white}/>
               <Text style={styles.btnText}>Available Timings</Text>
             </TouchableOpacity>
           </View>
@@ -156,7 +169,18 @@ const styles = StyleSheet.create({
   },
   videoLink: {
     color: colors.primary,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginLeft: 10
+  },
+  chatBtn:{
+    width: 30,
+    height: 30,
+    borderRadius: 5,
+    borderColor: colors.primary,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.lightPrimary
   },
   profilePic: {
     flex: 1,
@@ -202,6 +226,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     borderBottomColor: '#eee',
     borderBottomWidth: 1,
+    marginTop: 15
   },
   item: {
     flex: 1,
@@ -210,7 +235,8 @@ const styles = StyleSheet.create({
   },
   itemName: {
     color: colors.black,
-    fontSize: 14
+    fontSize: 14,
+    lineHeight: 30
   },
   itemDesc: {
     fontSize: 14,
@@ -222,13 +248,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   bookingBtn: {
+    flexDirection: 'row',
     backgroundColor: colors.primary,
     paddingVertical: 15,
     paddingHorizontal: 35,
     borderRadius: 5,
-    marginVertical: 5
+    marginVertical: 5,
+    alignItems: 'center'
   },
   btnText: {
+    marginLeft: 10,
     color: colors.white,
     fontSize: 16,
     textTransform: 'uppercase'
