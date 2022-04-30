@@ -23,7 +23,7 @@ export default function StackNavigation() {
         options={{
           headerShown: false
         }}
-        name="Home" component={Tabs} />
+        name="Tabs" component={Tabs} />
 
       <Stack.Screen
         options={{
@@ -54,6 +54,7 @@ export default function StackNavigation() {
           headerTitleStyle: {
             fontWeight: '400',
             fontSize: 20
+            
           },
         }}
         name="Clinics" component={Clinics} />

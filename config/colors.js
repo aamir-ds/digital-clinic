@@ -8,5 +8,6 @@ export default {
     black: '#000',
     greyFont: '#8f9bb3',
     greenOutline: '#1ec760',
+    redIcon: '#ff4e32',
     red: '#FF6666'
 };
