@@ -2,21 +2,27 @@ import React, { useLayoutEffect } from 'react'
 import { StyleSheet, Text, StatusBar, View, TouchableOpacity, Image, Button, ScrollView, useWindowDimensions } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import colors from '../config/colors'
-
+import MatIco from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ant from 'react-native-vector-icons/AntDesign';
+import Octi from 'react-native-vector-icons/Octicons';
+import Feather from 'react-native-vector-icons/Feather';
+import Entypo from 'react-native-vector-icons/Entypo';
+import Ion from 'react-native-vector-icons/Ionicons';
+import Fa from 'react-native-vector-icons/FontAwesome';
 
 const DoctorProfile = ({ navigation }) => {
   const window = useWindowDimensions();
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      // headerLeft: () => (
-      //   <TouchableOpacity
-      //     onPress={() => alert('Left Menu Clicked')}
-      //     style={{marginRight: 10}}>
-      //       {/* <Icon name="home" size={20}/> */}
-      //     <Text style={{color: 'white'}}>Back</Text>
-      //   </TouchableOpacity>
-      // ),
+      headerLeft: () => (
+        <TouchableOpacity
+          onPress={() => alert('Left Menu Clicked')}
+          style={{marginRight: 10}}>
+            {/* <Icon name="home" size={20}/> */}
+          <Text style={{color: 'white'}}>Back</Text>
+        </TouchableOpacity>
+      ),
       headerRight: () => (
         <TouchableOpacity
           onPress={() => alert('Right Menu Clicked')}
@@ -51,6 +57,7 @@ const DoctorProfile = ({ navigation }) => {
             <Text style={styles.fullName}>Dr. Kenjo Assou</Text>
             <Text style={styles.designation}>Opthalmologist</Text>
             <View style={styles.drScore}>
+              <Fa name='star' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
               <Text style={styles.ratings}>4.7</Text>
               <Text style={styles.reviews}>(12 reviews)</Text>
             </View>
@@ -71,21 +78,32 @@ const DoctorProfile = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
+
+
         <View style={styles.menuSection}>
 
           <View style={styles.listCard}>
+            <MatIco name='briefcase' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
             <Text style={styles.menuTitle}>Valid Insurance</Text>
           </View>
+
           <View style={styles.listCard}>
+            <Ion name="ribbon-outline" color={colors.primary} size={20} style={{ marginRight: 8 }}/>
             <Text style={styles.menuTitle}>Experience & Qualification</Text>
           </View>
+
           <View style={styles.listCard}>
+            <Feather name='user' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
             <Text style={styles.menuTitle}>Personal Information</Text>
           </View>
+
           <View style={styles.listCard}>
+          <Fa name='star-o' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
             <Text style={styles.menuTitle}>Reviews</Text>
           </View>
+
           <View style={styles.listCard}>
+          <Octi name='location' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
             <Text style={styles.menuTitle}>Working Address</Text>
           </View>
         </View>
