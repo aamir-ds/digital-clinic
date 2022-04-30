@@ -3,7 +3,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import 'react-native-reanimated'
+// import 'react-native-reanimated'
 import StackNavigation from './navigation/StackNavigation';
 // import { MotiView } from 'moti'
 
@@ -13,12 +13,12 @@ import StackNavigation from './navigation/StackNavigation';
 const App = () => {
   return (
     <SafeAreaProvider>
-    <NavigationContainer>
-      <StackNavigation />
-    </NavigationContainer>
+      <NavigationContainer>
+        <StackNavigation />
+      </NavigationContainer>
     </SafeAreaProvider>
 
-)
+  )
 }
 
 export default App
