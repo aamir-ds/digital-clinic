@@ -33,13 +33,15 @@ export default function StackNavigation() {
 
       <Stack.Screen
         options={{
-          headerShown: false
+          headerShown: false,
+
         }}
         name="All Doctors" component={AllDoctors} />
 
       <Stack.Screen
         options={{
-          headerShown: false
+          headerShown: false,
+
         }}
         name="BookingSuccessful"
         component={BookingSuccessful} />
