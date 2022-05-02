@@ -81,6 +81,11 @@ const Tabs = () => {
                         fontSize: 22,
                     },
                     tabBarLabel: 'Message',
+                    headerStyle: {
+                        backgroundColor: colors.primary,
+                        elevation: 0, // remove shadow on Android
+                        shadowOpacity: 0, // remove shadow on iOS
+                    },
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
                             <View style={styles.labelFocusedContainer}>
@@ -103,6 +108,7 @@ const Tabs = () => {
             />
             <Tab.Screen
                 name="All Doctors"
+
                 options={{
                     headerRight: () => (
                         <View style={{ flexDirection: 'row' }}>
@@ -110,7 +116,13 @@ const Tabs = () => {
                             <Octi style={{ marginRight: 20, marginLeft: 10 }} size={20} color={colors.greyFont} name={'location'} />
                         </View>
                     ),
-                    tabBarLabel: 'Message',
+
+                    headerStyle: {
+                        elevation: 0, // remove shadow on Android
+                        shadowOpacity: 0, // remove shadow on iOS
+                    },
+
+                    tabBarLabel: 'All Doctors',
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
                             <View style={styles.labelFocusedContainer}>
@@ -138,6 +150,10 @@ const Tabs = () => {
                             <MaterialCommunityIcons style={{ marginRight: 15 }} size={25} color={colors.greyFont} name={'bell-outline'} />
                         </View>
                     ),
+                    headerStyle: {
+                        elevation: 0, // remove shadow on Android
+                        shadowOpacity: 0, // remove shadow on iOS
+                    },
                     tabBarLabel: 'Appointments',
                     tabBarIcon: ({ focused }) => {
                         return focused ? (
