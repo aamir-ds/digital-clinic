@@ -3,6 +3,7 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from '../screens/Home';
+import Maps from '../screens/Maps';
 import BottomTabNavigation from './BottomTabNavigation';
 import AllDoctors from '../screens/AllDoctors';
 import BookingSuccessful from '../screens/BookingSuccessful';
@@ -83,6 +84,7 @@ export default function StackNavigation() {
       }} />
       <Stack.Screen name="PaymentProcess" component={PaymentProcess} options={{ headerTitleAlign: 'center', headerTitle: 'Payment' }} />
       <Stack.Screen name="PaymentCardDetails" component={PaymentCardDetails} />
+      <Stack.Screen name="Maps" component={Maps} />
     </Stack.Navigator>
   )
 }

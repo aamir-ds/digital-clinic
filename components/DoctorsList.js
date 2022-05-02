@@ -16,22 +16,28 @@ import Fa from 'react-native-vector-icons/FontAwesome';
 const Item = ({ name, distance, ratings, image, reviews, type, video, navigation }) => (
 
 
-    <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('DoctorProfile')}>
+    <View style={styles.item}>
         <View style={{
             flexDirection: 'row',
             padding: 20,
         }}>
+            <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('DoctorProfile')}>
             <Image style={{
                 width: 75,
                 height: 75,
                 borderRadius: 100,
                 resizeMode: 'contain',
                 marginRight: 20
-            }} source={image} />
+            }} 
+            source={image} 
+            />
+            </TouchableOpacity>
 
             <View style={{ flexDirection: 'row', flex: 1, alignItems: 'flex-start' }}>
                 <View style={{ flex: 1, marginTop: 3 }}>
-                    <Text style={{ fontSize: 20, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
+                    <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('DoctorProfile')}>
+                        <Text style={{ fontSize: 20, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
+                    </TouchableOpacity>
                     <Text style={{ fontSize: 16, fontWeight: '400', color: colors.greyFont, marginBottom: 5 }}>{type}</Text>
                     <Text style={{ fontSize: 16, fontWeight: '400', color: colors.greyFont }}>
                         <Octi size={20} color={colors.greyFont} name={'location'} /> {distance} away</Text>
@@ -54,16 +60,16 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
             alignItems: 'center',
             paddingTop: 10
         }}>
-            <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+            <TouchableOpacity onPress={()=> navigation.navigate('DoctorCalling')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                 {video ? <Feather style={{ marginRight: 10 }} size={20} color={colors.primary} name={'video'} /> :
                     <Feather style={{ marginRight: 10 }} size={20} color={colors.greyFont} name={'video-off'} />}
                 <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 16 }}>Video Visit</Text>
-            </View>
+            </TouchableOpacity>
             <Entypo style={{ marginRight: 10 }} size={20} color={colors.greyFont} name={'calendar'} />
             <Ion size={20} color={colors.greyFont} name={'ios-chatbubble-ellipses-outline'} />
         </View>
 
-    </TouchableOpacity>
+    </View>
 );
 
 

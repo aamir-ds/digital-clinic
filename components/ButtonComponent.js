@@ -5,7 +5,7 @@ import colors from '../config/colors'
 
 export default function ButtonComponent(props) {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} activeOpacity={0.8}>
     <Text style={styles.buttonText}>{props.title}</Text>
 </TouchableOpacity>
   )
@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
       buttonText:{
         color: colors.white,
         fontSize: 17,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        fontWeight: 'normal',
+        fontFamily: 'Open Sans'
       }
 })

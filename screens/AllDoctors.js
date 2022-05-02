@@ -1,32 +1,34 @@
-import { StyleSheet } from 'react-native'
-import React from 'react'
+import { StyleSheet,StatusBar } from 'react-native'
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import MyDoctorsList from '../components/MyDoctorsList';
 import DoctorsList from '../components/DoctorsList';
 import colors from '../config/colors';
-import { color } from 'react-native-reanimated';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Tab = createMaterialTopTabNavigator();
 
 
 const AllDoctors = () => {
   return (
+    <SafeAreaView style={{flex: 1}}>
+    <StatusBar barStyle="dark-content" backgroundColor={colors.white}/>
     <Tab.Navigator
-      screenOptions={{
-        tabBarActiveTintColor: colors.primary,
-        tabBarPressColor: "transparent",
-        tabBarPressOpacity: 1,
-        tabBarIndicatorStyle: {
-          backgroundColor: "#6574cf",
-          height: 4
-        },
-        tabBarStyle: {
-          backgroundColor: "white",
-          elevation: 0
-        }
-      }}
+    screenOptions={{
+      tabBarActiveTintColor: colors.primary,
+      tabBarPressColor: "transparent",
+      tabBarPressOpacity: 1,
+      tabBarIndicatorStyle: {
+        backgroundColor: "#6574cf",
+        height: 4
+      },
+      tabBarStyle: {
+        backgroundColor: "white",
+        elevation: 0
+      }
+    }}
     >
 
       <Tab.Screen options={{
@@ -40,6 +42,7 @@ const AllDoctors = () => {
         name="MyDoctorsList" component={MyDoctorsList} />
 
     </Tab.Navigator>
+    </SafeAreaView>
 
   )
 }
