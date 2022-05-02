@@ -6,16 +6,31 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import MyDoctorsList from '../components/MyDoctorsList';
 import DoctorsList from '../components/DoctorsList';
 import colors from '../config/colors';
+import { color } from 'react-native-reanimated';
 
 const Tab = createMaterialTopTabNavigator();
 
 
 const AllDoctors = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: colors.primary,
+        tabBarPressColor: "transparent",
+        tabBarPressOpacity: 1,
+        tabBarIndicatorStyle: {
+          backgroundColor: "#6574cf",
+          height: 4
+        },
+        tabBarStyle: {
+          backgroundColor: "white",
+          elevation: 0
+        }
+      }}
+    >
 
       <Tab.Screen options={{
-        tabBarLabel: 'All Doctors'
+        tabBarLabel: 'All Doctors',
       }
       } name="DoctorsList" component={DoctorsList} />
       <Tab.Screen
@@ -23,6 +38,7 @@ const AllDoctors = () => {
           tabBarLabel: 'My Doctors'
         }}
         name="MyDoctorsList" component={MyDoctorsList} />
+
     </Tab.Navigator>
 
   )

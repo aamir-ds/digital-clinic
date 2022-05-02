@@ -6,6 +6,7 @@ import MyDoctorsList from '../components/MyDoctorsList';
 import DoctorsList from '../components/DoctorsList';
 import UpcomingAppointments from '../components/UpcomingAppointments';
 import PastAppointments from '../components/PastAppointments';
+import colors from '../config/colors';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -13,6 +14,20 @@ const Tab = createMaterialTopTabNavigator();
 const Appointments = ({ navigation }) => {
   return (
     <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: colors.primary,
+        tabBarPressColor: "transparent",
+
+        tabBarPressOpacity: 1,
+        tabBarIndicatorStyle: {
+          backgroundColor: "#6574cf",
+          height: 4
+        },
+        tabBarStyle: {
+          backgroundColor: "white",
+          elevation: 0
+        }
+      }}
     >
       <Tab.Screen options={{
         tabBarLabel: 'Upcoming',

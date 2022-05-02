@@ -14,6 +14,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Octi from 'react-native-vector-icons/Octicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Message from '../screens/Message'
 
 
 
@@ -104,7 +105,7 @@ const Tabs = () => {
                     // ),
                 }}
                 name="Message"
-                component={Home}
+                component={Message}
             />
             <Tab.Screen
                 name="All Doctors"
