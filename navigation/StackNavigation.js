@@ -14,6 +14,10 @@ import Tabs from './tabs';
 import DoctorCalling from '../screens/DoctorCalling';
 import PaymentProcess from '../screens/PaymentProcess';
 import PaymentCardDetails from '../screens/PaymentCardDetails';
+import Feather from 'react-native-vector-icons/Feather';
+import Octi from 'react-native-vector-icons/Octicons';
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -56,8 +60,14 @@ export default function StackNavigation() {
           headerTitleStyle: {
             fontWeight: '400',
             fontSize: 20
-            
+
           },
+          headerRight: () => (
+            <View style={{ flexDirection: 'row' }}>
+              <Feather style={{ marginRight: 15, marginLeft: 10 }} size={20} color={colors.white} name={'search'} />
+              <Octi style={{ marginRight: 5, marginLeft: 10 }} size={20} color={colors.white} name={'location'} />
+            </View>
+          ),
         }}
         name="Clinics" component={Clinics} />
 
@@ -69,8 +79,8 @@ export default function StackNavigation() {
       <Stack.Screen name="DoctorCalling" component={DoctorCalling} options={{
         headerShown: false,
       }} />
-      <Stack.Screen name="PaymentProcess" component={PaymentProcess} options={{ headerTitleAlign: 'center', headerTitle: 'Payment'}}/>
-      <Stack.Screen name="PaymentCardDetails" component={PaymentCardDetails}/>
+      <Stack.Screen name="PaymentProcess" component={PaymentProcess} options={{ headerTitleAlign: 'center', headerTitle: 'Payment' }} />
+      <Stack.Screen name="PaymentCardDetails" component={PaymentCardDetails} />
     </Stack.Navigator>
   )
 }

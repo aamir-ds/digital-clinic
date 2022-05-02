@@ -1,13 +1,19 @@
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { clinics } from '../config/dummy';
 import colors from '../config/colors';
+import Fa from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Octi from 'react-native-vector-icons/Octicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
+
+
 
 
 
 const Item = ({ name, distance, address, ratings, image }) => (
     <TouchableOpacity style={styles.item}>
-
         <View style={{
             flexDirection: 'row',
             padding: 20,
@@ -23,11 +29,16 @@ const Item = ({ name, distance, address, ratings, image }) => (
                     marginRight: 20
                 }} source={image} />
                 <View style={{ flex: 1 }}>
+
                     <Text style={{ fontSize: 20, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
-                    <Text style={{ fontSize: 16, fontWeight: '400', color: colors.greyFont }}>{distance} away</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <FontAwesome5 style={{ marginRight: 5 }} size={13} color={colors.primary} name={'location-arrow'} />
+                        <Text style={{ fontSize: 16, fontWeight: '400', color: colors.greyFont }}>{distance} away</Text>
+                    </View>
                 </View>
             </View>
-            <View style={{ backgroundColor: colors.lightGrey, height: 30, width: 50, alignItems: 'center', justifyContent: 'center', borderRadius: 3 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: colors.lightGrey, height: 27, width: 60, alignItems: 'center', justifyContent: 'center', borderRadius: 3 }}>
+                <Fa style={{ marginRight: 5 }} size={15} color={colors.primary} name={'star'} />
                 <Text style={{ fontSize: 17, color: colors.primary, fontWeight: '500' }}>{ratings}</Text>
             </View>
         </View>
@@ -37,10 +48,13 @@ const Item = ({ name, distance, address, ratings, image }) => (
             flexDirection: 'row',
             alignItems: 'center'
         }}>
-            <View style={{ height: 40, width: 40, borderColor: colors.lightGrey, borderWidth: 3, justifyContent: 'center', alignItems: 'center', borderRadius: 5, marginRight: 10 }}>
-                <Text>H</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
+                <View style={{ height: 40, width: 40, borderColor: colors.lightGrey, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 5, marginRight: 10 }}>
+                    <Octi size={20} color={colors.greyFont} name={'location'} />
+                </View>
+                <Text style={{ color: colors.greyFont, fontSize: 16 }}>{address}</Text>
             </View>
-            <Text style={{ color: colors.greyFont, fontSize: 16 }}>{address}</Text>
+            <Feather style={{ marginRight: 5 }} size={20} color={colors.greyFont} name={'arrow-right'} />
         </View>
 
     </TouchableOpacity>
@@ -58,6 +72,7 @@ const Clinics = () => {
 
     return (
         <View style={styles.container}>
+            <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
             <FlatList
                 data={clinics}
                 renderItem={renderItem}

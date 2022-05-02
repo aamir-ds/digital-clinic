@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import MyDoctorsList from '../components/MyDoctorsList';
 import DoctorsList from '../components/DoctorsList';
+import colors from '../config/colors';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -12,6 +13,7 @@ const Tab = createMaterialTopTabNavigator();
 const AllDoctors = () => {
   return (
     <Tab.Navigator>
+
       <Tab.Screen options={{
         tabBarLabel: 'All Doctors'
       }
