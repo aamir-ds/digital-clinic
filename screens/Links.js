@@ -20,6 +20,10 @@ const Links = ({ navigation }) => {
                 title="Call doctor"
                 onPress={() => navigation.navigate('DoctorCalling')}
             />
+            <Button
+                title="Payment "
+                onPress={() => navigation.navigate('PaymentProcess')}
+            />
 
         </View>
     )

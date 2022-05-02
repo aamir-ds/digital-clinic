@@ -12,6 +12,8 @@ import Clinics from '../screens/Clinics';
 import colors from '../config/colors';
 import Tabs from './tabs';
 import DoctorCalling from '../screens/DoctorCalling';
+import PaymentProcess from '../screens/PaymentProcess';
+import PaymentCardDetails from '../screens/PaymentCardDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -67,6 +69,8 @@ export default function StackNavigation() {
       <Stack.Screen name="DoctorCalling" component={DoctorCalling} options={{
         headerShown: false,
       }} />
+      <Stack.Screen name="PaymentProcess" component={PaymentProcess} options={{ headerTitleAlign: 'center', headerTitle: 'Payment'}}/>
+      <Stack.Screen name="PaymentCardDetails" component={PaymentCardDetails}/>
     </Stack.Navigator>
   )
 }

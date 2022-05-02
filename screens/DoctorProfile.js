@@ -46,7 +46,7 @@ const DoctorProfile = ({ navigation }) => {
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor="#6574CF" />
+        <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
 
         <View style={styles.profileSection}>
           <View style={styles.actionLinks}>
