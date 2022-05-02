@@ -24,7 +24,7 @@ const Emergency = () => (
 
 const Item = ({ name, id, description, index, icon, navigate, navigation }) => (
   <TouchableOpacity
-    // onPress={() => navigation.navigate(navigate)} 
+    onPress={() => navigation.navigate(navigate)}
     style={[{ height: 150, width: '47%', backgroundColor: colors.white, padding: 10 }, index % 2 !== 0 && { marginLeft: 20 }]}>
     <View style={{ flex: 1 }}>
       <View style={{

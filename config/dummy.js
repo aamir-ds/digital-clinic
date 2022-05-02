@@ -202,25 +202,29 @@ const homePageListing = [
         name: 'Specialities',
         description: 'short description',
         id: 491631,
-        icon: 'heart-pulse'
+        icon: 'heart-pulse',
+        navigate: 'All Doctors'
     },
     {
         name: 'Labs',
         description: 'short description',
         id: 88494,
-        icon: 'flask-outline'
+        icon: 'flask-outline',
+        navigate: 'All Doctors'
     },
     {
         name: 'Insurance',
         description: 'short description',
         id: 84941,
-        icon: 'newspaper-variant-outline'
+        icon: 'newspaper-variant-outline',
+        navigate: 'All Doctors'
     },
     {
         name: 'Related Articles',
         description: 'short description',
         id: 849431,
-        icon: 'newspaper-variant-multiple'
+        icon: 'newspaper-variant-multiple',
+        navigate: 'All Doctors'
     }
 ]
 
