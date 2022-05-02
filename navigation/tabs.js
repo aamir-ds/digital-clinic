@@ -24,14 +24,13 @@ const Tabs = () => {
 
     return (
         <Tab.Navigator
+
             screenOptions={{
-                // tabBarLabelPosition: "beside-icon",
-                // tabBarIconStyle: {
-                //     display: "none"
-                // }
+                tabBarStyle: { height: 60 },
                 tabBarLabelStyle: {
                     display: 'none'
-                }
+                },
+
             }}
         >
             <Tab.Screen
@@ -40,14 +39,33 @@ const Tabs = () => {
                         backgroundColor: colors.primary,
                     },
                     headerTintColor: colors.white,
+                    elevation: 0,
+                    headerStyle: {
+                        backgroundColor: '#6574CF', //Set Header color
+                        elevation: 0, // remove shadow on Android
+                        shadowOpacity: 0, // remove shadow on iOS
+                    },
                     headerTitleStyle: {
                         fontWeight: '400',
                         fontSize: 22,
                     },
                     tabBarLabel: 'Home',
-                    tabBarIcon: () => (
-                        <Octi name="home" color={colors.primary} size={20} />
-                    ),
+                    tabBarIcon: ({ focused }) => {
+                        return focused ? (
+                            <View style={styles.labelFocusedContainer}>
+                                <Octi style={{ justifyContent: 'center' }} name="home" color={colors.primary} size={20} />
+
+                            </View>
+                        ) : (
+                            <View style={styles.labelContainer}>
+                                <Octi name="home" color={colors.primary} size={20} />
+
+                            </View>
+                        );
+                    },
+                    // tabBarIcon: () => (
+                    //     <Octi name="home" color={colors.primary} size={20} />
+                    // ),
                 }}
                 name="Home Page"
                 component={Home}
@@ -63,9 +81,22 @@ const Tabs = () => {
                         fontSize: 22,
                     },
                     tabBarLabel: 'Message',
-                    tabBarIcon: () => (
-                        <AntDesign name="message1" color={colors.primary} size={20} />
-                    ),
+                    tabBarIcon: ({ focused }) => {
+                        return focused ? (
+                            <View style={styles.labelFocusedContainer}>
+                                <AntDesign style={{ justifyContent: 'center' }} name="message1" color={colors.primary} size={20} />
+
+                            </View>
+                        ) : (
+                            <View style={styles.labelContainer}>
+                                <AntDesign style={{ justifyContent: 'center' }} name="message1" color={colors.primary} size={20} />
+
+                            </View>
+                        );
+                    },
+                    // tabBarIcon: () => (
+                    //     <AntDesign style={{ justifyContent: 'center' }} name="message1" color={colors.primary} size={20} />
+                    // ),
                 }}
                 name="Message"
                 component={Home}
@@ -80,9 +111,21 @@ const Tabs = () => {
                         </View>
                     ),
                     tabBarLabel: 'Message',
-                    tabBarIcon: () => (
-                        <MaterialCommunityIcons name="doctor" color={colors.primary} size={25} />
-                    ),
+                    tabBarIcon: ({ focused }) => {
+                        return focused ? (
+                            <View style={styles.labelFocusedContainer}>
+                                <MaterialCommunityIcons style={{ justifyContent: 'center' }} name="doctor" color={colors.primary} size={25} />
+
+                            </View>
+                        ) : (
+                            <View style={styles.labelContainer}>
+                                <MaterialCommunityIcons style={{ justifyContent: 'center' }} name="doctor" color={colors.primary} size={25} />
+                            </View>
+                        );
+                    },
+                    // tabBarIcon: () => (
+                    //     <MaterialCommunityIcons name="doctor" color={colors.primary} size={25} />
+                    // ),
                 }}
                 component={AllDoctors}
             />
@@ -96,9 +139,21 @@ const Tabs = () => {
                         </View>
                     ),
                     tabBarLabel: 'Appointments',
-                    tabBarIcon: () => (
-                        <Entypo name="calendar" color={colors.primary} size={20} />
-                    ),
+                    tabBarIcon: ({ focused }) => {
+                        return focused ? (
+                            <View style={styles.labelFocusedContainer}>
+                                <Entypo style={{ justifyContent: 'center' }} name="calendar" color={colors.primary} size={20} />
+
+                            </View>
+                        ) : (
+                            <View style={styles.labelContainer}>
+                                <Entypo style={{ justifyContent: 'center' }} name="calendar" color={colors.primary} size={20} />
+                            </View>
+                        );
+                    },
+                    // tabBarIcon: () => (
+                    //     <Entypo name="calendar" color={colors.primary} size={20} />
+                    // ),
                 }}
                 name="Appointments"
                 component={Appointments}
@@ -106,9 +161,21 @@ const Tabs = () => {
             <Tab.Screen
                 options={{
                     tabBarLabel: 'Links',
-                    tabBarIcon: () => (
-                        <Octi name="person" color={colors.primary} size={20} />
-                    ),
+                    tabBarIcon: ({ focused }) => {
+                        return focused ? (
+                            <View style={styles.labelFocusedContainer}>
+                                <Octi style={{ justifyContent: 'center' }} name="person" color={colors.primary} size={20} />
+
+                            </View>
+                        ) : (
+                            <View style={styles.labelContainer}>
+                                <Octi style={{ justifyContent: 'center' }} name="person" color={colors.primary} size={20} />
+                            </View>
+                        );
+                    },
+                    // tabBarIcon: () => (
+                    //     <Octi name="person" color={colors.primary} size={20} />
+                    // ),
                 }}
                 name="Links"
                 component={Links}
@@ -119,4 +186,18 @@ const Tabs = () => {
 
 export default Tabs
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    labelContainer: {
+        alignItems: 'center',
+        width: '100%',
+    },
+    labelFocusedContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+        width: '100%',
+        borderTopWidth: 4,
+        borderTopColor: colors.primary,
+    },
+
+})

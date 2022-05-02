@@ -62,7 +62,7 @@ const Home = ({ navigation }) => {
   return (
     <View>
 
-      <View style={{ paddingTop: 2, paddingHorizontal: 20, width: '100%', height: 75, backgroundColor: colors.primary, position: 'relative', bottom: 1, zIndex: 1 }}>
+      <View style={{ paddingTop: 2, paddingHorizontal: 20, width: '100%', height: 75, backgroundColor: colors.primary, }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', width: '100%', height: 50, borderColor: colors.lightGrey, borderWidth: 1, borderRadius: 4, }}>
           <TextInput
             placeholder="Search Doctors, Clinics ..."
