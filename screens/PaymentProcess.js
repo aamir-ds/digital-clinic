@@ -1,4 +1,4 @@
-import { StyleSheet, Text, StatusBar, View, TouchableOpacity, Image, Button, ScrollView, useWindowDimensions } from 'react-native'
+import { StyleSheet, Text, StatusBar, View, TouchableOpacity, Image, ScrollView, useWindowDimensions } from 'react-native'
 import React, {useLayoutEffect} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from '../config/colors'
@@ -10,6 +10,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import EvilIco from 'react-native-vector-icons/EvilIcons';
 import Ion from 'react-native-vector-icons/Ionicons';
 import Fa from 'react-native-vector-icons/FontAwesome';
+import ButtonComponent from '../components/ButtonComponent';
 
 const PaymentProcess = ({ navigation }) => {
     const window = useWindowDimensions();
@@ -42,87 +43,112 @@ const PaymentProcess = ({ navigation }) => {
   }, [navigation]);
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-        <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
-        <View style={styles.headerContainer}>
-            <View style={styles.outerContainer}>
-                <View style={styles.innerContainer}>
-                    <View style={styles.row}>
-                        <View style={styles.productPrice}>
-                            <View style={styles.priceTag}>
-                                <MatIco name='tag-outline' size={30} color={colors.primary}/>
+            <ScrollView>
+      <SafeAreaView style={styles.container}>
+            <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
+            <View style={{flex: 1}}>
+                <View style={styles.headerContainer}>
+                    <View style={styles.outerContainer}>
+                        <View style={styles.innerContainer}>
+                            <View style={styles.row}>
+                                <View style={styles.productPrice}>
+                                    <View style={styles.priceTag}>
+                                        <MatIco name='tag-outline' size={30} color={colors.primary}/>
+                                    </View>
+                                    <View style={{marginLeft: 10}}>
+                                        <Text style={styles.price}>$100</Text>
+                                        <Text style={styles.label}>Total Payment</Text>
+                                    </View>
+                                </View>
                             </View>
-                            <View style={{marginLeft: 10}}>
-                                <Text style={styles.price}>$100</Text>
-                                <Text style={styles.label}>Total Payment</Text>
+                            <View style={styles.treatments}>
+                                <View style={styles.list}>
+                                    <Text style={styles.treatmentType}>Consultation</Text>
+                                    <Text style={styles.value}>$30</Text>
+                                </View>
+                                <View style={styles.list}>
+                                    <Text style={styles.treatmentType}>Other Manipulation</Text>
+                                    <Text style={styles.value}>$35</Text>
+                                </View>
+                                <View style={styles.list}>
+                                    <Text style={styles.treatmentType}>Other Manipulation</Text>
+                                    <Text style={styles.value}>$35</Text>
+                                </View>
                             </View>
-                        </View>
-                    </View>
-                    <View style={styles.treatments}>
-                        <View style={styles.list}>
-                            <Text style={styles.treatmentType}>Consultation</Text>
-                            <Text style={styles.value}>$30</Text>
-                        </View>
-                        <View style={styles.list}>
-                            <Text style={styles.treatmentType}>Other Manipulation</Text>
-                            <Text style={styles.value}>$35</Text>
-                        </View>
-                        <View style={styles.list}>
-                            <Text style={styles.treatmentType}>Other Manipulation</Text>
-                            <Text style={styles.value}>$35</Text>
-                        </View>
-                    </View>
-                    <View style={styles.flexWrap}>
-                        <View style={styles.treatmentDay}>
-                            <View style={[styles.alignCenter, styles.borderRight]}>
-                                <Text style={[styles.label, {lineHeight: 20}]}>Date</Text>
-                                <Text style={styles.dateTime}>17 May 2020</Text>
-                            </View>
-                            <View style={styles.alignCenter}>
-                                <Text style={[styles.label, {lineHeight: 20}]}>Time</Text>
-                                <Text style={styles.dateTime}>17:00</Text>
+                            <View style={styles.flexWrap}>
+                                <View style={styles.treatmentDay}>
+                                    <View style={[styles.alignCenter, styles.borderRight]}>
+                                        <Text style={[styles.label, {lineHeight: 20}]}>Date</Text>
+                                        <Text style={styles.dateTime}>17 May 2020</Text>
+                                    </View>
+                                    <View style={styles.alignCenter}>
+                                        <Text style={[styles.label, {lineHeight: 20}]}>Time</Text>
+                                        <Text style={styles.dateTime}>17:00</Text>
+                                    </View>
+                                </View>
                             </View>
                         </View>
                     </View>
                 </View>
             </View>
-        </View>
 
-        <View style={styles.paymentSection}>
-            <View style={styles.paymentContainer}>
-                <Text style={styles.heading}>Payment Method</Text>
-                <View style={styles.cardList}>
-                    <TouchableOpacity style={styles.card} activeOpacity={0.7}>
-                        <Text style={styles.cardName}>Visa</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.card} activeOpacity={0.7}>
-                        <Text style={styles.cardName}>MasterCard</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.card} activeOpacity={0.7}>
-                        <Text style={styles.cardName}>Paypal</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.card} activeOpacity={0.7}>
-                        <Text style={styles.cardName}>Pay</Text>
-                    </TouchableOpacity>
+                <View style={styles.paymentSection}>
+                    {/* <View style={styles.paymentContainer}> */}
+                        <Text style={styles.heading}>Payment Method</Text>
+                        <View style={styles.cardList}>
+                            <TouchableOpacity style={[styles.card, styles.selectedCard]} activeOpacity={0.7}>
+                                <View style={styles.tickIco}>
+                                    <MatIco name='check-circle-outline' size={20} color={colors.primary}/>
+                                </View>
+                                <View style={styles.content}>
+                                    <Text style={[styles.cardName, {color:colors.primary}]}>Visa</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.card} activeOpacity={0.7}>
+                                <View style={styles.content}>
+                                    <Text style={styles.cardName}>MasterCard</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.card} activeOpacity={0.7}>
+                                <View style={styles.content}>
+                                    <Text style={styles.cardName}>Paypal</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.card} activeOpacity={0.7}>
+                                <View style={styles.content}>
+                                    <Text style={styles.cardName}>Pay</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                    {/* </View> */}
                 </View>
-            </View>
-        </View>
-    </SafeAreaView>
+
+                <View style={styles.footerSection}>
+                    <ButtonComponent title={"Confirm"}/>
+                </View>
+        </SafeAreaView>
+      </ScrollView>
   )
 }
 
 export default PaymentProcess;
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1, 
+        height: window.height
+    },
     headerContainer: {
-        position: 'relative',
+        // position: 'relative',
         flex: 1,
+        // flexBasis: 200
         // borderWidth: 1,
     },
     outerContainer:{
-          backgroundColor: '#6574CF',
-          height: 300,
-          position: 'relative',
+          backgroundColor: colors.primary,
+          height: '80%',
+        //   flexBasis: 200,
+        //   position: 'relative',
         //   borderWidth: 1,
         //   borderColor: 'red',
       },
@@ -130,9 +156,10 @@ const styles = StyleSheet.create({
         // flex: 1,
         width: '90%',
         paddingVertical: 25,
-        top: 20,
+        
+        top: 30,
         // height: 30,
-        position: 'absolute',
+        // position: 'absolute',
         alignSelf: 'center',
         backgroundColor: '#fff',
         borderRadius: 5,
@@ -207,7 +234,9 @@ const styles = StyleSheet.create({
       },
       paymentSection: {
           flex: 1,
-          marginTop: 50,
+          marginTop: 40,
+          padding: 20,
+        //   flexBasis: 300
         //   borderWidth: 1
       }, 
       heading: {
@@ -219,30 +248,63 @@ const styles = StyleSheet.create({
           padding: 20,
           flex: 1, 
         },
-        cardList: {
-          flex: 1,
-          flexDirection: 'row',
-          flexWrap: 'wrap',
+    cardList: {
+        flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        height: 230,
         //   borderWidth: 1,
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          alignContent: 'stretch',
-        },
-        card: {
-            backgroundColor: colors.white,
-          color: colors.primary,
-          width: '47%',
-          height: 120,
-          borderRadius: 5,
-          elevation: 10,
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center'
-      },
-      cardName:{ 
-        //   color: colors.primary,
-          color: colors.greyFont,
-          fontSize: 20,
-          fontWeight: 'bold'
-      }
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        alignContent: 'stretch',
+    },
+    card: {
+        backgroundColor: colors.white,
+        color: colors.primary,
+        width: '47%',
+        height: 90,
+        borderRadius: 5,
+        elevation: 5,
+        // flexDirection: 'row-reverse',
+        padding: 10
+    },
+    content: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    cardName:{ 
+    //   color: colors.primary,
+        color: colors.greyFont,
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    footerSection: {
+        flex: 1,
+    //   height: 100,
+        padding: 15
+    },
+    button:{
+        backgroundColor: colors.primary,
+        height: 50,
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5
+    },
+    buttonText:{
+        color: colors.white,
+        fontSize: 17,
+        fontWeight: 'bold'
+    },
+    tickIco: {
+        position: 'absolute',
+        top: 10,
+        right: 10
+    },
+    selectedCard: {
+        borderColor: colors.primary,
+        borderWidth: 1,
+        backgroundColor: colors.lightPrimary
+    }
 })
