@@ -32,7 +32,7 @@ const Item = ({ name, distance, address, ratings, image }) => (
 
                     <Text style={{ fontSize: 20, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <FontAwesome5 style={{ marginRight: 5 }} size={13} color={colors.primary} name={'location-arrow'} />
+                        <FontAwesome5 style={{ marginRight: 5 }} size={13} color={colors.greyFont} name={'location-arrow'} />
                         <Text style={{ fontSize: 16, fontWeight: '400', color: colors.greyFont }}>{distance} away</Text>
                     </View>
                 </View>
