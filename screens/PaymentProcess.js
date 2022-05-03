@@ -11,9 +11,11 @@ import EvilIco from 'react-native-vector-icons/EvilIcons';
 import Ion from 'react-native-vector-icons/Ionicons';
 import Fa from 'react-native-vector-icons/FontAwesome';
 import ButtonComponent from '../components/ButtonComponent';
+import { useNavigation } from '@react-navigation/native';
 
-const PaymentProcess = ({ navigation }) => {
+const PaymentProcess = () => {
     const window = useWindowDimensions();
+    const navigation = useNavigation()
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -122,9 +124,13 @@ const PaymentProcess = ({ navigation }) => {
                     </View>
                     {/* </View> */}
                 </View>
+               
+                <View style={styles.formSection}>
+                    <Text style={{color: '#000'}}>Form</Text>
+                </View>
 
                 <View style={styles.footerSection}>
-                    <ButtonComponent title={"Confirm"} onPress={() => navigation.navigate('BookingSuccessful')}/>
+                    <ButtonComponent title={"Confirm"} onPress={() => {navigation.navigate('PaymentCardDetails')}}/>
                 </View>
             </SafeAreaView>
         </ScrollView>
@@ -292,5 +298,8 @@ const styles = StyleSheet.create({
         borderColor: colors.primary,
         borderWidth: 1,
         backgroundColor: colors.lightPrimary
+    },
+    formSection: {
+        flex: 1
     }
 })

@@ -5,7 +5,7 @@ import colors from '../config/colors'
 
 export default function ButtonComponent(props) {
   return (
-    <TouchableOpacity style={styles.button} activeOpacity={0.8}>
+    <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={props.onPress}>
     <Text style={styles.buttonText}>{props.title}</Text>
 </TouchableOpacity>
   )
