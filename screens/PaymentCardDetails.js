@@ -1,4 +1,4 @@
-import { StyleSheet, Text, StatusBar, View, TouchableOpacity, Image, ScrollView, useWindowDimensions } from 'react-native'
+import { StyleSheet, Text, StatusBar, View, TouchableOpacity, Image, TextInput, ScrollView, useWindowDimensions, KeyboardAvoidingView } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from '../config/colors'
@@ -11,6 +11,7 @@ import EvilIco from 'react-native-vector-icons/EvilIcons';
 import Ion from 'react-native-vector-icons/Ionicons';
 import Fa from 'react-native-vector-icons/FontAwesome';
 import ButtonComponent from '../components/ButtonComponent';
+import InputComponent from '../components/InputComponent';
 
 const PaymentCardDetails = ({ navigation }) => {
   const window = useWindowDimensions();
@@ -43,7 +44,6 @@ const PaymentCardDetails = ({ navigation }) => {
       }, [navigation]);
   
   return (
-     <ScrollView>
       <SafeAreaView style={styles.container}>
           <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
           <View style={styles.cardSection}>
@@ -77,11 +77,30 @@ const PaymentCardDetails = ({ navigation }) => {
             </View>
           </View>
 
+          <ScrollView>
+          <View style={styles.formSection}>
+            <View style={styles.formField}>
+              <InputComponent label={'Card Number'} type={'numeric'}/>
+            </View>
+            <View style={styles.formField}>
+              <InputComponent label={'Card Holder'} type={'text'}/>
+            </View>
+
+            <View style={styles.flexFields}>
+              <View style={[styles.formField, {flex: 2, marginRight: 20}]}>
+                <InputComponent label={'Expiry Date'} type={'numeric'}/>
+              </View>
+              <View style={[styles.formField, {flex: 1}]}>
+                <InputComponent label={'CVV'} type={'numeric'} maxLength={40}/>
+              </View>
+            </View>
+          </View>
+          </ScrollView>
+
           <View style={styles.footer}>
             <ButtonComponent title={'Pay'} onPress={() => {navigation.navigate('BookingSuccessful')}}/>
           </View>
       </SafeAreaView>
-    </ScrollView>
   )
 }
 
@@ -145,7 +164,21 @@ const styles = StyleSheet.create({
     fontFamily: 'Open Sans',
   },
   footer: {
-    flex: 1,
+    padding: 20,
+    // bottom: 0
+  },
+  formSection: {
+    flex: 2,
+    // borderWidth: 1,
+    flexDirection: 'column',
     padding: 20
+  },
+  formField: {
+    marginBottom: 10
+  },
+  flexFields: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   }
 })
