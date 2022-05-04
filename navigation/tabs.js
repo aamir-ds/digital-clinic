@@ -1,20 +1,16 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
-import { createBottomTabNavigator, BottomTabBar } from "@react-navigation/bottom-tabs"
-
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
-import Home from '../screens/Home'
-import AllDoctors from '../screens/AllDoctors'
-import Clinics from '../screens/Clinics'
-import Appointments from '../screens/Appointments'
+
+import Entypo from 'react-native-vector-icons/Entypo'
+import Feather from 'react-native-vector-icons/Feather'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import Octi from 'react-native-vector-icons/Octicons'
 import colors from '../config/colors'
+import AllDoctors from '../screens/AllDoctors'
+import Appointments from '../screens/Appointments'
+import Home from '../screens/Home'
 import Links from '../screens/Links'
-import Entypo from 'react-native-vector-icons/Entypo';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Feather from 'react-native-vector-icons/Feather';
-import Octi from 'react-native-vector-icons/Octicons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import Message from '../screens/Message'
 
 
 
@@ -71,42 +67,7 @@ const Tabs = () => {
                 name="Home Page"
                 component={Home}
             />
-            <Tab.Screen
-                options={{
-                    headerStyle: {
-                        backgroundColor: colors.primary,
-                    },
-                    headerTintColor: colors.white,
-                    headerTitleStyle: {
-                        fontWeight: '400',
-                        fontSize: 22,
-                    },
-                    tabBarLabel: 'Message',
-                    headerStyle: {
-                        backgroundColor: colors.primary,
-                        elevation: 0, // remove shadow on Android
-                        shadowOpacity: 0, // remove shadow on iOS
-                    },
-                    tabBarIcon: ({ focused }) => {
-                        return focused ? (
-                            <View style={styles.labelFocusedContainer}>
-                                <AntDesign style={{ justifyContent: 'center' }} name="message1" color={colors.primary} size={20} />
 
-                            </View>
-                        ) : (
-                            <View style={styles.labelContainer}>
-                                <AntDesign style={{ justifyContent: 'center' }} name="message1" color={colors.primary} size={20} />
-
-                            </View>
-                        );
-                    },
-                    // tabBarIcon: () => (
-                    //     <AntDesign style={{ justifyContent: 'center' }} name="message1" color={colors.primary} size={20} />
-                    // ),
-                }}
-                name="Message"
-                component={Message}
-            />
             <Tab.Screen
                 name="All Doctors"
 

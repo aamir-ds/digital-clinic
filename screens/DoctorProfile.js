@@ -17,20 +17,20 @@ const DoctorProfile = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: () => (
-        <Text style={{fontWeight: 'normal'}}>Doctor's Profile</Text>
+        <Text style={{ fontWeight: 'normal' }}>Doctor's Profile</Text>
       ),
-      headerLeft: () => (
-        <TouchableOpacity
-          onPress={() => alert('Left Menu Clicked')}
-          style={{marginRight: 20, alignItems: 'center'}}>
-            <Feather name='arrow-left' size={20} color={colors.white}/>
-        </TouchableOpacity>
-      ),
+      // headerLeft: () => (
+      //   <TouchableOpacity
+      //     onPress={() => alert('Left Menu Clicked')}
+      //     style={{marginRight: 20, alignItems: 'center'}}>
+      //       <Feather name='arrow-left' size={20} color={colors.white}/>
+      //   </TouchableOpacity>
+      // ),
       headerRight: () => (
         <TouchableOpacity
           onPress={() => alert('Right Menu Clicked')}
           style={{ marginLeft: 10 }}>
-            <Ion name='location-outline' size={20} color={colors.white}/>
+          <Ion name='location-outline' size={20} color={colors.white} />
         </TouchableOpacity>
       ),
 
@@ -50,8 +50,8 @@ const DoctorProfile = ({ navigation }) => {
 
         <View style={styles.profileSection}>
           <View style={styles.actionLinks}>
-            <TouchableOpacity activeOpacity={0.8} style={{flexDirection: 'row',alignItems: 'center'}}>
-              <Feather name='video' size={20} color={colors.primary}/>
+            <TouchableOpacity activeOpacity={0.8} style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Feather name='video' size={20} color={colors.primary} />
               <Text style={styles.videoLink}>Video Visit</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.chatBtn}>
@@ -64,22 +64,22 @@ const DoctorProfile = ({ navigation }) => {
             <Text style={styles.fullName}>Dr. Kenjo Assou</Text>
             <Text style={styles.designation}>Opthalmologist</Text>
             <View style={styles.drScore}>
-              <Fa name='star' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+              <Fa name='star' color={colors.primary} size={20} style={{ marginRight: 8 }} />
               <Text style={styles.ratings}>4.7</Text>
               <Text style={styles.reviews}>(12 reviews)</Text>
             </View>
           </View>
           <View style={styles.flexItems}>
             <View style={[styles.item, { borderRightWidth: 1, borderRightColor: '#eee' }]}>
-              <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Octi name='location' color={colors.greyFont} size={20} style={{ marginRight: 8 }}/>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Octi name='location' color={colors.greyFont} size={20} style={{ marginRight: 8 }} />
                 <Text style={styles.itemName}>Newyork</Text>
               </View>
               <Text style={styles.itemDesc}>Location</Text>
             </View>
             <View style={styles.item}>
-              <View style={{flexDirection: 'row', alignItems:'center'}}>
-                <Feather name='zap' color={colors.greyFont} size={20} style={{ marginRight: 8 }}/>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Feather name='zap' color={colors.greyFont} size={20} style={{ marginRight: 8 }} />
                 <Text style={styles.itemName}>20 Years</Text>
               </View>
               <Text style={styles.itemDesc}>Experience</Text>
@@ -87,7 +87,7 @@ const DoctorProfile = ({ navigation }) => {
           </View>
           <View style={styles.getTimingsBtn}>
             <TouchableOpacity style={styles.bookingBtn} activeOpacity={0.8}>
-              <MatIco name='calendar-week' size={20} color={colors.white}/>
+              <MatIco name='calendar-week' size={20} color={colors.white} />
               <Text style={styles.btnText}>Available Timings</Text>
             </TouchableOpacity>
           </View>
@@ -98,51 +98,51 @@ const DoctorProfile = ({ navigation }) => {
 
           <TouchableOpacity style={styles.listCard}>
             <View style={styles.listItems}>
-              <MatIco name='briefcase' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+              <MatIco name='briefcase' color={colors.primary} size={20} style={{ marginRight: 8 }} />
               <Text style={styles.menuTitle}>Valid Insurance</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }}/>
+              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }} />
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.listCard}>
-          <View  style={styles.listItems}>
-              <Ion name="ribbon-outline" color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+            <View style={styles.listItems}>
+              <Ion name="ribbon-outline" color={colors.primary} size={20} style={{ marginRight: 8 }} />
               <Text style={styles.menuTitle}>Experience & Qualification</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }}/>
+              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }} />
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.listCard}>
-            <View  style={styles.listItems}>
-              <Feather name='user' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+            <View style={styles.listItems}>
+              <Feather name='user' color={colors.primary} size={20} style={{ marginRight: 8 }} />
               <Text style={styles.menuTitle}>Personal Information</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }}/>
+              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }} />
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.listCard}>
-            <View  style={styles.listItems}>
-              <Fa name='star-o' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+            <View style={styles.listItems}>
+              <Fa name='star-o' color={colors.primary} size={20} style={{ marginRight: 8 }} />
               <Text style={styles.menuTitle}>Reviews</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }}/>
+              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }} />
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.listCard}>
-            <View  style={styles.listItems}>
-              <Octi name='location' color={colors.primary} size={20} style={{ marginRight: 8 }}/>
+            <View style={styles.listItems}>
+              <Octi name='location' color={colors.primary} size={20} style={{ marginRight: 8 }} />
               <Text style={styles.menuTitle}>Working Address</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }}/>
+              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }} />
             </View>
           </TouchableOpacity>
         </View>
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: 10
   },
-  chatBtn:{
+  chatBtn: {
     width: 30,
     height: 30,
     borderRadius: 5,
