@@ -9,5 +9,7 @@ export default {
     greyFont: '#8f9bb3',
     greenOutline: '#1ec760',
     redIcon: '#ff4e32',
-    red: '#FF6666'
+    red: '#FF6666',
+    purple: '#7D8AD6',
+    lightOrange: '#FFF1EF'
 };

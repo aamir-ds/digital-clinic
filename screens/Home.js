@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View, StatusBar } from 'react-native'
 import React from 'react'
 import colors from '../config/colors'
 import Feather from 'react-native-vector-icons/Feather';
@@ -6,11 +6,12 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import { homePageListing } from '../config/dummy';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const Emergency = () => (
   <View style={{ marginVertical: 20, paddingHorizontal: 10, alignItems: 'center', height: 80, width: '100%', backgroundColor: colors.white, borderRadius: 3, flexDirection: 'row' }}>
-    <View style={{ justifyContent: 'center', alignItems: 'center', height: 60, width: 60, backgroundColor: colors.lightGrey, borderRadius: 5 }}>
+    <View style={{ justifyContent: 'center', alignItems: 'center', height: 60, width: 60, backgroundColor: colors.lightOrange, borderRadius: 5 }}>
       <Fontisto size={40} color={colors.redIcon} name={'bandage'} />
 
     </View>
@@ -60,10 +61,11 @@ const Home = ({ navigation }) => {
 
 
   return (
-    <View>
+    <SafeAreaView style={{flex: 1}}>
+        <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
 
-      <View style={{ paddingTop: 2, paddingHorizontal: 20, width: '100%', height: 75, backgroundColor: colors.primary, }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', width: '100%', height: 50, borderColor: colors.lightGrey, borderWidth: 1, borderRadius: 4, }}>
+      <View style={{ paddingTop: 2, paddingHorizontal: 20, height: 75, backgroundColor: colors.primary, }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', height: 50, borderColor: colors.lightGrey, borderWidth: 1, borderRadius: 4, backgroundColor: colors.purple }}>
           <TextInput
             placeholder="Search Doctors, Clinics ..."
             placeholderTextColor={colors.white}
@@ -86,7 +88,7 @@ const Home = ({ navigation }) => {
         />
       </View>
 
-    </View>
+    </SafeAreaView>
   )
 }
 

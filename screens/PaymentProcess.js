@@ -11,9 +11,11 @@ import EvilIco from 'react-native-vector-icons/EvilIcons';
 import Ion from 'react-native-vector-icons/Ionicons';
 import Fa from 'react-native-vector-icons/FontAwesome';
 import ButtonComponent from '../components/ButtonComponent';
+import { useNavigation } from '@react-navigation/native';
 
-const PaymentProcess = ({ navigation }) => {
+const PaymentProcess = () => {
     const window = useWindowDimensions();
+    const navigation = useNavigation()
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -122,9 +124,13 @@ const PaymentProcess = ({ navigation }) => {
                     </View>
                     {/* </View> */}
                 </View>
+               
+                <View style={styles.formSection}>
+                    <Text style={{color: '#000'}}>Form</Text>
+                </View>
 
                 <View style={styles.footerSection}>
-                    <ButtonComponent title={"Confirm"} />
+                    <ButtonComponent title={"Confirm"} onPress={() => {navigation.navigate('PaymentCardDetails')}}/>
                 </View>
             </SafeAreaView>
         </ScrollView>
@@ -139,27 +145,16 @@ const styles = StyleSheet.create({
         height: window.height
     },
     headerContainer: {
-        // position: 'relative',
         flex: 1,
-        // flexBasis: 200
-        // borderWidth: 1,
     },
     outerContainer: {
         backgroundColor: colors.primary,
         height: '80%',
-        //   flexBasis: 200,
-        //   position: 'relative',
-        //   borderWidth: 1,
-        //   borderColor: 'red',
     },
     innerContainer: {
-        // flex: 1,
         width: '90%',
         paddingVertical: 25,
-
         top: 30,
-        // height: 30,
-        // position: 'absolute',
         alignSelf: 'center',
         backgroundColor: '#fff',
         borderRadius: 5,
@@ -236,8 +231,6 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: 40,
         padding: 20,
-        //   flexBasis: 300
-        //   borderWidth: 1
     },
     heading: {
         color: colors.darkGrey,
@@ -253,7 +246,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         height: 230,
-        //   borderWidth: 1,
         justifyContent: 'space-between',
         alignItems: 'center',
         alignContent: 'stretch',
@@ -264,8 +256,7 @@ const styles = StyleSheet.create({
         width: '47%',
         height: 90,
         borderRadius: 5,
-        elevation: 5,
-        // flexDirection: 'row-reverse',
+        elevation: 2.5,
         padding: 10
     },
     content: {
@@ -277,7 +268,8 @@ const styles = StyleSheet.create({
         //   color: colors.primary,
         color: colors.greyFont,
         fontSize: 20,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontFamily: 'Open Sans'
     },
     footerSection: {
         flex: 1,
@@ -306,5 +298,8 @@ const styles = StyleSheet.create({
         borderColor: colors.primary,
         borderWidth: 1,
         backgroundColor: colors.lightPrimary
+    },
+    formSection: {
+        flex: 1
     }
 })

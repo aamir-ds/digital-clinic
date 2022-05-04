@@ -17,7 +17,7 @@ const DoctorProfile = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerStyle: () => (
-        <Text style={{ fontWeight: 'normal' }}>Doctor's Profile</Text>
+        <Text style={{fontWeight: 'normal'}}>Doctor's Profile</Text>
       ),
       // headerLeft: () => (
       //   <TouchableOpacity
@@ -28,7 +28,7 @@ const DoctorProfile = ({ navigation }) => {
       // ),
       headerRight: () => (
         <TouchableOpacity
-          onPress={() => alert('Right Menu Clicked')}
+          onPress={() => navigation.navigate('Maps')}
           style={{ marginLeft: 10 }}>
           <Ion name='location-outline' size={20} color={colors.white} />
         </TouchableOpacity>
@@ -45,13 +45,14 @@ const DoctorProfile = ({ navigation }) => {
   }, [navigation]);
   return (
     <ScrollView>
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={[styles.container]}>
         <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
 
         <View style={styles.profileSection}>
           <View style={styles.actionLinks}>
-            <TouchableOpacity activeOpacity={0.8} style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Feather name='video' size={20} color={colors.primary} />
+            <TouchableOpacity activeOpacity={0.8} style={{flexDirection: 'row',alignItems: 'center'}}
+            onPress={()=> navigation.navigate('DoctorCalling')}>
+              <Feather name='video' size={20} color={colors.primary}/>
               <Text style={styles.videoLink}>Video Visit</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.chatBtn}>
@@ -96,53 +97,53 @@ const DoctorProfile = ({ navigation }) => {
 
         <View style={styles.menuSection}>
 
-          <TouchableOpacity style={styles.listCard}>
+          <TouchableOpacity style={styles.listCard} activeOpacity={0.6}>
+              <MatIco name='briefcase' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }}/>
             <View style={styles.listItems}>
-              <MatIco name='briefcase' color={colors.primary} size={20} style={{ marginRight: 8 }} />
               <Text style={styles.menuTitle}>Valid Insurance</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }} />
+              <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }}/>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.listCard}>
-            <View style={styles.listItems}>
-              <Ion name="ribbon-outline" color={colors.primary} size={20} style={{ marginRight: 8 }} />
+          <TouchableOpacity style={styles.listCard} activeOpacity={0.6}>
+              <Ion name="ribbon-outline" color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }}/>
+          <View  style={styles.listItems}>
               <Text style={styles.menuTitle}>Experience & Qualification</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }} />
+              <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }}/>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.listCard}>
-            <View style={styles.listItems}>
-              <Feather name='user' color={colors.primary} size={20} style={{ marginRight: 8 }} />
+          <TouchableOpacity style={styles.listCard} activeOpacity={0.6}>
+              <Feather name='user' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }}/>
+            <View  style={styles.listItems}>
               <Text style={styles.menuTitle}>Personal Information</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }} />
+              <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }}/>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.listCard}>
-            <View style={styles.listItems}>
-              <Fa name='star-o' color={colors.primary} size={20} style={{ marginRight: 8 }} />
+          <TouchableOpacity style={styles.listCard} activeOpacity={0.6}>
+              <Fa name='star-o' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }}/>
+            <View  style={styles.listItems}>
               <Text style={styles.menuTitle}>Reviews</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }} />
+              <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }}/>
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.listCard}>
-            <View style={styles.listItems}>
-              <Octi name='location' color={colors.primary} size={20} style={{ marginRight: 8 }} />
+          <TouchableOpacity style={styles.listCard} activeOpacity={0.6}>
+              <Octi name='location' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }}/>
+            <View  style={styles.listItems}>
               <Text style={styles.menuTitle}>Working Address</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={30} style={{ marginRight: 8 }} />
+              <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }}/>
             </View>
           </TouchableOpacity>
         </View>
@@ -268,19 +269,21 @@ const styles = StyleSheet.create({
   },
   listCard: {
     backgroundColor: colors.white,
-    paddingHorizontal: 20,
-    paddingVertical: 25,
+    // paddingHorizontal: 20,
+    // paddingVertical: 25,
     marginBottom: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    borderRadius: 5
+    borderRadius: 5,
+    // height: 80,
+    alignItems: 'center'
   },
   menuTitle: {
     color: colors.black,
     fontSize: 16,
   },
   listItems: {
-    flexDirection: 'row',
-    alignItems: 'center'
+    flex: 1,
+    paddingLeft: 25
   }
 })
