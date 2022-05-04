@@ -124,10 +124,6 @@ const PaymentProcess = () => {
                     </View>
                     {/* </View> */}
                 </View>
-               
-                <View style={styles.formSection}>
-                    <Text style={{color: '#000'}}>Form</Text>
-                </View>
 
                 <View style={styles.footerSection}>
                     <ButtonComponent title={"Confirm"} onPress={() => {navigation.navigate('PaymentCardDetails')}}/>
