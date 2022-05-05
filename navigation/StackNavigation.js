@@ -9,6 +9,7 @@ import AllDoctors from '../screens/AllDoctors';
 import BookingSuccessful from '../screens/BookingSuccessful';
 import DoctorProfile from '../screens/DoctorProfile';
 import Appointments from '../screens/Appointments';
+import OnBoarding from '../screens/OnBoarding';
 import Clinics from '../screens/Clinics';
 import colors from '../config/colors';
 import Tabs from './tabs';
@@ -24,8 +25,14 @@ const Stack = createNativeStackNavigator();
 
 export default function StackNavigation() {
   return (
-    <Stack.Navigator initialRouteName="Tabs">
+    <Stack.Navigator initialRouteName="OnBoarding">
 
+      <Stack.Screen
+        options={{
+          headerShown: false
+        }}
+        name="OnBoarding" component={OnBoarding} />
+      
       <Stack.Screen
         options={{
           headerShown: false

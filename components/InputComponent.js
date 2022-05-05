@@ -6,7 +6,7 @@ export default function InputComponent(props) {
   return (
     <View>
       <Text style={styles.label}>{props.label}</Text>
-      <TextInput keyboardType={props.type} style={styles.input} value={props.value} maxLength={props.maxLength}/>
+      <TextInput keyboardType={props.type} style={styles.input} maxLength={props.maxLength}/>
     </View>
   )
 }
