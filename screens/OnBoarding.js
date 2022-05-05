@@ -33,7 +33,7 @@ export default function OnBoarding({navigation}) {
             </View>
             {
                 onBoardingStarted ?
-                <OnBoardingQuestionaire /> :
+                <OnBoardingQuestionaire/> :
                 <OnBoardingGreetings onBoardingStarted={onBoardingStarted} onChange={handleOnBoardingState}/>
             }
         </View>

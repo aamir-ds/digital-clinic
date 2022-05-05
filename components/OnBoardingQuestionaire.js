@@ -2,14 +2,8 @@ import React, { useLayoutEffect, useState } from 'react'
 import { StyleSheet, Text, StatusBar, View, TouchableOpacity, Image, Button, ScrollView, useWindowDimensions } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import colors from '../config/colors';
-import MatIco from 'react-native-vector-icons/MaterialCommunityIcons';
-import Ant from 'react-native-vector-icons/AntDesign';
-import Octi from 'react-native-vector-icons/Octicons';
-import Feather from 'react-native-vector-icons/Feather';
-import Entypo from 'react-native-vector-icons/Entypo';
-import EvilIco from 'react-native-vector-icons/EvilIcons';
-import Ion from 'react-native-vector-icons/Ionicons';
-import Fa from 'react-native-vector-icons/FontAwesome';
+import { useNavigation } from '@react-navigation/native';
+
 
 const QuestionSet1 = () => {
 
@@ -58,9 +52,10 @@ const QuestionSet2 = () => {
     )
 }
 
-export default function OnBoardingQuestionaire() {
+export default function OnBoardingQuestionaire(props) {
 
-    
+    const navigation = useNavigation()
+
         const questionairre = [
             {
                 id: 1,
@@ -88,7 +83,7 @@ export default function OnBoardingQuestionaire() {
                 <Text style={styles.totalText}>Question 1 of 4</Text>
             </View>
         </View>
-        <TouchableOpacity style={styles.button} activeOpacity={0.6}>
+        <TouchableOpacity style={styles.button} activeOpacity={0.6} onPress={() => navigation.navigate('Tabs')}>
             <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity> 
 
