@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-// import CalendarPicker from 'react-native-calendar-picker';
+import CalendarPicker from 'react-native-calendar-picker';
 
 
 const TimeTab = () => {
