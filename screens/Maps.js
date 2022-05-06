@@ -56,7 +56,7 @@ export default function Maps() {
       //   ),
       headerRight: () => (
         <TouchableOpacity
-          onPress={() => navigation.goBack()}
+          // onPress={() => navigation.goBack()}
           style={{ marginLeft: 10 }}>
           <Feather name='filter' size={20} color={colors.white} />
         </TouchableOpacity>

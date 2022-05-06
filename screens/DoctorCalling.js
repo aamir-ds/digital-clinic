@@ -6,41 +6,41 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Ion from 'react-native-vector-icons/Ionicons';
 
 
-const DoctorCalling = () => {
+const DoctorCalling = ({ navigation }) => {
 
-  return (
-      <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor="#6574CF" />
-        <View style={styles.wrapper}>
+    return (
+        <SafeAreaView style={styles.container}>
+            <StatusBar barStyle="light-content" backgroundColor="#6574CF" />
+            <View style={styles.wrapper}>
 
-        <View style={styles.callerDetail}>
-            <Text style={styles.callingTxt}>Calling...</Text>
-            <Text style={styles.callerName}>Dr. Hugo Saavedra</Text>
-        </View>
+                <View style={styles.callerDetail}>
+                    <Text style={styles.callingTxt}>Calling...</Text>
+                    <Text style={styles.callerName}>Dr. Hugo Saavedra</Text>
+                </View>
 
-        <View style={styles.imageContainer}>
-            <View style={[styles.circle, styles.center]}>
-                {/* {[...Array(3).keys()].map((index)=> {
+                <View style={styles.imageContainer}>
+                    <View style={[styles.circle, styles.center]}>
+                        {/* {[...Array(3).keys()].map((index)=> {
                     return (
                         <Text>{index}</Text>
                     )
                 })} */}
-                {/* <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} /> */}
-                <Image source={require('../assets/images/doctorProfile.jpg')} style={styles.profileImg} />
-            </View>
-        </View>
+                        {/* <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} /> */}
+                        <Image source={require('../assets/images/doctorProfile.jpg')} style={styles.profileImg} />
+                    </View>
+                </View>
 
-        <View style={styles.actionWrap}>
-            <TouchableOpacity activeOpacity={0.8} style={styles.actionBtns} >
-                <Ion name="close" size={35} color={Colors.red} />
-            </TouchableOpacity>
-            <TouchableOpacity activeOpacity={0.8} style={styles.actionBtns}>
-                <Feather name="phone-call" size={30} color={Colors.primary} />
-            </TouchableOpacity>
-        </View>
-        </View>
-      </SafeAreaView>
-  )
+                <View style={styles.actionWrap}>
+                    <TouchableOpacity onPress={() => navigation.goBack()} activeOpacity={0.8} style={styles.actionBtns} >
+                        <Ion name="close" size={35} color={Colors.red} />
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity={0.8} style={styles.actionBtns}>
+                        <Feather name="phone-call" size={30} color={Colors.primary} />
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </SafeAreaView>
+    )
 }
 
 export default DoctorCalling;

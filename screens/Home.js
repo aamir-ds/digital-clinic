@@ -10,7 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const Emergency = () => (
-  <View style={{ marginVertical: 20, paddingHorizontal: 10, alignItems: 'center', height: 80, width: '100%', backgroundColor: colors.white, borderRadius: 3, flexDirection: 'row' }}>
+  <TouchableOpacity activeOpacity={0.6} style={{ marginVertical: 20, paddingHorizontal: 10, alignItems: 'center', height: 80, width: '100%', backgroundColor: colors.white, borderRadius: 3, flexDirection: 'row' }}>
     <View style={{ justifyContent: 'center', alignItems: 'center', height: 60, width: 60, backgroundColor: colors.lightOrange, borderRadius: 5 }}>
       <Fontisto size={40} color={colors.redIcon} name={'bandage'} />
 
@@ -20,11 +20,12 @@ const Emergency = () => (
       <Text style={{ fontSize: 13, color: colors.greyFont }}>Short Description</Text>
     </View>
     <MaterialIcons style={{ marginRight: 15, marginLeft: 10 }} size={20} color={colors.greyFont} name={'arrow-forward-ios'} />
-  </View>
+  </TouchableOpacity>
 )
 
 const Item = ({ name, id, description, index, icon, navigate, navigation }) => (
   <TouchableOpacity
+    activeOpacity={0.6}
     onPress={() => navigation.navigate(navigate)}
     style={[{ height: 150, width: '47%', backgroundColor: colors.white, padding: 10 }, index % 2 !== 0 && { marginLeft: 20 }]}>
     <View style={{ flex: 1 }}>
