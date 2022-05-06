@@ -28,6 +28,10 @@ const Links = ({ navigation }) => {
                 title="Booking"
                 onPress={() => navigation.navigate('Booking')}
             />
+            <Button
+                title="Map"
+                onPress={() => navigation.navigate('Map')}
+            />
 
         </View>
     )
