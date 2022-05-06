@@ -17,22 +17,26 @@ import colors from '../config/colors';
 const Item = ({ name, distance, ratings, image, reviews, type, video, navigation }) => (
 
 
-    <View style={styles.item} >
+    <TouchableOpacity activeOpacity={0.9} style={styles.item} >
         <View style={{
             flexDirection: 'row',
             padding: 20,
         }}>
-            <Image style={{
-                width: 75,
-                height: 75,
-                borderRadius: 100,
-                resizeMode: 'contain',
-                marginRight: 20
-            }} source={image} />
+            <TouchableOpacity onPress={() => navigation.navigate('DoctorProfile')}>
+                <Image style={{
+                    width: 75,
+                    height: 75,
+                    borderRadius: 100,
+                    resizeMode: 'contain',
+                    marginRight: 20
+                }} source={image} />
+            </TouchableOpacity>
 
             <View style={{ flexDirection: 'row', flex: 1, alignItems: 'flex-start' }}>
                 <View style={{ flex: 1, marginTop: 3 }}>
-                    <Text style={{ fontSize: 20, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('DoctorProfile')}>
+                        <Text style={{ fontSize: 20, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
+                    </TouchableOpacity>
                     <Text style={{ fontSize: 16, fontWeight: '400', color: colors.greyFont, marginBottom: 5 }}>{type}</Text>
                 </View>
                 <SimpleLineIcons style={{ marginRight: 5 }} size={15} color={colors.primary} name={'options-vertical'} />
@@ -48,10 +52,10 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
             borderBottomWidth: 3
 
         }}>
-            {video ? <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+            {video ? <TouchableOpacity onPress={() => navigation.navigate('DoctorCalling')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                 <Feather style={{ marginRight: 10 }} size={20} color={colors.primary} name={'video'} />
                 <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 16 }}>Video Visit</Text>
-            </View> :
+            </TouchableOpacity> :
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                     <Octi style={{ marginRight: 10 }} size={20} color={colors.greyFont} name={'location'} />
                     <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 16 }}>Office visit only</Text>
@@ -92,7 +96,7 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
 
         </View>
 
-    </View >
+    </TouchableOpacity >
 );
 
 const UpcomingAppointments = ({ navigation }) => {
