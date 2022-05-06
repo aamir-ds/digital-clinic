@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import 'react-native-reanimated'
-import StackNavigation from './navigation/StackNavigation';
+import StackNavigation from './src/navigation/StackNavigation';
 // import { MotiView } from 'moti'
 import SplashScreen from 'react-native-splash-screen'
 

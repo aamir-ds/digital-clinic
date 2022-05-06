@@ -4,11 +4,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import colors from '../config/colors';
 import { useNavigation } from '@react-navigation/native';
 import { doctors } from '../config/dummy';
-import SortContainer from '../components/SortContainer';
-import Entypo from 'react-native-vector-icons/Entypo';
-import Ion from 'react-native-vector-icons/Ionicons';
 import Fa from 'react-native-vector-icons/FontAwesome';
-import Octi from 'react-native-vector-icons/Octicons';
 
 
 

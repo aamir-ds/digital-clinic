@@ -1,9 +1,8 @@
 import React from 'react';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import colors from '../config/colors';
-import { clinics, doctors } from '../config/dummy';
+import { doctors } from '../config/dummy';
 import SortContainer from './SortContainer';
-import Ant from 'react-native-vector-icons/AntDesign';
 import Octi from 'react-native-vector-icons/Octicons';
 import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';

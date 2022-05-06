@@ -2,14 +2,7 @@ import { StyleSheet, Text, StatusBar, View, TouchableOpacity, Image, TextInput, 
 import React, { useLayoutEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from '../config/colors'
-import MatIco from 'react-native-vector-icons/MaterialCommunityIcons';
-import Ant from 'react-native-vector-icons/AntDesign';
-import Octi from 'react-native-vector-icons/Octicons';
-import Feather from 'react-native-vector-icons/Feather';
-import Entypo from 'react-native-vector-icons/Entypo';
-import EvilIco from 'react-native-vector-icons/EvilIcons';
 import Ion from 'react-native-vector-icons/Ionicons';
-import Fa from 'react-native-vector-icons/FontAwesome';
 import ButtonComponent from '../components/ButtonComponent';
 import InputComponent from '../components/InputComponent';
 

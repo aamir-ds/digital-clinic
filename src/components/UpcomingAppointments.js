@@ -1,13 +1,9 @@
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { clinics, doctors } from '../config/dummy';
-import SortContainer from './SortContainer';
-import Ant from 'react-native-vector-icons/AntDesign';
+import { doctors } from '../config/dummy';
 import Octi from 'react-native-vector-icons/Octicons';
 import Feather from 'react-native-vector-icons/Feather';
-import Entypo from 'react-native-vector-icons/Entypo';
 import Ion from 'react-native-vector-icons/Ionicons';
-import Fa from 'react-native-vector-icons/FontAwesome';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../config/colors';
