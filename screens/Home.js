@@ -61,8 +61,8 @@ const Home = ({ navigation }) => {
 
 
   return (
-    <SafeAreaView style={{flex: 1}}>
-        <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
 
       <View style={{ paddingTop: 2, paddingHorizontal: 20, height: 75, backgroundColor: colors.primary, }}>
         <View style={{ flexDirection: 'row', alignItems: 'center', height: 50, borderColor: colors.lightGrey, borderWidth: 1, borderRadius: 4, backgroundColor: colors.purple }}>

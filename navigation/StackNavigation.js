@@ -91,7 +91,7 @@ export default function StackNavigation() {
       }} />
       <Stack.Screen name="PaymentProcess" component={PaymentProcess} options={{ headerTitleAlign: 'center', headerTitle: 'Payment' }} />
       <Stack.Screen name="PaymentCardDetails" component={PaymentCardDetails} options={{ headerTitleAlign: 'center', headerTitle: 'Payment' }} />
-      <Stack.Screen name="Maps" component={Maps} />
+      <Stack.Screen name="Map" component={Maps} options={{ headerTitleAlign: 'center', headerTitle: 'Map' }} />
     </Stack.Navigator>
   )
 }
