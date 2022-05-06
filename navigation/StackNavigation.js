@@ -33,7 +33,7 @@ export default function StackNavigation() {
           headerShown: false
         }}
         name="OnBoarding" component={OnBoarding} />
-      
+
       <Stack.Screen
         options={{
           headerShown: false
