@@ -2,25 +2,25 @@ import { StyleSheet, Text, View, Image, Button, TouchableOpacity } from 'react-n
 import React from 'react'
 import colors from '../config/colors'
 
-const BookingSuccessful = () => {
+const BookingSuccessful = ({ navigation }) => {
   return (
     <View style={styles.container}>
-        <View style={styles.bookingSection}>
-          <View style={styles.roundedImage}>
-            <Image source={require('../assets/images/booking.png')}/>
-          </View>
-          <View style={styles.midSection}>
-            <Text style={styles.title}>Booking Successful</Text>
-            <Text style={styles.subtitle}>Your booking has been successful, the reminder is set automatically</Text>
+      <View style={styles.bookingSection}>
+        <View style={styles.roundedImage}>
+          <Image source={require('../assets/images/booking.png')} />
+        </View>
+        <View style={styles.midSection}>
+          <Text style={styles.title}>Booking Successful</Text>
+          <Text style={styles.subtitle}>Your booking has been successful, the reminder is set automatically</Text>
           <TouchableOpacity style={styles.viewDetails} activeOpacity="0.7">
             <Text style={styles.link}>View Details</Text>
           </TouchableOpacity>
-          </View>
         </View>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>GOT IT</Text>
-        </TouchableOpacity>
-        
+      </View>
+      <TouchableOpacity onPress={() => navigation.navigate('Home Page')} style={styles.button}>
+        <Text style={styles.buttonText}>GOT IT</Text>
+      </TouchableOpacity>
+
     </View>
   )
 }
@@ -72,12 +72,12 @@ const styles = StyleSheet.create({
   viewDetails: {
     marginTop: 20
   },
-  link:{
+  link: {
     color: colors.primary,
     fontSize: 16,
     fontWeight: 'bold'
   },
-  button:{
+  button: {
     backgroundColor: colors.primary,
     height: 50,
     width: '100%',
@@ -85,10 +85,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 5
   },
-  buttonText:{
+  buttonText: {
     color: colors.white,
     fontSize: 17,
     fontWeight: 'bold'
   }
- 
+
 })

@@ -12,8 +12,8 @@ import Feather from 'react-native-vector-icons/Feather';
 
 
 
-const Item = ({ name, distance, address, ratings, image }) => (
-    <TouchableOpacity style={styles.item}>
+const Item = ({ name, distance, address, ratings, image, navigation }) => (
+    <TouchableOpacity onPress={() => navigation.navigate('Map')} activeOpacity={0.7} style={styles.item}>
         <View style={{
             flexDirection: 'row',
             padding: 20,
@@ -61,13 +61,14 @@ const Item = ({ name, distance, address, ratings, image }) => (
 );
 
 
-const Clinics = () => {
+const Clinics = ({ navigation }) => {
     const renderItem = ({ item }) => (
         <Item name={item.name}
             distance={item.distance}
             address={item.address}
             ratings={item.ratings}
-            image={item.image} />
+            image={item.image}
+            navigation={navigation} />
     );
 
     return (

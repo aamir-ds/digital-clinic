@@ -15,8 +15,8 @@ import Octi from 'react-native-vector-icons/Octicons';
 
 
 const Item = ({ name, distance, ratings, image, reviews, type, video, navigation, index, item }) => (
-  <View style={{ marginLeft: index === 0 ? 15 : 0, marginRight: index === doctors.length - 1 ? 15 : 0, borderTopColor: colors.primary, borderTopWidth: 2, elevation: 3, padding: 15, alignItems: 'center', backgroundColor: colors.white }}>
-    <TouchableOpacity activeOpacity={0.5} >
+  <TouchableOpacity activeOpacity={0.5} style={{ marginLeft: index === 0 ? 15 : 0, marginRight: index === doctors.length - 1 ? 15 : 0, borderTopColor: colors.primary, borderTopWidth: 2, elevation: 3, padding: 15, alignItems: 'center', backgroundColor: colors.white }}>
+    <View activeOpacity={0.5} >
       <Image style={{
         width: 75,
         height: 75,
@@ -25,19 +25,19 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
       }}
         source={image}
       />
-    </TouchableOpacity>
+    </View>
     <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 15, backgroundColor: colors.lightGrey, paddingVertical: 2, paddingHorizontal: 7, borderRadius: 4 }}>
       <Fa style={{ marginRight: 5 }} size={15} color={colors.primary} name={'star'} />
       <Text style={{ fontSize: 15, color: colors.primary, fontWeight: '500' }}>{ratings}</Text>
     </View>
-    <TouchableOpacity activeOpacity={0.5} >
+    <View  >
       <Text style={{ fontSize: 18, fontWeight: '400', color: colors.black, marginBottom: 2 }}>{name}</Text>
-    </TouchableOpacity>
+    </View>
     <Text style={{ fontSize: 15, fontWeight: '400', color: colors.greyFont }}>{type}</Text>
     <View style={{ marginTop: 15, padding: 5, borderColor: colors.primary, borderWidth: 1, borderRadius: 4, backgroundColor: colors.lightGrey }}>
       <Text style={{ fontSize: 10, color: colors.primary }}>AVAILABLE SPOTS</Text>
     </View>
-  </View >
+  </TouchableOpacity >
 );
 
 
@@ -56,7 +56,7 @@ export default function Maps() {
       //   ),
       headerRight: () => (
         <TouchableOpacity
-          onPress={() => navigation.goBack()}
+          // onPress={() => navigation.goBack()}
           style={{ marginLeft: 10 }}>
           <Feather name='filter' size={20} color={colors.white} />
         </TouchableOpacity>

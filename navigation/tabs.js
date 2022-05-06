@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
 import Entypo from 'react-native-vector-icons/Entypo'
@@ -17,7 +17,7 @@ import Links from '../screens/Links'
 const Tab = createBottomTabNavigator()
 
 
-const Tabs = () => {
+const Tabs = ({ navigation }) => {
 
     return (
         <Tab.Navigator
@@ -74,8 +74,12 @@ const Tabs = () => {
                 options={{
                     headerRight: () => (
                         <View style={{ flexDirection: 'row' }}>
-                            <Feather style={{ marginRight: 10, marginLeft: 10 }} size={20} color={colors.greyFont} name={'search'} />
-                            <Octi style={{ marginRight: 20, marginLeft: 10 }} size={20} color={colors.greyFont} name={'location'} />
+                            <TouchableOpacity style={{ marginRight: 15, marginLeft: 10 }}>
+                                <Feather size={20} color={colors.greyFont} name={'search'} />
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('Map')} style={{ marginRight: 20, marginLeft: 10 }}>
+                                <Octi size={20} color={colors.greyFont} name={'location'} />
+                            </TouchableOpacity>
                         </View>
                     ),
 

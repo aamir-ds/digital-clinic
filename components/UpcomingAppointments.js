@@ -14,10 +14,10 @@ import colors from '../config/colors';
 
 
 
-const Item = ({ name, distance, ratings, image, reviews, type, video, }) => (
+const Item = ({ name, distance, ratings, image, reviews, type, video, navigation }) => (
 
 
-    <TouchableOpacity style={styles.item} >
+    <View style={styles.item} >
         <View style={{
             flexDirection: 'row',
             padding: 20,
@@ -71,12 +71,12 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, }) => (
                 <Text style={{ color: colors.greyFont, fontSize: 16, marginBottom: 10 }}>In 5 Days</Text>
                 <Text style={{ color: colors.black, fontSize: 18 }}>Video Visit</Text>
             </View>
-            <View style={{ backgroundColor: colors.lightGrey, marginRight: 10, justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: colors.greenOutline, height: 50, width: 50, borderRadius: 6 }}>
+            <TouchableOpacity onPress={() => navigation.navigate('DoctorCalling')} style={{ backgroundColor: colors.lightGrey, marginRight: 10, justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: colors.greenOutline, height: 50, width: 50, borderRadius: 6 }}>
                 <Feather size={20} color={colors.greenOutline} name={'video'} />
-            </View>
-            <View style={{ backgroundColor: colors.lightGrey, justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: colors.primary, height: 50, width: 50, borderRadius: 6 }}>
+            </TouchableOpacity>
+            <TouchableOpacity style={{ backgroundColor: colors.lightGrey, justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: colors.primary, height: 50, width: 50, borderRadius: 6 }}>
                 <Ion size={20} color={colors.primary} name={'ios-chatbubble-ellipses-outline'} />
-            </View>
+            </TouchableOpacity>
         </View>
         <View style={{
             paddingBottom: 20,
@@ -85,16 +85,17 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, }) => (
             alignItems: 'center',
             paddingTop: 10
         }}>
-            <TouchableOpacity style={{ backgroundColor: colors.lightGrey, alignItems: 'center', justifyContent: 'center', borderRadius: 5, height: 50, width: '100%', borderColor: colors.greenOutline, borderWidth: 2 }}>
+            <TouchableOpacity onPress={() => navigation.navigate('DoctorCalling')}
+                style={{ backgroundColor: colors.lightGrey, alignItems: 'center', justifyContent: 'center', borderRadius: 5, height: 50, width: '100%', borderColor: colors.greenOutline, borderWidth: 2 }}>
                 <Text style={{ color: colors.greenOutline, fontSize: 17 }}>Video call will start soon</Text>
             </TouchableOpacity>
 
         </View>
 
-    </TouchableOpacity>
+    </View >
 );
 
-const UpcomingAppointments = () => {
+const UpcomingAppointments = ({ navigation }) => {
 
     const renderItem = ({ item }) => (
         <Item name={item.name}
@@ -109,6 +110,7 @@ const UpcomingAppointments = () => {
             online={item.online}
             video={item.video}
             image={item.image}
+            navigation={navigation}
         />
     );
 

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -24,7 +24,7 @@ import Booking from '../screens/Booking';
 
 const Stack = createNativeStackNavigator();
 
-export default function StackNavigation() {
+export default function StackNavigation({ navigation }) {
   return (
     <Stack.Navigator initialRouteName="OnBoarding">
 
@@ -75,8 +75,12 @@ export default function StackNavigation() {
           },
           headerRight: () => (
             <View style={{ flexDirection: 'row' }}>
-              <Feather style={{ marginRight: 15, marginLeft: 10 }} size={20} color={colors.white} name={'search'} />
-              <Octi style={{ marginRight: 5, marginLeft: 10 }} size={20} color={colors.white} name={'location'} />
+              <TouchableOpacity style={{ marginRight: 15, marginLeft: 10 }}>
+                <Feather size={20} color={colors.white} name={'search'} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('Map')} style={{ marginRight: 5, marginLeft: 10 }} >
+                <Octi size={20} color={colors.white} name={'location'} />
+              </TouchableOpacity>
             </View>
           ),
         }}
