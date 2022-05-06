@@ -126,7 +126,7 @@ const PaymentProcess = () => {
                 </View>
 
                 <View style={styles.footerSection}>
-                    <ButtonComponent title={"Confirm"} onPress={() => {navigation.navigate('PaymentCardDetails')}}/>
+                    <ButtonComponent title={"Confirm"} route={'PaymentCardDetails'} />
                 </View>
             </SafeAreaView>
         </ScrollView>

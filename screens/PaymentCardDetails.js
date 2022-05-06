@@ -15,92 +15,92 @@ import InputComponent from '../components/InputComponent';
 
 const PaymentCardDetails = ({ navigation }) => {
   const window = useWindowDimensions();
-  
+
   useLayoutEffect(() => {
-        navigation.setOptions({
-            //   headerLeft: () => (
-            //     <TouchableOpacity
-            //       onPress={() => alert('Left Menu Clicked')}
-            //       style={{marginRight: 20, alignItems: 'center'}}>
-            //         <Feather name='arrow-left' size={20} color={colors.white}/>
-            //     </TouchableOpacity>
-            //   ),
-            headerRight: () => (
-                <TouchableOpacity
-                    onPress={() => alert('Right Menu Clicked')}
-                    style={{ marginLeft: 10 }}>
-                    <Ion name='close' size={20} color={colors.white} />
-                </TouchableOpacity>
-            ),
+    navigation.setOptions({
+      //   headerLeft: () => (
+      //     <TouchableOpacity
+      //       onPress={() => alert('Left Menu Clicked')}
+      //       style={{marginRight: 20, alignItems: 'center'}}>
+      //         <Feather name='arrow-left' size={20} color={colors.white}/>
+      //     </TouchableOpacity>
+      //   ),
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => alert('Right Menu Clicked')}
+          style={{ marginLeft: 10 }}>
+          <Ion name='close' size={20} color={colors.white} />
+        </TouchableOpacity>
+      ),
 
-            headerShadowVisible: false,
-            headerStyle: {
-                backgroundColor: '#6574CF', //Set Header color
-                elevation: 0, // remove shadow on Android
-                shadowOpacity: 0, // remove shadow on iOS
-            },
-            headerTintColor: colors.white,
-        });
-      }, [navigation]);
-  
+      headerShadowVisible: false,
+      headerStyle: {
+        backgroundColor: '#6574CF', //Set Header color
+        elevation: 0, // remove shadow on Android
+        shadowOpacity: 0, // remove shadow on iOS
+      },
+      headerTintColor: colors.white,
+    });
+  }, [navigation]);
+
   return (
-      <SafeAreaView style={styles.container}>
-          <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
-          <View style={styles.cardSection}>
-            <View style={styles.content}>
-              <Text style={styles.cardName}>Visa</Text>
-              <View style={styles.cardNumber}>
-                <View style={{flexDirection: 'row', alignSelf: 'center'}}>
-                  <View style={styles.dot}></View>
-                  <View style={styles.dot}></View>
-                  <View style={styles.dot}></View>
-                  <View style={styles.dot}></View>
-                </View>
-                <View style={{flexDirection: 'row', alignSelf: 'center'}}>
-                  <View style={styles.dot}></View>
-                  <View style={styles.dot}></View>
-                  <View style={styles.dot}></View>
-                  <View style={styles.dot}></View>
-                </View> 
-                <View style={{flexDirection: 'row', alignSelf: 'center'}}>
-                  <View style={styles.dot}></View>
-                  <View style={styles.dot}></View>
-                  <View style={styles.dot}></View>
-                  <View style={styles.dot}></View>
-                </View>
-                <Text style={styles.number}>1222</Text>
-              </View>
-              <View style={styles.cardHolder}>
-                <Text style={styles.fullname}>Lucas Pacheco</Text>
-                <Text style={styles.fullname}>09.24</Text>
-              </View>
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
+      <View style={styles.cardSection}>
+        <View style={styles.content}>
+          <Text style={styles.cardName}>Visa</Text>
+          <View style={styles.cardNumber}>
+            <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
+              <View style={styles.dot}></View>
+              <View style={styles.dot}></View>
+              <View style={styles.dot}></View>
+              <View style={styles.dot}></View>
             </View>
+            <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
+              <View style={styles.dot}></View>
+              <View style={styles.dot}></View>
+              <View style={styles.dot}></View>
+              <View style={styles.dot}></View>
+            </View>
+            <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
+              <View style={styles.dot}></View>
+              <View style={styles.dot}></View>
+              <View style={styles.dot}></View>
+              <View style={styles.dot}></View>
+            </View>
+            <Text style={styles.number}>1222</Text>
+          </View>
+          <View style={styles.cardHolder}>
+            <Text style={styles.fullname}>Lucas Pacheco</Text>
+            <Text style={styles.fullname}>09.24</Text>
+          </View>
+        </View>
+      </View>
+
+      <ScrollView>
+        <View style={styles.formSection}>
+          <View style={styles.formField}>
+            <InputComponent label={'Card Number'} type={'numeric'} />
+          </View>
+          <View style={styles.formField}>
+            <InputComponent label={'Card Holder'} type={'text'} />
           </View>
 
-          <ScrollView>
-          <View style={styles.formSection}>
-            <View style={styles.formField}>
-              <InputComponent label={'Card Number'} type={'numeric'}/>
+          <View style={styles.flexFields}>
+            <View style={[styles.formField, { flex: 2, marginRight: 20 }]}>
+              <InputComponent label={'Expiry Date'} type={'numeric'} />
             </View>
-            <View style={styles.formField}>
-              <InputComponent label={'Card Holder'} type={'text'}/>
-            </View>
-
-            <View style={styles.flexFields}>
-              <View style={[styles.formField, {flex: 2, marginRight: 20}]}>
-                <InputComponent label={'Expiry Date'} type={'numeric'}/>
-              </View>
-              <View style={[styles.formField, {flex: 1}]}>
-                <InputComponent label={'CVV'} type={'numeric'} maxLength={40}/>
-              </View>
+            <View style={[styles.formField, { flex: 1 }]}>
+              <InputComponent label={'CVV'} type={'numeric'} maxLength={40} />
             </View>
           </View>
-          </ScrollView>
+        </View>
+      </ScrollView>
 
-          <View style={styles.footer}>
-            <ButtonComponent title={'Pay'} onPress={() => {navigation.navigate('BookingSuccessful')}}/>
-          </View>
-      </SafeAreaView>
+      <View style={styles.footer}>
+        <ButtonComponent title={'Pay'} route={'BookingSuccessful'} />
+      </View>
+    </SafeAreaView>
   )
 }
 
@@ -113,12 +113,12 @@ const styles = StyleSheet.create({
   cardSection: {
     flex: 1,
     margin: 20,
-    height:200,
+    height: 200,
     borderRadius: 5,
     borderLeftWidth: 7,
     borderLeftColor: "#B1A0FF",
     backgroundColor: "#8293FE",
-  }, 
+  },
   cardName: {
     color: colors.white,
     fontSize: 24,
@@ -142,10 +142,10 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 20,
     flex: 1,
-    justifyContent: 'space-between', 
+    justifyContent: 'space-between',
     height: 200,
     // borderWidth: 1
-  }, 
+  },
   dot: {
     width: 10,
     height: 10,
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-between'
-  }, 
+  },
   fullname: {
     fontSize: 18,
     fontFamily: 'Open Sans',

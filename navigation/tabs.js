@@ -10,7 +10,6 @@ import colors from '../config/colors'
 import AllDoctors from '../screens/AllDoctors'
 import Appointments from '../screens/Appointments'
 import Home from '../screens/Home'
-import Links from '../screens/Links'
 
 
 
@@ -140,28 +139,7 @@ const Tabs = ({ navigation }) => {
                 name="Appointments"
                 component={Appointments}
             />
-            <Tab.Screen
-                options={{
-                    tabBarLabel: 'Links',
-                    tabBarIcon: ({ focused }) => {
-                        return focused ? (
-                            <View style={styles.labelFocusedContainer}>
-                                <Octi style={{ justifyContent: 'center' }} name="person" color={colors.primary} size={20} />
 
-                            </View>
-                        ) : (
-                            <View style={styles.labelContainer}>
-                                <Octi style={{ justifyContent: 'center' }} name="person" color={colors.primary} size={20} />
-                            </View>
-                        );
-                    },
-                    // tabBarIcon: () => (
-                    //     <Octi name="person" color={colors.primary} size={20} />
-                    // ),
-                }}
-                name="Links"
-                component={Links}
-            />
         </Tab.Navigator >
     )
 }

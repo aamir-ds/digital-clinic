@@ -20,10 +20,10 @@ const TimeTab = () => {
 
     const customDatesStyles = [
         {
-            style : {
+            style: {
                 backgroundColor: 'transparent'
             },
-            textStyle: {color: 'red'},
+            textStyle: { color: 'red' },
             containerStyle: [
                 {
                     borderRadius: 5,
@@ -35,13 +35,13 @@ const TimeTab = () => {
             allowDisabled: true,
         }
     ];
-    
-    const customMonthYearHeaderStyles = 
-        {
-            height: 50,
-            alignItems: 'center',
-            justifyContent: 'space-between',
-        }
+
+    const customMonthYearHeaderStyles =
+    {
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    }
     const dayWrapper = {
         borderTopWidth: 0,
         borderBottomWidth: 1,
@@ -50,16 +50,16 @@ const TimeTab = () => {
     }
 
     const customDayHeaderStylesCallback = () => {
-            return {
-              style: {
-              },
-              textStyle: {
+        return {
+            style: {
+            },
+            textStyle: {
                 color: colors.greyFont,
                 fontSize: 14,
                 fontWeight: 'bold',
-              },
-            };
-      }
+            },
+        };
+    }
 
     const onDateChange = (date) => {
         setDate(date)
@@ -67,39 +67,39 @@ const TimeTab = () => {
 
     return (
         <View style={styles.container}>
-        <View style={styles.calenderContainer}>
-            <CalendarPicker
-            selectedDayColor = {colors.lightGrey}
-            selectedDayTextColor = {colors.black}
-            customDayHeaderStyles={customDayHeaderStylesCallback}
-            customDatesStyles={customDatesStyles}
-            weekdays={['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']}
-            previousTitle={<EvilIco name='chevron-left' size={30} color={colors.greyFont}/>}
-            nextTitle={<EvilIco name='chevron-right' size={30} color={colors.greyFont}/>}
-            headerWrapperStyle={customMonthYearHeaderStyles}
-            dayLabelsWrapper= {dayWrapper}
-            />
-        </View>
-
-        <View style={styles.timeContainer}>
-            <View style={styles.header}>
-                <Text style={styles.title}>Available Time</Text>
+            <View style={styles.calenderContainer}>
+                <CalendarPicker
+                    selectedDayColor={colors.lightGrey}
+                    selectedDayTextColor={colors.black}
+                    customDayHeaderStyles={customDayHeaderStylesCallback}
+                    customDatesStyles={customDatesStyles}
+                    weekdays={['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']}
+                    previousTitle={<EvilIco name='chevron-left' size={30} color={colors.greyFont} />}
+                    nextTitle={<EvilIco name='chevron-right' size={30} color={colors.greyFont} />}
+                    headerWrapperStyle={customMonthYearHeaderStyles}
+                    dayLabelsWrapper={dayWrapper}
+                />
             </View>
-            <View style={styles.timeSlots}>
-                <Text style={styles.timings}>13:00 AM</Text>
-                <Text style={styles.timings}>13:30 AM</Text>
-                <Text style={[styles.timings, styles.selectedSlot]}>14:00 AM</Text>
-                <Text style={styles.timings}>14:30 AM</Text>
-                <Text style={styles.timings}>15:00 AM</Text>
-                <Text style={styles.timings}>15:30 AM</Text>
-                <Text style={styles.timings}>16:00 AM</Text>
-                <Text style={styles.timings}>16:30 AM</Text>
-            </View>
-        </View>
 
-        <View>
-            <ButtonComponent title={'Next'}/>
-        </View>
+            <View style={styles.timeContainer}>
+                <View style={styles.header}>
+                    <Text style={styles.title}>Available Time</Text>
+                </View>
+                <View style={styles.timeSlots}>
+                    <Text style={styles.timings}>13:00 AM</Text>
+                    <Text style={styles.timings}>13:30 AM</Text>
+                    <Text style={[styles.timings, styles.selectedSlot]}>14:00 AM</Text>
+                    <Text style={styles.timings}>14:30 AM</Text>
+                    <Text style={styles.timings}>15:00 AM</Text>
+                    <Text style={styles.timings}>15:30 AM</Text>
+                    <Text style={styles.timings}>16:00 AM</Text>
+                    <Text style={styles.timings}>16:30 AM</Text>
+                </View>
+            </View>
+
+            <View>
+                <ButtonComponent title={'Next'} route={'PaymentProcess'} />
+            </View>
         </View>
     )
 }
@@ -118,12 +118,12 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         // paddingHorizontal: 10,
         // marginVertical: 10,
-      },
-      timeContainer: {
-          flex: 1,
+    },
+    timeContainer: {
+        flex: 1,
         //   padding: 15
-      },
-      timeSlots: {
+    },
+    timeSlots: {
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'center',
@@ -133,25 +133,25 @@ const styles = StyleSheet.create({
         // maxHeight: 200,
         height: 100,
         // borderWidth: 1
-      },
-      header: {
-          paddingVertical: 20,
-      },
-      title: {
-          color: colors.black,
-          fontSize: 16,
+    },
+    header: {
+        paddingVertical: 20,
+    },
+    title: {
+        color: colors.black,
+        fontSize: 16,
         //   fontWeight: 'bold'
-      },
-      selectedSlot: {
-          backgroundColor: colors.primary,
-          color: colors.white
-      },
-      timings:{ 
-          fontSize: 14,
-          color: colors.black,
-          padding: 10,
+    },
+    selectedSlot: {
+        backgroundColor: colors.primary,
+        color: colors.white
+    },
+    timings: {
+        fontSize: 14,
+        color: colors.black,
+        padding: 10,
         //   marginRight: 10,
-          backgroundColor: colors.lightGrey,
-          borderRadius: 4
-      }
+        backgroundColor: colors.lightGrey,
+        borderRadius: 4
+    }
 })
