@@ -8,27 +8,24 @@ import OnBoardingQuestionaire from '../components/OnBoardingQuestionaire';
 
 export default function OnBoarding({ navigation }) {
 
-    const [onBoardingStarted, setValue] = React.useState(false);
 
-    function handleOnBoardingState(val) {
-        setValue(val)
+    const [onBoarding, setOnBoarding] = useState(true);
+
+    const handleOnBoardingState = (val) => {
+        setOnBoarding(val)
     }
 
     return (
-        <SafeAreaView style={[styles.container]}>
+        <SafeAreaView style={styles.container}>
             <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
             <View style={styles.container}>
-                <View style={styles.head}>
-                    <TouchableOpacity>
-                        <Feather name='arrow-left' size={20} color={colors.white} />
-                    </TouchableOpacity>
-                    <Text style={{ color: colors.white, fontSize: 12 }}>Skip</Text>
-                </View>
+
                 {
-                    onBoardingStarted ?
-                        <OnBoardingQuestionaire /> :
-                        <OnBoardingGreetings onBoardingStarted={onBoardingStarted} onChange={handleOnBoardingState} />
+                    onBoarding ?
+                        <OnBoardingGreetings onChange={handleOnBoardingState} /> :
+                        <OnBoardingQuestionaire onChange={handleOnBoardingState} />
                 }
+
             </View>
         </SafeAreaView>
     )

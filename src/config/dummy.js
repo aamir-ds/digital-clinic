@@ -228,5 +228,39 @@ const homePageListing = [
     }
 ]
 
+const doctorVisitAnswer = [
+    {
+        id: '1',
+        answer: 'Once',
+    }, {
+        id: '2',
+        answer: 'More than once',
+    }
+    , {
+        id: '3',
+        answer: 'Less than once',
+    }
+]
+const cornicAnswer = [
+    {
+        id: '1',
+        answer: 'No',
+    }, {
+        id: '2',
+        answer: 'Yes',
+    }
+]
+const OnBoardingQuestion = [
+    {
+        id: '1',
+        question: 'How many times a year do you visit general practitioner?',
+    }, {
+        id: '2',
+        question: 'Do you have chronic conditions?',
+    }
+]
 
-export { clinics, doctors, paymentMethods, homePageListing }
+
+
+
+export { clinics, doctors, paymentMethods, homePageListing, doctorVisitAnswer, OnBoardingQuestion, cornicAnswer }
