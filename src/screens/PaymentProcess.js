@@ -1,5 +1,5 @@
-import { StyleSheet, Text, StatusBar, View, TouchableOpacity, ScrollView, useWindowDimensions } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import { StyleSheet, Text, StatusBar, View, Pressable, ScrollView, useWindowDimensions, FlatList } from 'react-native'
+import React, { useLayoutEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from '../config/colors'
 import MatIco from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -7,6 +7,7 @@ import MatIco from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ion from 'react-native-vector-icons/Ionicons';
 import ButtonComponent from '../components/ButtonComponent';
 import { useNavigation } from '@react-navigation/native';
+import { paymentMethods } from '../config/dummy';
 
 const PaymentProcess = () => {
     const window = useWindowDimensions();
@@ -22,11 +23,11 @@ const PaymentProcess = () => {
             //     </TouchableOpacity>
             //   ),
             headerRight: () => (
-                <TouchableOpacity
-                    onPress={() => alert('Right Menu Clicked')}
+                <Pressable
+                    onPress={() => navigation.navigate('Booking')}
                     style={{ marginLeft: 10 }}>
                     <Ion name='close' size={20} color={colors.white} />
-                </TouchableOpacity>
+                </Pressable>
             ),
 
             headerShadowVisible: false,
@@ -38,6 +39,36 @@ const PaymentProcess = () => {
             headerTintColor: colors.white,
         });
     }, [navigation]);
+
+    const [activeCard , setPayCardType] = useState(paymentMethods[0]);
+
+    const selectCard = (item) => {
+        if(item.checked == false){
+            item.checked = true
+            setPayCardType(prev => prev.checked = false);
+            setPayCardType(item);
+        } else {
+            setPayCardType(item);
+        }
+        // console.log("Clicked",activeCard)
+    }
+
+    const renderItem = ({item}) => (
+        <View style={{flex: 1, flexDirection: 'column', margin: 5, justifyContent: 'center', alignItems: 'center'}}>
+            <Pressable style={[styles.card, item.checked == true ? styles.selected: '' ]} activeOpacity={0.7} onPress={()=> selectCard(item)}
+            android_ripple={{color: colors.lightPurple,borderless: false, radius: 95}}>
+                {
+                    item.checked == true ? 
+                    <View style={styles.tickIco}>
+                        <MatIco name='check-circle-outline' size={20} color={colors.primary} />
+                    </View> :  <></>
+                }
+                <View style={styles.content}>
+                    <Text style={styles.cardName}>{item.name}</Text>
+                </View>
+            </Pressable>
+        </View>
+    )
 
     return (
         <ScrollView>
@@ -90,34 +121,16 @@ const PaymentProcess = () => {
                 </View>
 
                 <View style={styles.paymentSection}>
-                    {/* <View style={styles.paymentContainer}> */}
                     <Text style={styles.heading}>Payment Method</Text>
-                    <View style={styles.cardList}>
-                        <TouchableOpacity style={[styles.card, styles.selectedCard]} activeOpacity={0.7}>
-                            <View style={styles.tickIco}>
-                                <MatIco name='check-circle-outline' size={20} color={colors.primary} />
-                            </View>
-                            <View style={styles.content}>
-                                <Text style={[styles.cardName, { color: colors.primary }]}>Visa</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.card} activeOpacity={0.7}>
-                            <View style={styles.content}>
-                                <Text style={styles.cardName}>MasterCard</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.card} activeOpacity={0.7}>
-                            <View style={styles.content}>
-                                <Text style={styles.cardName}>Paypal</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.card} activeOpacity={0.7}>
-                            <View style={styles.content}>
-                                <Text style={styles.cardName}>Pay</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                    {/* </View> */}
+                        <View style={{marginHorizontal: 15}}>
+                        <FlatList
+                        data={paymentMethods}
+                        renderItem={renderItem} 
+                        keyExtractor={(item)=>item.id}
+                        numColumns={2}
+                        key={item => item.id}
+                        />
+                        </View>
                 </View>
 
                 <View style={styles.footerSection}>
@@ -221,12 +234,15 @@ const styles = StyleSheet.create({
     paymentSection: {
         flex: 1,
         marginTop: 40,
-        padding: 20,
+        marginBottom: 10
+        // padding: 20,
     },
     heading: {
         color: colors.darkGrey,
         fontSize: 16,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        paddingHorizontal:20 ,
+        paddingVertical: 10
     },
     paymentContainer: {
         padding: 20,
@@ -237,18 +253,21 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         height: 230,
-        justifyContent: 'space-between',
-        alignItems: 'center',
+        // justifyContent: 'space-between',
+        // alignItems: 'center',
         alignContent: 'stretch',
     },
     card: {
         backgroundColor: colors.white,
         color: colors.primary,
-        width: '47%',
+        width: '100%',
         height: 90,
+        // justifyContent: 'center',
+        // alignItems: 'center',
         borderRadius: 5,
         elevation: 2.5,
-        padding: 10
+        padding: 10,
+        // borderWidth: 1
     },
     content: {
         flex: 1,
@@ -258,9 +277,10 @@ const styles = StyleSheet.create({
     cardName: {
         //   color: colors.primary,
         color: colors.greyFont,
-        fontSize: 20,
+        fontSize: 22,
         fontWeight: 'bold',
-        fontFamily: 'Open Sans'
+        fontFamily: 'Open Sans',
+        textTransform: 'capitalize'
     },
     footerSection: {
         flex: 1,
@@ -285,7 +305,7 @@ const styles = StyleSheet.create({
         top: 10,
         right: 10
     },
-    selectedCard: {
+    selected: {
         borderColor: colors.primary,
         borderWidth: 1,
         backgroundColor: colors.lightPrimary

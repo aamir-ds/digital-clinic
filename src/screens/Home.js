@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View, StatusBar } from 'react-native'
+import { FlatList, StyleSheet, Text, TextInput, Pressable, View, StatusBar } from 'react-native'
 import React from 'react'
 import colors from '../config/colors'
 import Feather from 'react-native-vector-icons/Feather';
@@ -10,7 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const Emergency = () => (
-  <TouchableOpacity activeOpacity={0.6} style={{ marginVertical: 20, paddingHorizontal: 10, alignItems: 'center', height: 80, width: '100%', backgroundColor: colors.white, borderRadius: 3, flexDirection: 'row' }}>
+  <Pressable activeOpacity={0.6} style={{ marginVertical: 20, paddingHorizontal: 10, alignItems: 'center', height: 80, width: '100%', backgroundColor: colors.white, borderRadius: 3, flexDirection: 'row' }}>
     <View style={{ justifyContent: 'center', alignItems: 'center', height: 60, width: 60, backgroundColor: colors.lightOrange, borderRadius: 5 }}>
       <Fontisto size={40} color={colors.redIcon} name={'bandage'} />
 
@@ -20,11 +20,11 @@ const Emergency = () => (
       <Text style={{ fontSize: 13, color: colors.greyFont }}>Short Description</Text>
     </View>
     <MaterialIcons style={{ marginRight: 15, marginLeft: 10 }} size={20} color={colors.greyFont} name={'arrow-forward-ios'} />
-  </TouchableOpacity>
+  </Pressable>
 )
 
 const Item = ({ name, id, description, index, icon, navigate, navigation }) => (
-  <TouchableOpacity
+  <Pressable
     activeOpacity={0.6}
     onPress={() => navigation.navigate(navigate)}
     style={[{ height: 150, width: '47%', backgroundColor: colors.white, padding: 10 }, index % 2 !== 0 && { marginLeft: 20 }]}>
@@ -44,7 +44,7 @@ const Item = ({ name, id, description, index, icon, navigate, navigation }) => (
       <Text style={{ fontWeight: '500', color: colors.black }}>{name}</Text>
       <Text style={{ fontWeight: '400', color: colors.greyFont }}>{description}</Text>
     </View>
-  </TouchableOpacity >
+  </Pressable >
 )
 
 

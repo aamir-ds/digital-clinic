@@ -3,10 +3,16 @@ import React from 'react'
 import colors from '../config/colors'
 
 export default function InputComponent(props) {
+
+  function inputBlur(val) {
+    props.OnChange(val)
+  }
+
   return (
     <View>
       <Text style={styles.label}>{props.label}</Text>
-      <TextInput keyboardType={props.type} style={styles.input} maxLength={props.maxLength} />
+      <TextInput keyboardType={props.type} style={styles.input} maxLength={props.maxLength} onChange={(value) => inputBlur(value.nativeEvent.text)}
+      autoCapitalize={props.capitalizeOn && props.capitalizeOn == true ? 'words': 'none'}/>
     </View>
   )
 }
@@ -16,12 +22,12 @@ const styles = StyleSheet.create({
     color: colors.greyFont,
     textTransform: 'uppercase',
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: '500',
     marginBottom: 10
   },
   input: {
     borderWidth: 1,
-    borderColor: colors.greyFont,
+    borderColor: "#ccc",
     backgroundColor: colors.lightGrey,
     color: colors.darkGrey,
     borderRadius: 5,

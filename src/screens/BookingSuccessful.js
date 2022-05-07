@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, TouxhableOpacity } from 'react-native'
 import React from 'react'
 import colors from '../config/colors'
 
@@ -12,14 +12,15 @@ const BookingSuccessful = ({ navigation }) => {
         <View style={styles.midSection}>
           <Text style={styles.title}>Booking Successful</Text>
           <Text style={styles.subtitle}>Your booking has been successful, the reminder is set automatically</Text>
-          <TouchableOpacity style={styles.viewDetails} activeOpacity="0.7">
+          <TouxhableOpacity style={styles.viewDetails} activeOpacity="0.7">
             <Text style={styles.link}>View Details</Text>
-          </TouchableOpacity>
+          </TouxhableOpacity>
         </View>
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate('Home Page')} style={styles.button}>
+      <Pressable android_ripple={{color: colors.lightPurple,borderless: false, radius: 200}} 
+      onPress={() => navigation.navigate('Home Page')} style={styles.button}>
         <Text style={styles.buttonText}>GOT IT</Text>
-      </TouchableOpacity>
+      </Pressable>
 
     </View>
   )

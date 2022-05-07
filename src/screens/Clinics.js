@@ -1,4 +1,4 @@
-import { FlatList, Image, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Image, StatusBar, StyleSheet, Text, Pressable, View } from 'react-native'
 import React from 'react'
 import { clinics } from '../config/dummy';
 import colors from '../config/colors';
@@ -12,7 +12,7 @@ import Feather from 'react-native-vector-icons/Feather';
 
 
 const Item = ({ name, distance, address, ratings, image, navigation }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('Map')} activeOpacity={0.7} style={styles.item}>
+    <Pressable onPress={() => navigation.navigate('Map')} activeOpacity={0.7} style={styles.item}>
         <View style={{
             flexDirection: 'row',
             padding: 20,
@@ -56,7 +56,7 @@ const Item = ({ name, distance, address, ratings, image, navigation }) => (
             <Feather style={{ marginRight: 5 }} size={20} color={colors.greyFont} name={'arrow-right'} />
         </View>
 
-    </TouchableOpacity>
+    </Pressable>
 );
 
 

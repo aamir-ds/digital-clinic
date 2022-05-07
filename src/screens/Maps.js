@@ -1,4 +1,4 @@
-import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, Pressable, View } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import Feather from 'react-native-vector-icons/Feather';
 import colors from '../config/colors';
@@ -11,7 +11,7 @@ import Fa from 'react-native-vector-icons/FontAwesome';
 
 
 const Item = ({ name, distance, ratings, image, reviews, type, video, navigation, index, item }) => (
-  <TouchableOpacity activeOpacity={0.5} style={{ marginLeft: index === 0 ? 15 : 0, marginRight: index === doctors.length - 1 ? 15 : 0, borderTopColor: colors.primary, borderTopWidth: 2, elevation: 3, padding: 15, alignItems: 'center', backgroundColor: colors.white }}>
+  <Pressable activeOpacity={0.5} style={{ marginLeft: index === 0 ? 15 : 0, marginRight: index === doctors.length - 1 ? 15 : 0, borderTopColor: colors.primary, borderTopWidth: 2, elevation: 3, padding: 15, alignItems: 'center', backgroundColor: colors.white }}>
     <View activeOpacity={0.5} >
       <Image style={{
         width: 75,
@@ -33,7 +33,7 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
     <View style={{ marginTop: 15, padding: 5, borderColor: colors.primary, borderWidth: 1, borderRadius: 4, backgroundColor: colors.lightGrey }}>
       <Text style={{ fontSize: 10, color: colors.primary }}>AVAILABLE SPOTS</Text>
     </View>
-  </TouchableOpacity >
+  </Pressable >
 );
 
 
@@ -44,18 +44,18 @@ export default function Maps() {
   useLayoutEffect(() => {
     navigation.setOptions({
       //   headerLeft: () => (
-      //     <TouchableOpacity
+      //     <Pressable
       //       onPress={() => alert('Left Menu Clicked')}
       //       style={{marginRight: 20, alignItems: 'center'}}>
       //         <Feather name='arrow-left' size={20} color={colors.white}/>
-      //     </TouchableOpacity>
+      //     </Pressable>
       //   ),
       headerRight: () => (
-        <TouchableOpacity
+        <Pressable
           // onPress={() => navigation.goBack()}
           style={{ marginLeft: 10 }}>
           <Feather name='filter' size={20} color={colors.white} />
-        </TouchableOpacity>
+        </Pressable>
       ),
 
       headerShadowVisible: false,

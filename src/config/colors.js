@@ -12,5 +12,7 @@ export default {
     redIcon: '#ff4e32',
     red: '#FF6666',
     purple: '#7D8AD6',
-    lightOrange: '#FFF1EF'
+    lightOrange: '#FFF1EF',
+    lightGreen: '#EDFBF3',
+    mediumGreen: '#F5FAF5'
 };

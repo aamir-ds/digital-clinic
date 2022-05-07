@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, StatusBar, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, StatusBar, Pressable } from 'react-native'
 import React from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import Colors from '../config/colors';
@@ -31,12 +31,12 @@ const DoctorCalling = ({ navigation }) => {
                 </View>
 
                 <View style={styles.actionWrap}>
-                    <TouchableOpacity onPress={() => navigation.goBack()} activeOpacity={0.8} style={styles.actionBtns} >
+                    <Pressable onPress={() => navigation.goBack()} activeOpacity={0.8} style={styles.actionBtns} >
                         <Ion name="close" size={35} color={Colors.red} />
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={0.8} style={styles.actionBtns}>
+                    </Pressable>
+                    <Pressable activeOpacity={0.8} style={styles.actionBtns}>
                         <Feather name="phone-call" size={30} color={Colors.primary} />
-                    </TouchableOpacity>
+                    </Pressable>
                 </View>
             </View>
         </SafeAreaView>

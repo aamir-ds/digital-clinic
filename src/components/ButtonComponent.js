@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Pressable } from 'react-native'
 import React from 'react';
 import colors from '../config/colors'
 import { useNavigation } from '@react-navigation/native';
@@ -7,9 +7,11 @@ import { useNavigation } from '@react-navigation/native';
 export default function ButtonComponent({ title, route }) {
   const navigation = useNavigation()
   return (
-    <TouchableOpacity style={styles.button} activeOpacity={0.8} onPress={() => navigation.navigate(route)}>
+    <Pressable style={styles.button} activeOpacity={0.8} 
+    onPress={() => navigation.navigate(route)}
+    android_ripple={{color: colors.purple,borderless: false, radius: 200}}>
       <Text style={styles.buttonText}>{title}</Text>
-    </TouchableOpacity>
+    </Pressable>
   )
 }
 
