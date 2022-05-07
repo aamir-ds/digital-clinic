@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, Pressable, View, TouchableOpacity } from 'react-native';
 import colors from '../config/colors';
 import { doctors } from '../config/dummy';
 import SortContainer from './SortContainer';
@@ -15,18 +15,21 @@ import Fa from 'react-native-vector-icons/FontAwesome';
 const Item = ({ name, distance, ratings, image, reviews, type, video, navigation }) => (
 
 
-    <TouchableOpacity activeOpacity={0.7} style={styles.item}>
+    <View style={styles.item}>
         <View style={{
             flexDirection: 'row',
             padding: 20,
+            alignItems:'center',
+            justifyContent: 'center'
         }}>
-            <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('DoctorProfile')}>
+            <TouchableOpacity activeOpacity={0.7} style={{marginRight: 20}}
+            onPress={() => navigation.navigate('DoctorProfile')}
+            >
                 <Image style={{
                     width: 75,
                     height: 75,
                     borderRadius: 100,
                     resizeMode: 'contain',
-                    marginRight: 20
                 }}
                     source={image}
                 />
@@ -39,7 +42,7 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
                     </TouchableOpacity>
                     <Text style={{ fontSize: 16, fontWeight: '400', color: colors.greyFont, marginBottom: 5 }}>{type}</Text>
 
-                    <TouchableOpacity onPress={() => navigation.navigate('Map')}>
+                    <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Map')}>
                         <Text style={{ fontSize: 16, fontWeight: '400', color: colors.greyFont }}>
                             <Octi size={20} color={colors.greyFont} name={'location'} /> {distance} away</Text>
                     </TouchableOpacity>
@@ -56,26 +59,33 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
         </View>
 
         <View style={{
-            paddingBottom: 20,
-            paddingHorizontal: 20,
+            // paddingBottom: 20,
+            // paddingHorizontal: 20,
             flexDirection: 'row',
             alignItems: 'center',
-            paddingTop: 10
+            // paddingTop: 10
         }}>
-            <TouchableOpacity onPress={() => video && navigation.navigate('DoctorCalling')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+            <TouchableOpacity activeOpacity={0.6} onPress={() => video && navigation.navigate('DoctorCalling')} 
+            style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 20, paddingVertical: 10, borderRadius: 100 }}>
                 {video ? <Feather style={{ marginRight: 10 }} size={20} color={colors.primary} name={'video'} /> :
                     <Feather style={{ marginRight: 10 }} size={20} color={colors.greyFont} name={'video-off'} />}
                 <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 16 }}>Video Visit</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Appointments')} style={{ marginRight: 20 }}>
-                <Entypo size={20} color={colors.greyFont} name={'calendar'} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Ion size={20} color={colors.greyFont} name={'ios-chatbubble-ellipses-outline'} />
-            </TouchableOpacity>
+            <View style={{ flex: 1,flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end'}}>
+                <Pressable android_ripple={{color: colors.lightPrimary,borderless: true, radius: 20}} 
+                onPress={() => navigation.navigate('Appointments')} 
+                style={{ paddingHorizontal: 20,
+                paddingVertical: 10 }}
+                >
+                    <Entypo size={20} color={colors.greyFont} name={'calendar'} />
+                </Pressable>
+                <Pressable android_ripple={{color: colors.lightPrimary,borderless: true, radius: 20}} style={{paddingVertical: 10, paddingHorizontal: 20}}>
+                    <Ion size={20} color={colors.greyFont} name={'ios-chatbubble-ellipses-outline'} />
+                </Pressable>
+            </View>
         </View>
 
-    </TouchableOpacity>
+    </View>
 );
 
 
@@ -105,6 +115,7 @@ const DoctorsList = ({ navigation }) => {
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id}
                     ListHeaderComponent={SortContainer}
+                    style= {{flex: 1}}
                 />
             </View>
         </>
@@ -119,7 +130,7 @@ const styles = StyleSheet.create({
         // marginVertical: 16
     },
     item: {
-        marginHorizontal: 16,
+        marginHorizontal: 15,
         backgroundColor: colors.white,
         marginVertical: 10,
         borderRadius: 5

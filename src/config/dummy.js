@@ -170,16 +170,24 @@ const doctors = [
 
 const paymentMethods = [
     {
-        name: 'visa'
+        id: 1,
+        name: 'visa',
+        checked: true
     },
     {
-        name: 'mastercard'
+        id: 2,
+        name: 'mastercard',
+        checked: false
     },
     {
-        name: 'paypal'
+        id: 3,
+        name: 'paypal',
+        checked: false
     },
     {
-        name: 'applepay'
+        id: 4,
+        name: 'pay',
+        checked: false
     },
 ]
 

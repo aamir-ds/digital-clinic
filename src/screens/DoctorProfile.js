@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react'
-import { StyleSheet, Text, StatusBar, View, TouchableOpacity, Image, ScrollView, useWindowDimensions } from 'react-native'
+import { StyleSheet, Text, StatusBar, View, Pressable, Image, ScrollView, useWindowDimensions } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import colors from '../config/colors'
 import MatIco from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -18,17 +18,17 @@ const DoctorProfile = ({ navigation }) => {
         <Text style={{ fontWeight: 'normal' }}>Doctor's Profile</Text>
       ),
       // headerLeft: () => (
-      //   <TouchableOpacity
+      //   <Pressable
       //     onPress={() => alert('Left Menu Clicked')}
       //     style={{marginRight: 20, alignItems: 'center'}}>
       //       <Feather name='arrow-left' size={20} color={colors.white}/>
-      //   </TouchableOpacity>
+      //   </Pressable>
       // ),
       headerRight: () => (
 
-        <TouchableOpacity onPress={() => navigation.navigate('Map')} style={{ marginRight: 10 }}>
+        <Pressable onPress={() => navigation.navigate('Map')} style={{ marginRight: 10 }}>
           <Octi size={20} color={colors.white} name={'location'} />
-        </TouchableOpacity>
+        </Pressable>
       ),
 
       headerShadowVisible: false,
@@ -47,15 +47,15 @@ const DoctorProfile = ({ navigation }) => {
 
         <View style={styles.profileSection}>
           <View style={styles.actionLinks}>
-            <TouchableOpacity activeOpacity={0.8} style={{ flexDirection: 'row', alignItems: 'center' }}
+            <Pressable activeOpacity={0.8} style={{ flexDirection: 'row', alignItems: 'center' }}
               onPress={() => navigation.navigate('DoctorCalling')}>
               <Feather name='video' size={20} color={colors.primary} />
               <Text style={styles.videoLink}>Video Visit</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.chatBtn}>
+            </Pressable>
+            <Pressable style={styles.chatBtn}>
               {/* <Text style={styles.videoLink}>Chat</Text> */}
               <Ion name='chatbubble-ellipses-outline' size={20} color={colors.primary} />
-            </TouchableOpacity>
+            </Pressable>
           </View>
           <View style={styles.profilePic}>
             <Image style={styles.image} source={require('../assets/images/doctorProfile.jpg')} />
@@ -84,17 +84,17 @@ const DoctorProfile = ({ navigation }) => {
             </View>
           </View>
           <View style={styles.getTimingsBtn}>
-            <TouchableOpacity onPress={() => navigation.navigate('Booking')} style={styles.bookingBtn} activeOpacity={0.8}>
+            <Pressable onPress={() => navigation.navigate('Booking')} style={styles.bookingBtn} activeOpacity={0.8}>
               <MatIco name='calendar-week' size={20} color={colors.white} />
               <Text style={styles.btnText}>Available Timings</Text>
-            </TouchableOpacity>
+            </Pressable>
           </View>
         </View>
 
 
         <View style={styles.menuSection}>
 
-          <TouchableOpacity style={styles.listCard} activeOpacity={0.6}>
+          <Pressable style={styles.listCard} activeOpacity={0.6}>
             <MatIco name='briefcase' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }} />
             <View style={styles.listItems}>
               <Text style={styles.menuTitle}>Valid Insurance</Text>
@@ -102,9 +102,9 @@ const DoctorProfile = ({ navigation }) => {
             <View>
               <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }} />
             </View>
-          </TouchableOpacity>
+          </Pressable>
 
-          <TouchableOpacity style={styles.listCard} activeOpacity={0.6}>
+          <Pressable style={styles.listCard} activeOpacity={0.6}>
             <Ion name="ribbon-outline" color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }} />
             <View style={styles.listItems}>
               <Text style={styles.menuTitle}>Experience & Qualification</Text>
@@ -112,9 +112,9 @@ const DoctorProfile = ({ navigation }) => {
             <View>
               <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }} />
             </View>
-          </TouchableOpacity>
+          </Pressable>
 
-          <TouchableOpacity style={styles.listCard} activeOpacity={0.6}>
+          <Pressable style={styles.listCard} activeOpacity={0.6}>
             <Feather name='user' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }} />
             <View style={styles.listItems}>
               <Text style={styles.menuTitle}>Personal Information</Text>
@@ -122,9 +122,9 @@ const DoctorProfile = ({ navigation }) => {
             <View>
               <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }} />
             </View>
-          </TouchableOpacity>
+          </Pressable>
 
-          <TouchableOpacity style={styles.listCard} activeOpacity={0.6}>
+          <Pressable style={styles.listCard} activeOpacity={0.6}>
             <Fa name='star-o' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }} />
             <View style={styles.listItems}>
               <Text style={styles.menuTitle}>Reviews</Text>
@@ -132,9 +132,9 @@ const DoctorProfile = ({ navigation }) => {
             <View>
               <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }} />
             </View>
-          </TouchableOpacity>
+          </Pressable>
 
-          <TouchableOpacity onPress={() => navigation.navigate('Map')} style={styles.listCard} activeOpacity={0.6}>
+          <Pressable onPress={() => navigation.navigate('Map')} style={styles.listCard} activeOpacity={0.6}>
             <Octi name='location' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }} />
             <View style={styles.listItems}>
               <Text style={styles.menuTitle}>Working Address</Text>
@@ -142,7 +142,7 @@ const DoctorProfile = ({ navigation }) => {
             <View>
               <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }} />
             </View>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </SafeAreaView>
     </ScrollView>
