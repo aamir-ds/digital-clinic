@@ -17,7 +17,7 @@ const AllDoctors = () => {
       <Tab.Navigator
         screenOptions={{
           tabBarActiveTintColor: colors.primary,
-          tabBarPressColor: "transparent",
+          tabBarPressColor: colors.lightPrimary,
           tabBarPressOpacity: 1,
           tabBarIndicatorStyle: {
             backgroundColor: "#6574cf",
@@ -26,7 +26,10 @@ const AllDoctors = () => {
           tabBarStyle: {
             backgroundColor: "white",
             elevation: 0
-          }
+          },
+          tabBarLabelStyle: {
+            fontSize: 12
+          },
         }}
       >
 

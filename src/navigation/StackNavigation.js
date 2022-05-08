@@ -39,7 +39,6 @@ export default function StackNavigation({ navigation }) {
       <Stack.Screen
         options={{
           headerShown: false,
-
         }}
         name="All Doctors" component={AllDoctors} />
 

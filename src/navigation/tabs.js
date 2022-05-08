@@ -73,10 +73,10 @@ const Tabs = ({ navigation }) => {
                     headerRight: () => (
                         <View style={{ flexDirection: 'row' }}>
                             <Pressable style={{ marginRight: 15, marginLeft: 10 }}>
-                                <Feather size={20} color={colors.greyFont} name={'search'} />
+                                <Feather size={18} color={colors.greyFont} name={'search'} />
                             </Pressable>
                             <Pressable onPress={() => navigation.navigate('Map')} style={{ marginRight: 20, marginLeft: 10 }}>
-                                <Octi size={20} color={colors.greyFont} name={'location'} />
+                                <Octi size={18} color={colors.greyFont} name={'location'} />
                             </Pressable>
                         </View>
                     ),
@@ -84,6 +84,10 @@ const Tabs = ({ navigation }) => {
                     headerStyle: {
                         elevation: 0, // remove shadow on Android
                         shadowOpacity: 0, // remove shadow on iOS
+                    },
+                    headerTitleStyle: {
+                        fontWeight: '600',
+                        fontSize: 20
                     },
 
                     tabBarLabel: 'All Doctors',
