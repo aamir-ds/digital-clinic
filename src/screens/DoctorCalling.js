@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, Image, StatusBar, Pressable } from 'react-native'
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import Feather from 'react-native-vector-icons/Feather';
-import Colors from '../config/colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ion from 'react-native-vector-icons/Ionicons';
 import dings from '../assets/ringtones/android_one.mp3';
+import colors from '../config/colors';
 
 var Sound = require('react-native-sound');
 
@@ -14,23 +14,23 @@ var ding = new Sound(dings, Sound.MAIN_BUNDLE, (error) => {
     if (error) {
         console.log('failed to load the sound', error);
         return;
-      }
-      // if loaded successfully
-      console.log('duration in seconds: ' + ding.getDuration() + 'number of channels: ' + ding.getNumberOfChannels());
-    
-    });
+    }
+    // if loaded successfully
+    console.log('duration in seconds: ' + ding.getDuration() + 'number of channels: ' + ding.getNumberOfChannels());
+
+});
 
 
 const DoctorCalling = ({ navigation }) => {
 
     const playPause = () => {
-      ding.play(success => {
-        if (success) {
-          console.log('successfully finished playing');
-        } else {
-          console.log('playback failed due to audio decoding errors');
-        }
-      });
+        ding.play(success => {
+            if (success) {
+                // console.log('successfully finished playing');
+            } else {
+                // console.log('playback failed due to audio decoding errors');
+            }
+        });
     };
 
     useEffect(() => {
@@ -40,7 +40,7 @@ const DoctorCalling = ({ navigation }) => {
             // ding.release();
         };
 
-      }, []);
+    }, []);
 
     function stopCall() {
         ding.stop()
@@ -49,7 +49,7 @@ const DoctorCalling = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar barStyle="light-content" backgroundColor="#6574CF" />
+            <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
             <View style={styles.wrapper}>
 
                 <View style={styles.callerDetail}>
@@ -59,23 +59,16 @@ const DoctorCalling = ({ navigation }) => {
 
                 <View style={styles.imageContainer}>
                     <View style={[styles.circle, styles.center]}>
-                        {/* {[...Array(3).keys()].map((index)=> {
-                    return (
-                        <Text>{index}</Text>
-                    )
-                })} */}
-                        {/* <MotiView from={{ opacity: 0 }} animate={{ opacity: 1 }} /> */}
                         <Image source={require('../assets/images/doctorProfile.jpg')} style={styles.profileImg} />
                     </View>
                 </View>
 
                 <View style={styles.actionWrap}>
-                    <Pressable  activeOpacity={0.8} onPress={stopCall} style={styles.actionBtns} >
-                    {/* onPress={stopCall} */}
-                        <Ion name="close" size={35} color={Colors.red} />
+                    <Pressable activeOpacity={0.8} onPress={stopCall} style={styles.actionBtns} >
+                        <Ion name="md-close" size={28} color={colors.red} />
                     </Pressable>
                     <Pressable activeOpacity={0.8} style={styles.actionBtns}>
-                        <Feather name="phone-call" size={30} color={Colors.primary} />
+                        <Feather name="phone-call" size={28} color={colors.primary} />
                     </Pressable>
                 </View>
             </View>
@@ -90,42 +83,40 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: Colors.primary,
+        backgroundColor: colors.primary,
     },
     circle: {
         width: 130,
         height: 130,
         borderRadius: 100,
         borderWidth: 1,
-        borderColor: Colors.white,
+        borderColor: colors.white,
         elevation: 30,
-        shadowColor: Colors.darkGrey
+        shadowColor: colors.darkGrey
     },
     center: {
         alignItems: 'center',
         justifyContent: 'center'
     },
     wrapper: {
-        flex: 1,
-        flexDirection: 'column',
-        // borderWidth: 1
+        height: '80%',
+        justifyContent: 'space-around'
     },
     callingTxt: {
         fontSize: 14
     },
     callerName: {
-        fontSize: 24,
-        // fontWeight: 'bold',
-        color: Colors.white,
+        fontSize: 20,
+        color: colors.lightGrey,
         lineHeight: 35
     },
     callerDetail: {
-        flex: 1,
+        // flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
     },
     imageContainer: {
-        flex: 2,
+        // flex: 2,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -133,21 +124,20 @@ const styles = StyleSheet.create({
         width: 130,
         height: 130,
         borderRadius: 100,
-        shadowColor: Colors.darkGrey,
+        shadowColor: colors.darkGrey,
     },
     actionBtns: {
-        backgroundColor: Colors.white,
+        backgroundColor: colors.white,
         width: 70,
         height: 70,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 100,
         elevation: 10,
-        shadowColor: Colors.darkGrey,
+        shadowColor: colors.darkGrey,
     },
     actionWrap: {
-        width: '90%',
-        flex: 2,
+        width: '65%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-evenly'
