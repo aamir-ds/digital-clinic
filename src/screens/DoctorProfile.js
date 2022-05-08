@@ -57,7 +57,7 @@ const DoctorProfile = ({ navigation }) => {
               <Feather name='video' size={18} color={colors.primary} />
               <Text style={styles.videoLink}>Video Visit</Text>
             </Pressable>
-            <Pressable style={styles.chatBtn}>
+            <Pressable android_ripple={{ color: colors.primary, borderless: false, radius: 27 }} style={styles.chatBtn}>
               <Ion name='chatbubble-ellipses-outline' size={18} color={colors.primary} />
             </Pressable>
           </View>
