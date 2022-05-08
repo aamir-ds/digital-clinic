@@ -108,6 +108,9 @@ const Clinics = ({ navigation }) => {
                 data={clinics}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
+                ListHeaderComponent={() => (
+                    <View style={{ padding: 5 }} />
+                )}
             // ItemSeparatorComponent={ItemSeperator}
             />
         </View>
@@ -119,11 +122,13 @@ export default Clinics
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: colors.lightGrey
         // marginVertical: 16
     },
     item: {
-        marginHorizontal: 16,
+        marginHorizontal: 17,
         backgroundColor: colors.white,
-        marginVertical: 10
+        marginVertical: 9,
+        borderRadius: 4
     },
 })

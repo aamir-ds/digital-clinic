@@ -14,5 +14,6 @@ export default {
     purple: '#7D8AD6',
     lightOrange: '#FFF1EF',
     lightGreen: '#EDFBF3',
-    mediumGreen: '#F5FAF5'
+    mediumGreen: '#F5FAF5',
+    screenBackground: '#f8fcfc'
 };

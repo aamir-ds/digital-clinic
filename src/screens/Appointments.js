@@ -15,18 +15,24 @@ const Appointments = ({ navigation }) => {
       <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
       <Tab.Navigator
         screenOptions={{
+
           tabBarActiveTintColor: colors.primary,
-          tabBarPressColor: "transparent",
+          tabBarPressColor: colors.lightPrimary,
+          tabBarLabelStyle: {
+            fontSize: 12
+          },
 
           tabBarPressOpacity: 1,
           tabBarIndicatorStyle: {
             backgroundColor: "#6574cf",
-            height: 4
+            height: 3
           },
           tabBarStyle: {
             backgroundColor: "white",
-            elevation: 0
-          }
+            elevation: 0,
+            shadowOpacity: 0,
+          },
+
         }}
       >
         <Tab.Screen options={{

@@ -53,7 +53,7 @@ const Tabs = ({ navigation }) => {
                             </View>
                         ) : (
                             <View style={styles.labelContainer}>
-                                <Octi name="home" color={colors.primary} size={20} />
+                                <Octi name="home" color={colors.greyFont} size={20} />
 
                             </View>
                         );
@@ -95,7 +95,7 @@ const Tabs = ({ navigation }) => {
                             </View>
                         ) : (
                             <View style={styles.labelContainer}>
-                                <MaterialCommunityIcons style={{ justifyContent: 'center' }} name="doctor" color={colors.primary} size={25} />
+                                <MaterialCommunityIcons style={{ justifyContent: 'center' }} name="doctor" color={colors.greyFont} size={25} />
                             </View>
                         );
                     },
@@ -110,13 +110,18 @@ const Tabs = ({ navigation }) => {
                 options={{
                     headerRight: () => (
                         <View style={{ flexDirection: 'row' }}>
-                            <Entypo style={{ marginRight: 20 }} size={25} color={colors.greyFont} name={'calendar'} />
-                            <MaterialCommunityIcons style={{ marginRight: 15 }} size={25} color={colors.greyFont} name={'bell-outline'} />
+                            <Entypo style={{ marginRight: 20 }} size={18} color={colors.greyFont} name={'calendar'} />
+                            <MaterialCommunityIcons style={{ marginRight: 15 }} size={18} color={colors.greyFont} name={'bell-outline'} />
                         </View>
                     ),
                     headerStyle: {
                         elevation: 0, // remove shadow on Android
                         shadowOpacity: 0, // remove shadow on iOS
+                    },
+                    headerTitleStyle: {
+                        fontWeight: '600',
+                        fontSize: 20
+
                     },
                     tabBarLabel: 'Appointments',
                     tabBarIcon: ({ focused }) => {
@@ -127,7 +132,7 @@ const Tabs = ({ navigation }) => {
                             </View>
                         ) : (
                             <View style={styles.labelContainer}>
-                                <Entypo style={{ justifyContent: 'center' }} name="calendar" color={colors.primary} size={20} />
+                                <Entypo style={{ justifyContent: 'center' }} name="calendar" color={colors.greyFont} size={20} />
                             </View>
                         );
                     },
