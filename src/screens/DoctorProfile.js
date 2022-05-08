@@ -27,7 +27,7 @@ const DoctorProfile = ({ navigation }) => {
       headerRight: () => (
 
         <Pressable onPress={() => navigation.navigate('Map')} style={{ marginRight: 10 }}>
-          <Octi size={20} color={colors.white} name={'location'} />
+          <Octi size={18} color={colors.white} name={'location'} />
         </Pressable>
       ),
 
@@ -38,6 +38,11 @@ const DoctorProfile = ({ navigation }) => {
         shadowOpacity: 0, // remove shadow on iOS
       },
       headerTintColor: colors.white,
+      headerTitleStyle: {
+        fontWeight: '400',
+        fontSize: 18
+
+      },
     });
   }, [navigation]);
   return (
@@ -47,14 +52,13 @@ const DoctorProfile = ({ navigation }) => {
 
         <View style={styles.profileSection}>
           <View style={styles.actionLinks}>
-            <Pressable activeOpacity={0.8} style={{ flexDirection: 'row', alignItems: 'center' }}
+            <Pressable activeOpacity={0.8} style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 3 }}
               onPress={() => navigation.navigate('DoctorCalling')}>
-              <Feather name='video' size={20} color={colors.primary} />
+              <Feather name='video' size={18} color={colors.primary} />
               <Text style={styles.videoLink}>Video Visit</Text>
             </Pressable>
             <Pressable style={styles.chatBtn}>
-              {/* <Text style={styles.videoLink}>Chat</Text> */}
-              <Ion name='chatbubble-ellipses-outline' size={20} color={colors.primary} />
+              <Ion name='chatbubble-ellipses-outline' size={18} color={colors.primary} />
             </Pressable>
           </View>
           <View style={styles.profilePic}>
@@ -62,29 +66,38 @@ const DoctorProfile = ({ navigation }) => {
             <Text style={styles.fullName}>Dr. Kenjo Assou</Text>
             <Text style={styles.designation}>Opthalmologist</Text>
             <View style={styles.drScore}>
-              <Fa name='star' color={colors.primary} size={20} style={{ marginRight: 8 }} />
+              <Fa name='star' color={colors.primary} size={18} style={{ marginRight: 8 }} />
               <Text style={styles.ratings}>4.7</Text>
               <Text style={styles.reviews}>(12 reviews)</Text>
             </View>
           </View>
           <View style={styles.flexItems}>
             <View style={[styles.item, { borderRightWidth: 1, borderRightColor: '#eee' }]}>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Octi name='location' color={colors.greyFont} size={20} style={{ marginRight: 8 }} />
-                <Text style={styles.itemName}>Newyork</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginVertical: 5 }}>
+                <Octi name='location' color={colors.greyFont}
+                  size={18} style={{ marginRight: 8, marginTop: 3 }} />
+                <View >
+                  <Text style={styles.itemName}>New york</Text>
+                  <Text style={styles.itemDesc}>Location</Text>
+                </View>
               </View>
-              <Text style={styles.itemDesc}>Location</Text>
             </View>
             <View style={styles.item}>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Feather name='zap' color={colors.greyFont} size={20} style={{ marginRight: 8 }} />
-                <Text style={styles.itemName}>20 Years</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'flex-start', marginVertical: 5 }}>
+                <Feather name='zap' color={colors.greyFont} size={18} style={{ marginRight: 8, marginTop: 3 }} />
+
+                <View >
+                  <Text style={styles.itemName}>20 Years</Text>
+                  <Text style={styles.itemDesc}>Experience</Text>
+                </View>
               </View>
-              <Text style={styles.itemDesc}>Experience</Text>
             </View>
           </View>
           <View style={styles.getTimingsBtn}>
-            <Pressable onPress={() => navigation.navigate('Booking')} style={styles.bookingBtn} activeOpacity={0.8}>
+            <Pressable
+              android_ripple={{ color: colors.lightPrimary, borderless: false, radius: 110 }}
+              onPress={() => navigation.navigate('Booking')}
+              style={styles.bookingBtn} >
               <MatIco name='calendar-week' size={20} color={colors.white} />
               <Text style={styles.btnText}>Available Timings</Text>
             </Pressable>
@@ -94,53 +107,63 @@ const DoctorProfile = ({ navigation }) => {
 
         <View style={styles.menuSection}>
 
-          <Pressable style={styles.listCard} activeOpacity={0.6}>
-            <MatIco name='briefcase' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }} />
+          <Pressable style={styles.listCard}
+            android_ripple={{ color: colors.primary, borderless: false, radius: 200 }}
+          >
+            <MatIco name='briefcase' color={colors.primary} size={25} style={{ borderRightWidth: 1, borderRightColor: colors.lightGrey, padding: 25 }} />
             <View style={styles.listItems}>
               <Text style={styles.menuTitle}>Valid Insurance</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }} />
+              <EvilIco name='chevron-right' color={colors.greyFont} size={35} style={{ marginRight: 8 }} />
             </View>
           </Pressable>
 
-          <Pressable style={styles.listCard} activeOpacity={0.6}>
-            <Ion name="ribbon-outline" color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }} />
+          <Pressable style={styles.listCard}
+            android_ripple={{ color: colors.primary, borderless: false, radius: 200 }}
+            activeOpacity={0.6}>
+            <Ion name="ribbon-outline" color={colors.primary} size={25} style={{ borderRightWidth: 1, borderRightColor: colors.lightGrey, padding: 25 }} />
             <View style={styles.listItems}>
               <Text style={styles.menuTitle}>Experience & Qualification</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }} />
+              <EvilIco name='chevron-right' color={colors.greyFont} size={35} style={{ marginRight: 8 }} />
             </View>
           </Pressable>
 
-          <Pressable style={styles.listCard} activeOpacity={0.6}>
-            <Feather name='user' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }} />
+          <Pressable
+            android_ripple={{ color: colors.primary, borderless: false, radius: 200 }}
+            style={styles.listCard} activeOpacity={0.6}>
+            <Feather name='user' color={colors.primary} size={25} style={{ borderRightWidth: 1, borderRightColor: colors.lightGrey, padding: 25 }} />
             <View style={styles.listItems}>
               <Text style={styles.menuTitle}>Personal Information</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }} />
+              <EvilIco name='chevron-right' color={colors.greyFont} size={35} style={{ marginRight: 8 }} />
             </View>
           </Pressable>
 
-          <Pressable style={styles.listCard} activeOpacity={0.6}>
-            <Fa name='star-o' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }} />
+          <Pressable
+            android_ripple={{ color: colors.primary, borderless: false, radius: 200 }}
+            style={styles.listCard} activeOpacity={0.6}>
+            <Fa name='star-o' color={colors.primary} size={25} style={{ borderRightWidth: 1, borderRightColor: colors.lightGrey, padding: 25 }} />
             <View style={styles.listItems}>
               <Text style={styles.menuTitle}>Reviews</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }} />
+              <EvilIco name='chevron-right' color={colors.greyFont} size={35} style={{ marginRight: 8 }} />
             </View>
           </Pressable>
 
-          <Pressable onPress={() => navigation.navigate('Map')} style={styles.listCard} activeOpacity={0.6}>
-            <Octi name='location' color={colors.primary} size={30} style={{ borderRightWidth: 0.5, borderRightColor: colors.greyFont, padding: 25 }} />
+          <Pressable
+            android_ripple={{ color: colors.primary, borderless: false, radius: 200 }}
+            onPress={() => navigation.navigate('Map')} style={styles.listCard} activeOpacity={0.6}>
+            <Octi name='location' color={colors.primary} size={25} style={{ borderRightWidth: 1, borderRightColor: colors.lightGrey, padding: 25 }} />
             <View style={styles.listItems}>
               <Text style={styles.menuTitle}>Working Address</Text>
             </View>
             <View>
-              <EvilIco name='chevron-right' color={colors.greyFont} size={40} style={{ marginRight: 8 }} />
+              <EvilIco name='chevron-right' color={colors.greyFont} size={35} style={{ marginRight: 8 }} />
             </View>
           </Pressable>
         </View>
@@ -155,6 +178,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: window.height,
+    backgroundColor: colors.screenBackground
   },
   profileSection: {
     backgroundColor: colors.white,
@@ -166,14 +190,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   videoLink: {
+    fontSize: 12,
     color: colors.primary,
     fontWeight: 'bold',
     marginLeft: 10
   },
   chatBtn: {
-    width: 30,
-    height: 30,
-    borderRadius: 5,
+    width: 42,
+    height: 42,
+    borderRadius: 4,
     borderColor: colors.primary,
     borderWidth: 1,
     alignItems: 'center',
@@ -200,8 +225,8 @@ const styles = StyleSheet.create({
     lineHeight: 30
   },
   designation: {
-    color: '#afafaf',
-    fontSize: 16,
+    color: colors.greyFont,
+    fontSize: 13,
     lineHeight: 25
   },
   drScore: {
@@ -210,12 +235,12 @@ const styles = StyleSheet.create({
   },
   ratings: {
     color: colors.primary,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold'
   },
   reviews: {
-    color: '#afafaf',
-    fontSize: 14,
+    color: colors.greyFont,
+    fontSize: 13,
     marginLeft: 10
   },
   flexItems: {
@@ -234,7 +259,6 @@ const styles = StyleSheet.create({
   itemName: {
     color: colors.black,
     fontSize: 14,
-    lineHeight: 30
   },
   itemDesc: {
     fontSize: 14,
@@ -248,8 +272,8 @@ const styles = StyleSheet.create({
   bookingBtn: {
     flexDirection: 'row',
     backgroundColor: colors.primary,
-    paddingVertical: 15,
-    paddingHorizontal: 35,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
     borderRadius: 5,
     marginVertical: 5,
     alignItems: 'center'
@@ -257,7 +281,7 @@ const styles = StyleSheet.create({
   btnText: {
     marginLeft: 10,
     color: colors.white,
-    fontSize: 16,
+    fontSize: 13,
     textTransform: 'uppercase'
   },
   menuSection: {
@@ -266,18 +290,15 @@ const styles = StyleSheet.create({
   },
   listCard: {
     backgroundColor: colors.white,
-    // paddingHorizontal: 20,
-    // paddingVertical: 25,
     marginBottom: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    borderRadius: 5,
-    // height: 80,
+    borderRadius: 4,
     alignItems: 'center'
   },
   menuTitle: {
     color: colors.black,
-    fontSize: 16,
+    fontSize: 15,
   },
   listItems: {
     flex: 1,
