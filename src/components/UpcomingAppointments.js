@@ -1,5 +1,5 @@
-import { FlatList, Image, StyleSheet, Text, Pressable, View, TouchableOpacity    } from 'react-native'
-import React from 'react'
+import { FlatList, Image, StyleSheet, Text, Pressable, View, TouchableOpacity } from 'react-native'
+import React, { useState } from 'react'
 import { doctors } from '../config/dummy';
 import Octi from 'react-native-vector-icons/Octicons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -10,10 +10,10 @@ import colors from '../config/colors';
 
 
 
-const Item = ({ name, distance, ratings, image, reviews, type, video, navigation }) => (
+const Item = ({ name, image, type, video, navigation, onPress, selectedCallCard }) => (
 
 
-    <View  style={styles.item} >
+    <View style={styles.item} >
         <View style={{
             flexDirection: 'row',
             padding: 15,
@@ -48,7 +48,7 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
             borderBottomWidth: 3
 
         }}>
-            {video ? <TouchableOpacity onPress={() => navigation.navigate('DoctorCalling')} style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+            {video ? <TouchableOpacity onPress={onPress} style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                 <Feather style={{ marginRight: 10 }} size={20} color={colors.primary} name={'video'} />
                 <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 14 }}>Video Visit</Text>
             </TouchableOpacity> :
@@ -71,12 +71,16 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
                 <Text style={{ color: colors.greyFont, fontSize: 14, marginBottom: 5 }}>In 5 Days</Text>
                 <Text style={{ color: colors.black, fontSize: 16 }}>12 May 2020</Text>
             </View>
-            <Pressable android_ripple={{color: colors.mediumGreen,borderless: false, radius: 40}}
-             onPress={() => navigation.navigate('DoctorCalling')} style={{ backgroundColor: colors.lightGrey, marginRight: 10, justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: colors.greenOutline, height: 40, width: 40, borderRadius: 6 }}>
+            {video ? <Pressable android_ripple={{ color: colors.greenOutline, borderless: false, radius: 25 }}
+                onPress={onPress}
+                style={{ backgroundColor: colors.lightGrey, marginRight: 10, justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: colors.greenOutline, height: 40, width: 40, borderRadius: 6 }}>
                 <Feather size={20} color={colors.greenOutline} name={'video'} />
-            </Pressable>
-            <Pressable android_ripple={{color: colors.lightPurple,borderless: false, radius: 40}}
-             style={{ backgroundColor: colors.lightGrey, justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: colors.primary, height: 40, width: 40, borderRadius: 6 }}>
+            </Pressable> : <View
+                style={{ backgroundColor: colors.lightGrey, marginRight: 10, justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: colors.greyFont, height: 40, width: 40, borderRadius: 6 }}>
+                <Feather size={20} color={colors.greyFont} name={'video'} />
+            </View>}
+            <Pressable android_ripple={{ color: colors.primary, borderless: false, radius: 25 }}
+                style={{ backgroundColor: colors.lightGrey, justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: colors.primary, height: 40, width: 40, borderRadius: 6 }}>
                 <Ion size={20} color={colors.primary} name={'ios-chatbubble-ellipses-outline'} />
             </Pressable>
         </View>
@@ -87,12 +91,14 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
             alignItems: 'center',
             paddingTop: 10
         }}>
-            <Pressable 
-            onPress={() => navigation.navigate('DoctorCalling')} 
-            android_ripple={{color: colors.mediumGreen,borderless: false, radius: 200}}
-                style={{ backgroundColor: colors.lightGreen, alignItems: 'center', justifyContent: 'center', borderRadius: 5, height: 40, width: '100%', borderColor: colors.greenOutline, borderWidth: 1 }}>
+            {/* <View style={selectedCallCard}> */}
+            <Pressable
+                // onPress={() => navigation.navigate('DoctorCalling')}
+                android_ripple={{ color: colors.greenOutline, borderless: false, radius: 200 }}
+                style={selectedCallCard}>
                 <Text style={{ color: colors.greenOutline, fontSize: 16 }}>Video call will start soon</Text>
             </Pressable>
+            {/* </View> */}
 
         </View>
 
@@ -101,8 +107,16 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
 
 const UpcomingAppointments = ({ navigation }) => {
 
-    const renderItem = ({ item }) => (
-        <Item name={item.name}
+
+    const [selectedCard, setSelectedCard] = useState(null);
+
+
+    const renderItem = ({ item }) => {
+        const selectedCallCard = item.id !== selectedCard ? { display: 'none' } : { backgroundColor: colors.lightGreen, alignItems: 'center', justifyContent: 'center', borderRadius: 5, height: 40, width: '100%', borderColor: colors.greenOutline, borderWidth: 1 }
+
+        return (< Item
+            item={item}
+            name={item.name}
             distance={item.distance}
             type={item.type}
             address={item.address}
@@ -115,8 +129,18 @@ const UpcomingAppointments = ({ navigation }) => {
             video={item.video}
             image={item.image}
             navigation={navigation}
+            onPress={() => {
+                setSelectedCard(item.id)
+                setTimeout(() => {
+                    setSelectedCard(null)
+                    navigation.navigate('DoctorCalling');
+                }, 2000)
+            }
+            }
+            selectedCallCard={selectedCallCard}
         />
-    );
+        )
+    };
 
     return (
         <>
@@ -125,7 +149,7 @@ const UpcomingAppointments = ({ navigation }) => {
                     data={doctors}
                     renderItem={renderItem}
                     keyExtractor={(item) => item.id}
-                // ListHeaderComponent={SortContainer}
+                    extraData={selectedCard}
                 />
             </View>
         </>
