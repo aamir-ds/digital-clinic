@@ -137,6 +137,7 @@ export default DoctorsList
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: colors.lightGrey
         // marginVertical: 16
     },
     item: {
