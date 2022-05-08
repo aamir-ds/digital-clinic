@@ -1,5 +1,5 @@
-import { FlatList, Image, StatusBar, StyleSheet, Text, Pressable, View } from 'react-native'
-import React from 'react'
+import { FlatList, Image, StatusBar, StyleSheet, Text, Pressable, View, TouchableOpacity } from 'react-native'
+import React, { useLayoutEffect } from 'react'
 import { clinics } from '../config/dummy';
 import colors from '../config/colors';
 import Fa from 'react-native-vector-icons/FontAwesome';
@@ -12,48 +12,48 @@ import Feather from 'react-native-vector-icons/Feather';
 
 
 const Item = ({ name, distance, address, ratings, image, navigation }) => (
-    <Pressable onPress={() => navigation.navigate('Map')} activeOpacity={0.7} style={styles.item}>
+    <Pressable android_ripple={{ color: colors.lightPrimary, borderless: false, radius: 200 }} onPress={() => navigation.navigate('Map')} style={styles.item}>
         <View style={{
             flexDirection: 'row',
-            padding: 20,
+            padding: 18,
             borderBottomWidth: 2,
             borderColor: colors.lightGrey
         }}>
             <View style={{ flexDirection: 'row', flex: 1, alignItems: 'center' }}>
                 <Image style={{
-                    width: 75,
-                    height: 75,
+                    width: 60,
+                    height: 60,
                     borderRadius: 100,
                     resizeMode: 'contain',
-                    marginRight: 20
+                    marginRight: 15
                 }} source={image} />
                 <View style={{ flex: 1 }}>
 
-                    <Text style={{ fontSize: 20, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
+                    <Text style={{ fontSize: 16, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <FontAwesome5 style={{ marginRight: 5 }} size={13} color={colors.greyFont} name={'location-arrow'} />
-                        <Text style={{ fontSize: 16, fontWeight: '400', color: colors.greyFont }}>{distance} away</Text>
+                        <FontAwesome5 style={{ marginRight: 5 }} size={10} color={colors.greyFont} name={'location-arrow'} />
+                        <Text style={{ fontSize: 13, fontWeight: '400', color: colors.greyFont }}>{distance} away</Text>
                     </View>
                 </View>
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: colors.lightGrey, height: 27, width: 60, alignItems: 'center', justifyContent: 'center', borderRadius: 3 }}>
-                <Fa style={{ marginRight: 5 }} size={15} color={colors.primary} name={'star'} />
-                <Text style={{ fontSize: 17, color: colors.primary, fontWeight: '500' }}>{ratings}</Text>
+                <Fa style={{ marginRight: 5 }} size={14} color={colors.primary} name={'star'} />
+                <Text style={{ fontSize: 14, color: colors.primary, fontWeight: '500' }}>{ratings}</Text>
             </View>
         </View>
 
         <View style={{
-            padding: 20,
+            padding: 18,
             flexDirection: 'row',
             alignItems: 'center'
         }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1 }}>
-                <View style={{ height: 40, width: 40, borderColor: colors.lightGrey, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 5, marginRight: 10 }}>
-                    <Octi size={20} color={colors.greyFont} name={'location'} />
+                <View style={{ height: 30, width: 30, borderColor: colors.lightGrey, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 5, marginRight: 10 }}>
+                    <Octi size={15} color={colors.greyFont} name={'location'} />
                 </View>
-                <Text style={{ color: colors.greyFont, fontSize: 16 }}>{address}</Text>
+                <Text style={{ color: colors.greyFont, fontSize: 14 }}>{address}</Text>
             </View>
-            <Feather style={{ marginRight: 5 }} size={20} color={colors.greyFont} name={'arrow-right'} />
+            <Feather style={{ marginRight: 5 }} size={16} color={colors.greyFont} name={'arrow-right'} />
         </View>
 
     </Pressable>
@@ -61,6 +61,37 @@ const Item = ({ name, distance, address, ratings, image, navigation }) => (
 
 
 const Clinics = ({ navigation }) => {
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+
+            headerRight: () => (
+                <View style={{ flexDirection: 'row' }}>
+                    <TouchableOpacity style={{ marginRight: 15, marginLeft: 10 }}>
+                        <Feather size={18} color={colors.white} name={'search'} />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Map')} style={{ marginRight: 5, marginLeft: 10 }} >
+                        <Octi size={18} color={colors.white} name={'location'} />
+                    </TouchableOpacity>
+                </View>
+            ),
+            headerStyle: {
+                backgroundColor: colors.primary,
+                elevation: 1, // remove shadow on Android
+                shadowOpacity: 1, // remove shadow on iOS
+            },
+            headerTintColor: colors.white,
+            headerTitleStyle: {
+                fontWeight: '400',
+                fontSize: 18
+
+            },
+        });
+    }, [navigation]);
+
+
+
+
     const renderItem = ({ item }) => (
         <Item name={item.name}
             distance={item.distance}

@@ -14,8 +14,6 @@ import Tabs from './tabs';
 import DoctorCalling from '../screens/DoctorCalling';
 import PaymentProcess from '../screens/PaymentProcess';
 import PaymentCardDetails from '../screens/PaymentCardDetails';
-import Feather from 'react-native-vector-icons/Feather';
-import Octi from 'react-native-vector-icons/Octicons';
 import Booking from '../screens/Booking';
 
 
@@ -61,27 +59,7 @@ export default function StackNavigation({ navigation }) {
         name="Appointments" component={Appointments} />
 
       <Stack.Screen
-        options={{
-          headerStyle: {
-            backgroundColor: colors.primary,
-          },
-          headerTintColor: colors.white,
-          headerTitleStyle: {
-            fontWeight: '400',
-            fontSize: 20
 
-          },
-          headerRight: () => (
-            <View style={{ flexDirection: 'row' }}>
-              <TouchableOpacity style={{ marginRight: 15, marginLeft: 10 }}>
-                <Feather size={20} color={colors.white} name={'search'} />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Map')} style={{ marginRight: 5, marginLeft: 10 }} >
-                <Octi size={20} color={colors.white} name={'location'} />
-              </TouchableOpacity>
-            </View>
-          ),
-        }}
         name="Clinics" component={Clinics} />
 
 
