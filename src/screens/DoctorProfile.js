@@ -62,7 +62,17 @@ const DoctorProfile = ({ navigation }) => {
             </Pressable>
           </View>
           <View style={styles.profilePic}>
-            <Image style={styles.image} source={require('../assets/images/doctorProfile.jpg')} />
+            <View style={{ position: 'relative' }}>
+              <View style={{
+                height: 16, width: 16,
+                backgroundColor: colors.greenOutline, position: 'absolute', zIndex: 1,
+                borderRadius: 50,
+                bottom: 10,
+                left: 96
+              }} />
+
+              <Image style={styles.image} source={require('../assets/images/doctorProfile.jpg')} />
+            </View>
             <Text style={styles.fullName}>Dr. Kenjo Assou</Text>
             <Text style={styles.designation}>Opthalmologist</Text>
             <View style={styles.drScore}>
@@ -299,9 +309,10 @@ const styles = StyleSheet.create({
   menuTitle: {
     color: colors.black,
     fontSize: 15,
+    fontWeight: '500'
   },
   listItems: {
     flex: 1,
-    paddingLeft: 25
+    paddingLeft: 18
   }
 })
