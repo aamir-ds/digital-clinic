@@ -47,19 +47,19 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
             <View style={{ flexDirection: 'row', flex: 1, alignItems: 'flex-start' }}>
                 <View style={{ flex: 1, marginTop: 10 }}>
                     <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('DoctorProfile')}>
-                        <Text style={{ fontSize: 16, fontWeight: '500', color: colors.black, marginBottom: 5 }}>{name}</Text>
+                        <Text style={{ fontSize: 15, fontWeight: '500', color: colors.black, marginBottom: 5 }}>{name}</Text>
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 13, fontWeight: '400', color: colors.greyFont, marginBottom: 5 }}>{type}</Text>
+                    <Text style={{ fontSize: 12, fontWeight: '400', color: colors.greyFont, marginBottom: 5 }}>{type}</Text>
 
                     <TouchableOpacity activeOpacity={0.5} onPress={() => navigation.navigate('Map')}>
-                        <Text style={{ fontSize: 13, fontWeight: '400', color: colors.greyFont }}>
+                        <Text style={{ fontSize: 12, fontWeight: '400', color: colors.greyFont }}>
                             <Octi size={13} color={colors.greyFont} name={'location'} />  {distance} away</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{ alignItems: 'flex-end' }} >
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Fa style={{ marginRight: 5 }} size={14} color={colors.primary} name={'star'} />
-                        <Text style={{ fontSize: 14, color: colors.primary, fontWeight: '500' }}>{ratings}</Text>
+                        <Text style={{ fontSize: 13, color: colors.primary, fontWeight: '500' }}>{ratings}</Text>
                     </View>
                     <Text style={{ fontSize: 10, color: colors.greyFont, marginTop: 2 }}>({reviews})</Text>
                 </View>
@@ -78,7 +78,7 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
                 style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start' }}>
                 {video ? <Feather style={{ marginRight: 10 }} size={18} color={colors.primary} name={'video'} /> :
                     <Feather style={{ marginRight: 10 }} size={18} color={colors.greyFont} name={'video-off'} />}
-                <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 13 }}>Video Visit</Text>
+                <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 12 }}>Video Visit</Text>
             </TouchableOpacity>
             <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end' }}>
                 <Pressable android_ripple={{ color: colors.lightPrimary, borderless: true, radius: 20 }}

@@ -29,16 +29,16 @@ const Item = ({ name, distance, address, ratings, image, navigation }) => (
                 }} source={image} />
                 <View style={{ flex: 1 }}>
 
-                    <Text style={{ fontSize: 16, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
+                    <Text style={{ fontSize: 15, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <FontAwesome5 style={{ marginRight: 5 }} size={10} color={colors.greyFont} name={'location-arrow'} />
-                        <Text style={{ fontSize: 13, fontWeight: '400', color: colors.greyFont }}>{distance} away</Text>
+                        <Text style={{ fontSize: 12, fontWeight: '400', color: colors.greyFont }}>{distance} away</Text>
                     </View>
                 </View>
             </View>
             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: colors.lightGrey, height: 27, width: 60, alignItems: 'center', justifyContent: 'center', borderRadius: 3 }}>
                 <Fa style={{ marginRight: 5 }} size={14} color={colors.primary} name={'star'} />
-                <Text style={{ fontSize: 14, color: colors.primary, fontWeight: '500' }}>{ratings}</Text>
+                <Text style={{ fontSize: 13, color: colors.primary, fontWeight: '500' }}>{ratings}</Text>
             </View>
         </View>
 
@@ -51,7 +51,7 @@ const Item = ({ name, distance, address, ratings, image, navigation }) => (
                 <View style={{ height: 30, width: 30, borderColor: colors.lightGrey, borderWidth: 2, justifyContent: 'center', alignItems: 'center', borderRadius: 5, marginRight: 10 }}>
                     <Octi size={15} color={colors.greyFont} name={'location'} />
                 </View>
-                <Text style={{ color: colors.greyFont, fontSize: 14 }}>{address}</Text>
+                <Text style={{ color: colors.greyFont, fontSize: 13 }}>{address}</Text>
             </View>
             <Feather style={{ marginRight: 5 }} size={16} color={colors.greyFont} name={'arrow-right'} />
         </View>

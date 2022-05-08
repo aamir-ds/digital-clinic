@@ -22,7 +22,7 @@ const Stack = createNativeStackNavigator();
 
 export default function StackNavigation({ navigation }) {
   return (
-    <Stack.Navigator initialRouteName="Tabs">
+    <Stack.Navigator initialRouteName="OnBoarding">
 
       <Stack.Screen
         options={{

@@ -10,39 +10,39 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const Emergency = () => (
-  <Pressable activeOpacity={0.6} style={{ marginVertical: 20, paddingHorizontal: 10, alignItems: 'center', height: 80, width: '100%', backgroundColor: colors.white, borderRadius: 3, flexDirection: 'row' }}>
-    <View style={{ justifyContent: 'center', alignItems: 'center', height: 60, width: 60, backgroundColor: colors.lightOrange, borderRadius: 5 }}>
-      <Fontisto size={40} color={colors.redIcon} name={'bandage'} />
+  <Pressable android_ripple={{ color: colors.redIcon, borderless: false, radius: 177 }} style={{ marginVertical: 20, paddingHorizontal: 15, paddingVertical: 15, alignItems: 'center', height: 80, width: '100%', backgroundColor: colors.white, borderRadius: 4, flexDirection: 'row' }}>
+    <View style={{ justifyContent: 'center', alignItems: 'center', height: 50, width: 50, backgroundColor: colors.lightOrange, borderRadius: 5 }}>
+      <Fontisto size={30} color={colors.redIcon} name={'bandage'} />
 
     </View>
-    <View style={{ flex: 1, marginLeft: 20 }}>
-      <Text style={{ fontSize: 17, color: colors.black }}>Emergency</Text>
-      <Text style={{ fontSize: 13, color: colors.greyFont }}>Short Description</Text>
+    <View style={{ flex: 1, marginLeft: 15 }}>
+      <Text style={{ fontSize: 15, color: colors.black, fontWeight: '500' }}>Emergency</Text>
+      <Text style={{ fontSize: 12, color: colors.greyFont }}>Short Description</Text>
     </View>
-    <MaterialIcons style={{ marginRight: 15, marginLeft: 10 }} size={20} color={colors.greyFont} name={'arrow-forward-ios'} />
+    <MaterialIcons style={{ marginRight: 5, marginLeft: 10 }} size={18} color={colors.greyFont} name={'arrow-forward-ios'} />
   </Pressable>
 )
 
 const Item = ({ name, id, description, index, icon, navigate, navigation }) => (
   <Pressable
-    activeOpacity={0.6}
+    android_ripple={{ color: colors.primary, borderless: false, radius: 110 }}
     onPress={() => navigation.navigate(navigate)}
-    style={[{ height: 150, width: '47%', backgroundColor: colors.white, padding: 10 }, index % 2 !== 0 && { marginLeft: 20 }]}>
+    style={[{ height: 150, width: '47%', backgroundColor: colors.white, padding: 15, borderRadius: 4 }, index % 2 !== 0 && { marginLeft: 20 }]}>
     <View style={{ flex: 1 }}>
       <View style={{
         backgroundColor: colors.lightGrey,
-        height: 55,
-        width: 55,
+        height: 50,
+        width: 50,
         borderRadius: 4,
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-        <MaterialCommunityIcons size={42} color={colors.primary} name={icon} />
+        <MaterialCommunityIcons size={35} color={colors.primary} name={icon} />
       </View>
     </View>
     <View>
-      <Text style={{ fontWeight: '500', color: colors.black }}>{name}</Text>
-      <Text style={{ fontWeight: '400', color: colors.greyFont }}>{description}</Text>
+      <Text style={{ fontWeight: '500', color: colors.black, fontSize: 15 }}>{name}</Text>
+      <Text style={{ fontWeight: '400', color: colors.greyFont, fontSize: 12 }}>{description}</Text>
     </View>
   </Pressable >
 )
@@ -62,15 +62,15 @@ const Home = ({ navigation }) => {
 
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: colors.lightGrey }}>
       <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
 
-      <View style={{ paddingTop: 2, paddingHorizontal: 20, height: 75, backgroundColor: colors.primary, }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', height: 50, borderColor: colors.lightGrey, borderWidth: 1, borderRadius: 4, backgroundColor: colors.purple }}>
+      <View style={{ paddingTop: 2, paddingHorizontal: 20, height: 65, backgroundColor: colors.primary, }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', height: 45, borderColor: colors.lightGrey, borderWidth: 1, borderRadius: 4, backgroundColor: colors.purple }}>
           <TextInput
             placeholder="Search Doctors, Clinics ..."
             placeholderTextColor={colors.white}
-            style={{ color: colors.white, fontSize: 16, paddingLeft: 10, flex: 1 }} />
+            style={{ color: colors.white, fontSize: 14, paddingLeft: 10, flex: 1 }} />
           <Feather style={{ marginRight: 15, marginLeft: 10 }} size={20} color={colors.white} name={'search'} />
         </View>
       </View>

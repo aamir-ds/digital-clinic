@@ -41,8 +41,8 @@ const Tabs = ({ navigation }) => {
                         shadowOpacity: 0, // remove shadow on iOS
                     },
                     headerTitleStyle: {
-                        fontWeight: '400',
-                        fontSize: 22,
+                        fontWeight: '600',
+                        fontSize: 20,
                     },
                     tabBarLabel: 'Home',
                     tabBarIcon: ({ focused }) => {

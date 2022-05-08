@@ -38,9 +38,9 @@ const Item = ({ name, image, type, video, navigation, onPress, selectedCallCard,
             <View style={{ flexDirection: 'row', flex: 1, alignItems: 'flex-start' }}>
                 <View style={{ flex: 1, marginTop: 3 }}>
                     <TouchableOpacity onPress={() => navigation.navigate('DoctorProfile')}>
-                        <Text style={{ fontSize: 16, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
+                        <Text style={{ fontSize: 15, fontWeight: '400', color: colors.black, marginBottom: 5 }}>{name}</Text>
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 13, fontWeight: '400', color: colors.greyFont, marginBottom: 5 }}>{type}</Text>
+                    <Text style={{ fontSize: 12, fontWeight: '400', color: colors.greyFont, marginBottom: 5 }}>{type}</Text>
                 </View>
                 <SimpleLineIcons style={{ marginRight: 5 }} size={15} color={colors.primary} name={'options-vertical'} />
             </View>
@@ -57,14 +57,14 @@ const Item = ({ name, image, type, video, navigation, onPress, selectedCallCard,
         }}>
             {video ? <TouchableOpacity onPress={onPress} style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                 <Feather style={{ marginRight: 10 }} size={18} color={colors.primary} name={'video'} />
-                <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 13 }}>Video Visit</Text>
+                <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 12 }}>Video Visit</Text>
             </TouchableOpacity> :
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                     <Octi style={{ marginRight: 10 }} size={18} color={colors.greyFont} name={'location'} />
-                    <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 13 }}>Office visit only</Text>
+                    <Text style={{ color: video ? colors.primary : colors.greyFont, fontSize: 12 }}>Office visit only</Text>
                 </View>}
             <MaterialCommunityIcons style={{ marginRight: 5 }} size={18} color={colors.greyFont} name={'timer-outline'} />
-            <Text style={{ color: colors.greyFont, fontSize: 13 }}>1 hour</Text>
+            <Text style={{ color: colors.greyFont, fontSize: 12 }}>1 hour</Text>
         </View>
         <View style={{
             paddingBottom: 15,
@@ -76,14 +76,14 @@ const Item = ({ name, image, type, video, navigation, onPress, selectedCallCard,
         }}>
             <View style={{ flex: 1, }}>
                 <Text style={{ color: colors.greyFont, fontSize: 11, marginBottom: 5 }}>In 5 Days</Text>
-                <Text style={{ color: colors.black, fontSize: 15 }}>12 May, 20:20 AM</Text>
+                <Text style={{ color: colors.black, fontSize: 14 }}>12 May, 20:20 AM</Text>
             </View>
-            {video && <Pressable android_ripple={{ color: colors.greenOutline, borderless: false, radius: 25 }}
+            {video && <Pressable android_ripple={{ color: colors.greenOutline, borderless: false, radius: 27 }}
                 onPress={onPress}
                 style={{ backgroundColor: colors.lightGrey, marginRight: 10, justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: colors.greenOutline, height: 42, width: 42, borderRadius: 6 }}>
                 <Feather size={18} color={colors.greenOutline} name={'video'} />
             </Pressable>}
-            <Pressable android_ripple={{ color: colors.primary, borderless: false, radius: 25 }}
+            <Pressable android_ripple={{ color: colors.primary, borderless: false, radius: 27 }}
                 style={{ backgroundColor: colors.lightGrey, justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: colors.primary, height: 42, width: 42, borderRadius: 6 }}>
                 <Ion size={18} color={colors.primary} name={'ios-chatbubble-ellipses-outline'} />
             </Pressable>
@@ -93,7 +93,7 @@ const Item = ({ name, image, type, video, navigation, onPress, selectedCallCard,
             <Pressable
                 android_ripple={{ color: colors.greenOutline, borderless: false, radius: 200 }}
                 style={selectedCallCard}>
-                <Text style={{ color: colors.greenOutline, fontSize: 16 }}>Video call will start soon</Text>
+                <Text style={{ color: colors.greenOutline, fontSize: 15 }}>Video call will start soon</Text>
             </Pressable>
 
 

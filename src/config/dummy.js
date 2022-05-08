@@ -194,42 +194,42 @@ const paymentMethods = [
 const homePageListing = [
     {
         name: 'Doctors',
-        description: 'short description',
+        description: 'Short description',
         id: 849411,
         icon: 'doctor',
         navigate: 'All Doctors'
     },
     {
         name: 'Clinics',
-        description: 'short description',
+        description: 'Short description',
         id: 49416,
         icon: 'hospital-building',
         navigate: 'Clinics'
     },
     {
         name: 'Specialities',
-        description: 'short description',
+        description: 'Short description',
         id: 491631,
         icon: 'heart-pulse',
         navigate: 'All Doctors'
     },
     {
         name: 'Labs',
-        description: 'short description',
+        description: 'Short description',
         id: 88494,
         icon: 'flask-outline',
         navigate: 'All Doctors'
     },
     {
         name: 'Insurance',
-        description: 'short description',
+        description: 'Short description',
         id: 84941,
         icon: 'newspaper-variant-outline',
         navigate: 'All Doctors'
     },
     {
         name: 'Related Articles',
-        description: 'short description',
+        description: 'Short description',
         id: 849431,
         icon: 'newspaper-variant-multiple',
         navigate: 'All Doctors'
