@@ -1,12 +1,51 @@
 import { StyleSheet, Text, View, Image, StatusBar, Pressable } from 'react-native'
-import React from 'react';
+import React, {useEffect} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import Colors from '../config/colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ion from 'react-native-vector-icons/Ionicons';
+import dings from '../assets/ringtones/android_one.mp3';
+
+var Sound = require('react-native-sound');
+
+Sound.setCategory('Playback');
+
+var ding = new Sound(dings, Sound.MAIN_BUNDLE, (error) => {
+    if (error) {
+        console.log('failed to load the sound', error);
+        return;
+      }
+      // if loaded successfully
+      console.log('duration in seconds: ' + ding.getDuration() + 'number of channels: ' + ding.getNumberOfChannels());
+    
+    });
 
 
 const DoctorCalling = ({ navigation }) => {
+
+    const playPause = () => {
+      ding.play(success => {
+        if (success) {
+          console.log('successfully finished playing');
+        } else {
+          console.log('playback failed due to audio decoding errors');
+        }
+      });
+    };
+
+    useEffect(() => {
+        ding.setVolume(1);
+        playPause()
+        return () => {
+            // ding.release();
+        };
+
+      }, []);
+
+    function stopCall() {
+        ding.stop()
+        navigation.goBack()
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -31,7 +70,8 @@ const DoctorCalling = ({ navigation }) => {
                 </View>
 
                 <View style={styles.actionWrap}>
-                    <Pressable onPress={() => navigation.goBack()} activeOpacity={0.8} style={styles.actionBtns} >
+                    <Pressable  activeOpacity={0.8} onPress={stopCall} style={styles.actionBtns} >
+                    {/* onPress={stopCall} */}
                         <Ion name="close" size={35} color={Colors.red} />
                     </Pressable>
                     <Pressable activeOpacity={0.8} style={styles.actionBtns}>

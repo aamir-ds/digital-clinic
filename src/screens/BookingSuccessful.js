@@ -1,9 +1,12 @@
-import { StyleSheet, Text, View, Image, Pressable, TouxhableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native'
 import React from 'react'
 import colors from '../config/colors'
+import ButtonComponent from '../components/ButtonComponent'
 
 const BookingSuccessful = ({ navigation }) => {
   return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle='dark-content' backgroundColor={colors.white} />
     <View style={styles.container}>
       <View style={styles.bookingSection}>
         <View style={styles.roundedImage}>
@@ -12,17 +15,18 @@ const BookingSuccessful = ({ navigation }) => {
         <View style={styles.midSection}>
           <Text style={styles.title}>Booking Successful</Text>
           <Text style={styles.subtitle}>Your booking has been successful, the reminder is set automatically</Text>
-          <TouxhableOpacity style={styles.viewDetails} activeOpacity="0.7">
+          <TouchableOpacity style={styles.viewDetails} activeOpacity="0.7">
             <Text style={styles.link}>View Details</Text>
-          </TouxhableOpacity>
+          </TouchableOpacity>
         </View>
       </View>
-      <Pressable android_ripple={{color: colors.lightPurple,borderless: false, radius: 200}} 
+      {/* <Pressable android_ripple={{color: colors.lightPurple,borderless: false, radius: 200}} 
       onPress={() => navigation.navigate('Home Page')} style={styles.button}>
         <Text style={styles.buttonText}>GOT IT</Text>
-      </Pressable>
-
+      </Pressable> */}
+      <ButtonComponent title={"Got it"} route={'Home Page'}/>
     </View>
+    </SafeAreaView>
   )
 }
 
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    padding: 18,
+    padding: 10,
   },
   bookingSection: {
     flex: 1,
@@ -56,26 +60,26 @@ const styles = StyleSheet.create({
     marginVertical: 30
   },
   title: {
-    fontSize: 24,
-    fontWeight: '800',
+    fontSize: 22,
+    fontWeight: '700',
     color: colors.black,
     lineHeight: 30
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 15,
     color: colors.darkGrey,
     textAlign: 'center',
     lineHeight: 20,
     marginTop: 10,
     marginHorizontal: 15,
-    fontWeight: '500'
+    // fontWeight: '500'
   },
   viewDetails: {
     marginTop: 20
   },
   link: {
     color: colors.primary,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold'
   },
   button: {

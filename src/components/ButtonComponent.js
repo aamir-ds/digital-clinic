@@ -18,7 +18,7 @@ export default function ButtonComponent({ title, route }) {
 const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.primary,
-    height: 50,
+    height: 45,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: colors.white,
-    fontSize: 17,
+    fontSize: 15,
     fontWeight: 'bold',
     textTransform: 'uppercase',
     fontWeight: 'normal',

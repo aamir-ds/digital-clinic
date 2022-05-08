@@ -1,5 +1,5 @@
 import { StyleSheet, Text, StatusBar, View, Pressable, ScrollView, useWindowDimensions, FlatList } from 'react-native'
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useLayoutEffect, useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from '../config/colors'
 import MatIco from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -40,7 +40,8 @@ const PaymentProcess = () => {
         });
     }, [navigation]);
 
-    const [activeCard , setPayCardType] = useState(paymentMethods[0]);
+
+    const [activeCard , setPayCardType] = useState({});
 
     const selectCard = (item) => {
         if(item.checked == false){
@@ -50,8 +51,12 @@ const PaymentProcess = () => {
         } else {
             setPayCardType(item);
         }
-        // console.log("Clicked",activeCard)
+        console.log("Clicked",activeCard)
     }
+
+    useEffect(() => {
+        selectCard(paymentMethods[0])
+    }, [])
 
     const renderItem = ({item}) => (
         <View style={{flex: 1, flexDirection: 'column', margin: 5, justifyContent: 'center', alignItems: 'center'}}>
@@ -199,13 +204,13 @@ const styles = StyleSheet.create({
     },
     treatmentType: {
         color: colors.greyFont,
-        fontSize: 16,
-        fontWeight: 'bold'
+        fontSize: 14,
+        // fontWeight: 'bold'
     },
     value: {
         color: colors.primary,
-        fontSize: 16,
-        fontWeight: 'bold'
+        fontSize: 14,
+        // fontWeight: 'bold'
     },
     treatments: {
         paddingHorizontal: 10,
@@ -221,7 +226,7 @@ const styles = StyleSheet.create({
     dateTime: {
         lineHeight: 40,
         color: colors.darkGrey,
-        fontSize: 16
+        fontSize: 15
     },
     alignCenter: {
         alignItems: 'center',
@@ -240,7 +245,7 @@ const styles = StyleSheet.create({
     heading: {
         color: colors.darkGrey,
         fontSize: 16,
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         paddingHorizontal:20 ,
         paddingVertical: 10
     },
@@ -277,7 +282,7 @@ const styles = StyleSheet.create({
     cardName: {
         //   color: colors.primary,
         color: colors.greyFont,
-        fontSize: 22,
+        fontSize: 20,
         fontWeight: 'bold',
         fontFamily: 'Open Sans',
         textTransform: 'capitalize'

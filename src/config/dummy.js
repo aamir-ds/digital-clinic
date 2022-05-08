@@ -266,9 +266,52 @@ const OnBoardingQuestion = [
         id: '2',
         question: 'Do you have chronic conditions?',
     }
+];
+
+const TimeSlots = [
+    {
+        id: 1,
+        time: "13:00 AM",
+        checked: true
+    },
+    {
+        id: 2,
+        time: "13:30 AM",
+        checked: false
+    },
+    {
+        id: 3,
+        time: "14:00 AM",
+        checked: false
+    },
+    {
+        id: 4,
+        time: "14:30 AM",
+        checked: false
+    },
+    {
+        id: 5,
+        time: "15:00 AM",
+        checked: false
+    },
+    {
+        id: 6,
+        time: "15:30 AM",
+        checked: false
+    },
+    {
+        id: 7,
+        time: "16:00 AM",
+        checked: false
+    },
+    {
+        id: 8,
+        time: "16:30 AM",
+        checked: false
+    },
 ]
 
 
 
 
-export { clinics, doctors, paymentMethods, homePageListing, doctorVisitAnswer, OnBoardingQuestion, cornicAnswer }
+export { clinics, doctors, paymentMethods, homePageListing, doctorVisitAnswer, OnBoardingQuestion, cornicAnswer, TimeSlots }
