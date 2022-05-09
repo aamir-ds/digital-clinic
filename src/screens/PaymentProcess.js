@@ -163,7 +163,8 @@ export default PaymentProcess;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        height: window.height
+        height: window.height,
+        backgroundColor: colors.screenBackground
     },
     headerContainer: {
         flex: 1,
