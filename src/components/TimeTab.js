@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native'
 import colors from '../config/colors';
 import EvilIco from 'react-native-vector-icons/EvilIcons';
 import CalendarPicker from 'react-native-calendar-picker';
 import ButtonComponent from './ButtonComponent';
-import { TimeSlots } from '../config/dummy' 
+import { TimeSlots } from '../config/dummy'
 
 const TimeTab = () => {
 
-    const [selectedStartDate, setDate] = React.useState(null)
+    const [selectedStartDate, setSelectedStartDate] = React.useState(null)
+    const startDate = selectedStartDate ? selectedStartDate.toString() : '';
 
     const customDatesStyles = [
         {
@@ -38,7 +39,6 @@ const TimeTab = () => {
         borderTopWidth: 0,
         borderBottomWidth: 1,
         borderColor: '#eee',
-        // backgroundColor: 'red'
     }
 
     const customDayHeaderStylesCallback = () => {
@@ -54,7 +54,7 @@ const TimeTab = () => {
     }
 
     const onDateChange = (date) => {
-        setDate(date)
+        setSelectedStartDate(date)
     }
 
     const [activeTimeSlot, setTimeSlot] = useState({})
@@ -65,7 +65,7 @@ const TimeTab = () => {
 
 
     const selectTime = (item) => {
-        if(item.checked == false){
+        if (item.checked == false) {
             item.checked = true
             setTimeSlot(prev => prev.checked = false);
             setTimeSlot(item);
@@ -74,10 +74,10 @@ const TimeTab = () => {
         }
     }
 
-    const renderItem = ({item}) => (
-        <View style={{flex: 1, flexDirection: 'column', margin: 5, justifyContent: 'center', alignItems: 'center'}}>
+    const renderItem = ({ item }) => (
+        <View style={{ flex: 1, flexDirection: 'column', margin: 5, justifyContent: 'center', alignItems: 'center' }}>
             <Pressable style={[styles.timings, item.checked == true ? styles.selectedSlot : {}]} onPress={() => selectTime(item)}>
-                <Text style={[{fontSize: 14,color: colors.black}, item.checked == true ? {color: colors.white}: {}]}>{item.time}</Text>
+                <Text style={[{ fontSize: 12, color: colors.black }, item.checked == true ? { color: colors.white } : {}]}>{item.time}</Text>
             </Pressable>
         </View>
     )
@@ -86,7 +86,7 @@ const TimeTab = () => {
         <View style={styles.container}>
             <View style={styles.calenderContainer}>
                 <CalendarPicker
-                    selectedDayColor={colors.lightGrey}
+                    selectedDayColor={colors.primary}
                     selectedDayTextColor={colors.black}
                     customDayHeaderStyles={customDayHeaderStylesCallback}
                     customDatesStyles={customDatesStyles}
@@ -95,6 +95,7 @@ const TimeTab = () => {
                     nextTitle={<EvilIco name='chevron-right' size={30} color={colors.greyFont} />}
                     headerWrapperStyle={customMonthYearHeaderStyles}
                     dayLabelsWrapper={dayWrapper}
+                    onDateChange={onDateChange}
                 />
             </View>
 
@@ -102,26 +103,18 @@ const TimeTab = () => {
                 <View style={styles.header}>
                     <Text style={styles.title}>Available Time</Text>
                 </View>
-                <View style={{paddingHorizontal: 10}}>
-                    {/* <Text style={styles.timings}>13:00 AM</Text>
-                    <Text style={styles.timings}>13:30 AM</Text>
-                    <Text style={[styles.timings, styles.selectedSlot]}>14:00 AM</Text>
-                    <Text style={styles.timings}>14:30 AM</Text>
-                    <Text style={styles.timings}>15:00 AM</Text>
-                    <Text style={styles.timings}>15:30 AM</Text>
-                    <Text style={styles.timings}>16:00 AM</Text>
-                    <Text style={styles.timings}>16:30 AM</Text> */}
+                <View style={{ paddingHorizontal: 10 }}>
                     <FlatList
-                    data={TimeSlots}
-                    renderItem={renderItem}
-                    keyExtractor={(item)=>item.id}
-                    numColumns={4}
-                    key={item => item.id}
+                        data={TimeSlots}
+                        renderItem={renderItem}
+                        keyExtractor={(item) => item.id}
+                        numColumns={4}
+                        key={item => item.id}
                     />
                 </View>
             </View>
 
-            <View style={{paddingHorizontal: 15, paddingBottom: 15}}>
+            <View style={{ paddingHorizontal: 15, paddingBottom: 15 }}>
                 <ButtonComponent title={'Next'} route={'PaymentProcess'} />
             </View>
         </View>
@@ -166,7 +159,7 @@ const styles = StyleSheet.create({
     },
     title: {
         color: colors.black,
-        fontSize: 16,
+        fontSize: 15,
         //   fontWeight: 'bold'
     },
     selectedSlot: {
@@ -178,6 +171,6 @@ const styles = StyleSheet.create({
 
         //   marginRight: 10,
         backgroundColor: colors.lightGrey,
-        borderRadius: 4
+        borderRadius: 2
     }
 })

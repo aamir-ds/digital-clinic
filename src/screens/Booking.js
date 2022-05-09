@@ -1,5 +1,5 @@
-import { SafeAreaView, StatusBar, StyleSheet, Text, View,Pressable } from 'react-native'
-import React, {useLayoutEffect} from 'react'
+import { SafeAreaView, StatusBar, StyleSheet, Text, View, Pressable } from 'react-native'
+import React, { useLayoutEffect } from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import colors from '../config/colors';
 import TimeTab from '../components/TimeTab';
@@ -11,7 +11,7 @@ import Ion from 'react-native-vector-icons/Ionicons';
 const Tab = createMaterialTopTabNavigator();
 
 
-const Booking = ({navigation}) => {
+const Booking = ({ navigation }) => {
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -37,6 +37,11 @@ const Booking = ({navigation}) => {
                 shadowOpacity: 0, // remove shadow on iOS
             },
             headerTintColor: colors.black,
+            headerTitleStyle: {
+                fontWeight: '400',
+                fontSize: 18
+
+            },
         });
     }, [navigation]);
 
@@ -46,7 +51,7 @@ const Booking = ({navigation}) => {
             <Tab.Navigator
                 screenOptions={{
                     tabBarActiveTintColor: colors.primary,
-                    tabBarPressColor: "transparent",
+                    tabBarPressColor: colors.lightPrimary,
                     tabBarPressOpacity: 1,
                     tabBarIndicatorStyle: {
                         backgroundColor: "#6574cf",
@@ -57,7 +62,10 @@ const Booking = ({navigation}) => {
                         elevation: 0,
                         borderBottomColor: "#eee",
                         borderBottomWidth: 1
-                    }
+                    },
+                    tabBarLabelStyle: {
+                        fontSize: 12
+                    },
                 }}
             >
 
