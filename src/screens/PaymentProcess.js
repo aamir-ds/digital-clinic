@@ -26,7 +26,7 @@ const PaymentProcess = () => {
                 <Pressable
                     onPress={() => navigation.navigate('Booking')}
                     style={{ marginLeft: 10 }}>
-                    <Ion name='close' size={20} color={colors.white} />
+                    <Ion name='close' size={24} color={colors.white} />
                 </Pressable>
             ),
 
@@ -37,36 +37,40 @@ const PaymentProcess = () => {
                 shadowOpacity: 0, // remove shadow on iOS
             },
             headerTintColor: colors.white,
+            headerTitleStyle: {
+                fontWeight: '400',
+                fontSize: 18
+            },
         });
     }, [navigation]);
 
 
-    const [activeCard , setPayCardType] = useState({});
+    const [activeCard, setPayCardType] = useState({});
 
     const selectCard = (item) => {
-        if(item.checked == false){
+        if (item.checked == false) {
             item.checked = true
             setPayCardType(prev => prev.checked = false);
             setPayCardType(item);
         } else {
             setPayCardType(item);
         }
-        console.log("Clicked",activeCard)
+        console.log("Clicked", activeCard)
     }
 
     useEffect(() => {
         selectCard(paymentMethods[0])
     }, [])
 
-    const renderItem = ({item}) => (
-        <View style={{flex: 1, flexDirection: 'column', margin: 5, justifyContent: 'center', alignItems: 'center'}}>
-            <Pressable style={[styles.card, item.checked == true ? styles.selected: '' ]} activeOpacity={0.7} onPress={()=> selectCard(item)}
-            android_ripple={{color: colors.lightPurple,borderless: false, radius: 95}}>
+    const renderItem = ({ item }) => (
+        <View style={{ flex: 1, flexDirection: 'column', margin: 5, justifyContent: 'center', alignItems: 'center' }}>
+            <Pressable style={[styles.card, item.checked == true ? styles.selected : '']} activeOpacity={0.7} onPress={() => selectCard(item)}
+                android_ripple={{ color: colors.lightPurple, borderless: false, radius: 95 }}>
                 {
-                    item.checked == true ? 
-                    <View style={styles.tickIco}>
-                        <MatIco name='check-circle-outline' size={20} color={colors.primary} />
-                    </View> :  <></>
+                    item.checked == true ?
+                        <View style={styles.tickIco}>
+                            <MatIco name='check-circle-outline' size={18} color={colors.primary} />
+                        </View> : <></>
                 }
                 <View style={styles.content}>
                     <Text style={styles.cardName}>{item.name}</Text>
@@ -86,7 +90,7 @@ const PaymentProcess = () => {
                                 <View style={styles.row}>
                                     <View style={styles.productPrice}>
                                         <View style={styles.priceTag}>
-                                            <MatIco name='tag-outline' size={30} color={colors.primary} />
+                                            <MatIco name='tag-outline' size={25} color={colors.primary} />
                                         </View>
                                         <View style={{ marginLeft: 10 }}>
                                             <Text style={styles.price}>$100</Text>
@@ -111,11 +115,17 @@ const PaymentProcess = () => {
                                 <View style={styles.flexWrap}>
                                     <View style={styles.treatmentDay}>
                                         <View style={[styles.alignCenter, styles.borderRight]}>
-                                            <Text style={[styles.label, { lineHeight: 20 }]}>Date</Text>
+                                            <Text style={{
+                                                lineHeight: 20, color: colors.greyFont,
+                                                fontSize: 13
+                                            }}>Date</Text>
                                             <Text style={styles.dateTime}>17 May 2020</Text>
                                         </View>
                                         <View style={styles.alignCenter}>
-                                            <Text style={[styles.label, { lineHeight: 20 }]}>Time</Text>
+                                            <Text style={{
+                                                lineHeight: 20, color: colors.greyFont,
+                                                fontSize: 13
+                                            }}>Time</Text>
                                             <Text style={styles.dateTime}>17:00</Text>
                                         </View>
                                     </View>
@@ -125,22 +135,24 @@ const PaymentProcess = () => {
                     </View>
                 </View>
 
+
                 <View style={styles.paymentSection}>
                     <Text style={styles.heading}>Payment Method</Text>
-                        <View style={{marginHorizontal: 15}}>
+                    <View style={{ marginHorizontal: 15 }}>
                         <FlatList
-                        data={paymentMethods}
-                        renderItem={renderItem} 
-                        keyExtractor={(item)=>item.id}
-                        numColumns={2}
-                        key={item => item.id}
+                            data={paymentMethods}
+                            renderItem={renderItem}
+                            keyExtractor={(item) => item.id}
+                            numColumns={2}
+                            key={item => item.id}
                         />
-                        </View>
+                    </View>
                 </View>
 
                 <View style={styles.footerSection}>
                     <ButtonComponent title={"Confirm"} route={'PaymentCardDetails'} />
                 </View>
+
             </SafeAreaView>
         </ScrollView>
     )
@@ -186,7 +198,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     price: {
-        fontSize: 22,
+        fontSize: 21,
         color: colors.darkGrey,
         fontWeight: 'bold'
     },
@@ -195,7 +207,8 @@ const styles = StyleSheet.create({
         fontSize: 14
     },
     list: {
-        padding: 20,
+        paddingVertical: 16,
+        paddingHorizontal: 20,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignSelf: 'stretch',
@@ -204,16 +217,16 @@ const styles = StyleSheet.create({
     },
     treatmentType: {
         color: colors.greyFont,
-        fontSize: 14,
+        fontSize: 13,
         // fontWeight: 'bold'
     },
     value: {
         color: colors.primary,
-        fontSize: 14,
+        fontSize: 13,
         // fontWeight: 'bold'
     },
     treatments: {
-        paddingHorizontal: 10,
+        paddingTop: 20,
         width: '100%'
     },
     flexWrap: {
@@ -226,7 +239,7 @@ const styles = StyleSheet.create({
     dateTime: {
         lineHeight: 40,
         color: colors.darkGrey,
-        fontSize: 15
+        fontSize: 14
     },
     alignCenter: {
         alignItems: 'center',
@@ -243,11 +256,12 @@ const styles = StyleSheet.create({
         // padding: 20,
     },
     heading: {
-        color: colors.darkGrey,
-        fontSize: 16,
-        // fontWeight: 'bold',
-        paddingHorizontal:20 ,
-        paddingVertical: 10
+        color: colors.black,
+        fontSize: 15,
+        fontWeight: '500',
+        paddingHorizontal: 20,
+        paddingTop: 20,
+        paddingBottom: 15
     },
     paymentContainer: {
         padding: 20,
@@ -266,7 +280,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         color: colors.primary,
         width: '100%',
-        height: 90,
+        height: 85,
         // justifyContent: 'center',
         // alignItems: 'center',
         borderRadius: 5,
@@ -282,15 +296,17 @@ const styles = StyleSheet.create({
     cardName: {
         //   color: colors.primary,
         color: colors.greyFont,
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         fontFamily: 'Open Sans',
         textTransform: 'capitalize'
     },
     footerSection: {
         flex: 1,
-        //   height: 100,
-        padding: 15
+        marginHorizontal: 20,
+        marginTop: 30
+
+
     },
     button: {
         backgroundColor: colors.primary,
