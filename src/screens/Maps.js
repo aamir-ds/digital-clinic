@@ -1,5 +1,5 @@
 import { FlatList, Image, SafeAreaView, StatusBar, StyleSheet, Text, TextInput, Pressable, View } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import Feather from 'react-native-vector-icons/Feather';
 import colors from '../config/colors';
 import { useNavigation } from '@react-navigation/native';
@@ -11,8 +11,17 @@ import Fa from 'react-native-vector-icons/FontAwesome';
 
 
 const Item = ({ name, distance, ratings, image, reviews, type, video, navigation, index, item }) => (
-  <Pressable activeOpacity={0.5} style={{ marginLeft: index === 0 ? 15 : 0, marginRight: index === doctors.length - 1 ? 15 : 0, borderTopColor: colors.primary, borderTopWidth: 2, elevation: 3, padding: 15, alignItems: 'center', backgroundColor: colors.white }}>
-    <View activeOpacity={0.5} >
+  <Pressable android_ripple={{ color: colors.primary, borderless: false, radius: 200 }}
+    style={{ marginLeft: index === 0 ? 15 : 0, marginRight: index === doctors.length - 1 ? 15 : 0, padding: 15, alignItems: 'center', backgroundColor: colors.white, borderRadius: 4 }}>
+
+    <View  >
+      <View style={{
+        height: 14, width: 14,
+        backgroundColor: colors.greenOutline, position: 'absolute', zIndex: 1,
+        borderRadius: 50,
+        bottom: 0,
+        left: 50
+      }} />
       <Image style={{
         width: 75,
         height: 75,
@@ -23,13 +32,13 @@ const Item = ({ name, distance, ratings, image, reviews, type, video, navigation
       />
     </View>
     <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 15, backgroundColor: colors.lightGrey, paddingVertical: 2, paddingHorizontal: 7, borderRadius: 4 }}>
-      <Fa style={{ marginRight: 5 }} size={15} color={colors.primary} name={'star'} />
-      <Text style={{ fontSize: 15, color: colors.primary, fontWeight: '500' }}>{ratings}</Text>
+      <Fa style={{ marginRight: 5 }} size={13} color={colors.primary} name={'star'} />
+      <Text style={{ fontSize: 13, color: colors.primary, fontWeight: '500' }}>{ratings}</Text>
     </View>
     <View  >
-      <Text style={{ fontSize: 18, fontWeight: '400', color: colors.black, marginBottom: 2 }}>{name}</Text>
+      <Text style={{ fontSize: 16, fontWeight: '400', color: colors.black, marginBottom: 2 }}>{name}</Text>
     </View>
-    <Text style={{ fontSize: 15, fontWeight: '400', color: colors.greyFont }}>{type}</Text>
+    <Text style={{ fontSize: 13, fontWeight: '400', color: colors.greyFont }}>{type}</Text>
     <View style={{ marginTop: 15, padding: 5, borderColor: colors.primary, borderWidth: 1, borderRadius: 4, backgroundColor: colors.lightGrey }}>
       <Text style={{ fontSize: 10, color: colors.primary }}>AVAILABLE SPOTS</Text>
     </View>
@@ -53,8 +62,8 @@ export default function Maps() {
       headerRight: () => (
         <Pressable
           // onPress={() => navigation.goBack()}
-          style={{ marginLeft: 10 }}>
-          <Feather name='filter' size={20} color={colors.white} />
+          style={{ marginRight: 5 }}>
+          <Feather name='filter' size={18} color={colors.white} />
         </Pressable>
       ),
 
@@ -65,39 +74,51 @@ export default function Maps() {
         shadowOpacity: 0, // remove shadow on iOS
       },
       headerTintColor: colors.white,
+      headerTitleStyle: {
+        fontWeight: '400',
+        fontSize: 18
+
+      },
     });
   }, [navigation]);
 
 
 
-  const renderItem = ({ item, index }) => (
-    <Item name={item.name}
-      distance={item.distance}
-      type={item.type}
-      address={item.address}
-      ratings={item.ratings}
-      reviews={item.reviews}
-      experience={item.experience}
-      fees={item.fees}
-      location={item.location}
-      online={item.online}
-      video={item.video}
-      image={item.image}
-      navigation={navigation}
-      index={index}
-      item={item} />
-  );
+  const renderItem = ({ item, index }) => {
+
+
+
+
+
+    return (
+      <Item name={item.name}
+        distance={item.distance}
+        type={item.type}
+        address={item.address}
+        ratings={item.ratings}
+        reviews={item.reviews}
+        experience={item.experience}
+        fees={item.fees}
+        location={item.location}
+        online={item.online}
+        video={item.video}
+        image={item.image}
+        navigation={navigation}
+        index={index}
+
+        item={item} />)
+  };
 
 
   return (
     <SafeAreaView style={{ flex: 1, position: 'relative' }}>
       <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
-      <View style={{ paddingTop: 2, paddingHorizontal: 20, height: 75, backgroundColor: colors.primary, }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', height: 50, borderColor: colors.lightGrey, borderWidth: 1, borderRadius: 4, backgroundColor: colors.purple }}>
+      <View style={{ paddingTop: 2, paddingHorizontal: 20, height: 65, backgroundColor: colors.primary, }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', height: 45, borderColor: colors.lightGrey, borderWidth: 1, borderRadius: 4, backgroundColor: colors.purple }}>
           <TextInput
             placeholder="Search Doctors, Clinics ..."
             placeholderTextColor={colors.white}
-            style={{ color: colors.white, fontSize: 16, paddingLeft: 10, flex: 1 }} />
+            style={{ color: colors.white, fontSize: 14, paddingLeft: 10, flex: 1 }} />
           <Feather style={{ marginRight: 15, marginLeft: 10 }} size={20} color={colors.white} name={'search'} />
         </View>
       </View>
