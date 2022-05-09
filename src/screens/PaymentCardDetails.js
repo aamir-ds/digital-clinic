@@ -22,7 +22,7 @@ const PaymentCardDetails = ({ navigation }) => {
         <Pressable
           onPress={() => navigation.navigate('Booking')}
           style={{ marginLeft: 10 }}>
-          <Ion name='close' size={20} color={colors.white} />
+          <Ion name='close' size={24} color={colors.white} />
         </Pressable>
       ),
 
@@ -33,25 +33,29 @@ const PaymentCardDetails = ({ navigation }) => {
         shadowOpacity: 0, // remove shadow on iOS
       },
       headerTintColor: colors.white,
+      headerTitleStyle: {
+        fontWeight: '400',
+        fontSize: 18
+      },
     });
   }, [navigation]);
 
   const [last4Digits, setLastAccountNo] = useState('1222');
   const [accName, setAccHolderName] = useState('Lucas Pacheco');
-  const [expDate, setExpDate] = useState('09.24');
+  const [expDate, setExpDate] = useState('09/24');
   const [cvvNo, setCvvNo] = useState('123');
 
   function onChangeAccNo(val) {
-    if(val.length == 16){ 
-      let splitVal = val.slice(12,16)
+    if (val.length == 16) {
+      let splitVal = val.slice(12, 16)
       setLastAccountNo(splitVal)
-    } else if(val.length == 0) {
+    } else if (val.length == 0) {
       setLastAccountNo('1222')
     }
   }
-  
+
   function onAccNameChange(val) {
-    if(val == ''){
+    if (val == '') {
       setAccHolderName('Lucas Pacheco')
     } else {
       setAccHolderName(val)
@@ -61,7 +65,7 @@ const PaymentCardDetails = ({ navigation }) => {
   function onExpiryDateChange(val) {
     setExpDate(val)
   }
- 
+
   function onCvvChange(val) {
     setCvvNo(val)
   }
@@ -71,48 +75,48 @@ const PaymentCardDetails = ({ navigation }) => {
       <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
       <ScrollView>
 
-      <View style={styles.cardSection}>
-        <View style={styles.content}>
-          <Text style={styles.cardName}>Visa</Text>
-          <View style={styles.cardNumber}>
-            <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
-              <View style={styles.dot}></View>
-              <View style={styles.dot}></View>
-              <View style={styles.dot}></View>
-              <View style={styles.dot}></View>
+        <View style={styles.cardSection}>
+          <View style={styles.content}>
+            <Text style={styles.cardName}>Visa</Text>
+            <View style={styles.cardNumber}>
+              <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
+                <View style={styles.dot}></View>
+                <View style={styles.dot}></View>
+                <View style={styles.dot}></View>
+                <View style={styles.dot}></View>
+              </View>
+              <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
+                <View style={styles.dot}></View>
+                <View style={styles.dot}></View>
+                <View style={styles.dot}></View>
+                <View style={styles.dot}></View>
+              </View>
+              <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
+                <View style={styles.dot}></View>
+                <View style={styles.dot}></View>
+                <View style={styles.dot}></View>
+                <View style={styles.dot}></View>
+              </View>
+              <Text style={styles.number}>{last4Digits}</Text>
             </View>
-            <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
-              <View style={styles.dot}></View>
-              <View style={styles.dot}></View>
-              <View style={styles.dot}></View>
-              <View style={styles.dot}></View>
+            <View style={styles.cardHolder}>
+              <Text style={styles.fullname}>{accName}</Text>
+              <Text style={styles.fullname}>{expDate}</Text>
             </View>
-            <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
-              <View style={styles.dot}></View>
-              <View style={styles.dot}></View>
-              <View style={styles.dot}></View>
-              <View style={styles.dot}></View>
-            </View>
-            <Text style={styles.number}>{last4Digits}</Text>
-          </View>
-          <View style={styles.cardHolder}>
-            <Text style={styles.fullname}>{accName}</Text>
-            <Text style={styles.fullname}>{expDate}</Text>
           </View>
         </View>
-      </View>
 
         <View style={styles.formSection}>
           <View style={styles.formField}>
-            <InputComponent label={'Card Number'} type={'number-pad'} OnChange={onChangeAccNo} maxLength={16}/>
+            <InputComponent label={'Card Number'} type={'number-pad'} OnChange={onChangeAccNo} maxLength={16} />
           </View>
           <View style={styles.formField}>
-            <InputComponent label={'Card Holder'} type={'text'} OnChange={onAccNameChange} capitalizeOn={true}/>
+            <InputComponent label={'Card Holder'} type={'text'} OnChange={onAccNameChange} capitalizeOn={true} />
           </View>
 
           <View style={styles.flexFields}>
             <View style={[styles.formField, { flex: 2, marginRight: 20 }]}>
-              <InputComponent label={'Expiry Date'} type={'hidden'} maxLength={5} OnChange={onExpiryDateChange}/>
+              <InputComponent label={'Expiry Date'} type={'hidden'} maxLength={5} OnChange={onExpiryDateChange} />
             </View>
             <View style={[styles.formField, { flex: 1 }]}>
               <InputComponent label={'CVV'} type={'number-pad'} maxLength={3} OnChange={onCvvChange} />
@@ -158,7 +162,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   number: {
-    fontSize: 20,
+    fontSize: 18,
     color: colors.white,
     fontWeight: 'bold',
     letterSpacing: 5,
@@ -185,7 +189,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   fullname: {
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: 'Open Sans',
   },
   footer: {

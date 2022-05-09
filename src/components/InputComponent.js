@@ -12,7 +12,7 @@ export default function InputComponent(props) {
     <View>
       <Text style={styles.label}>{props.label}</Text>
       <TextInput keyboardType={props.type} style={styles.input} maxLength={props.maxLength} onChange={(value) => inputBlur(value.nativeEvent.text)}
-      autoCapitalize={props.capitalizeOn && props.capitalizeOn == true ? 'words': 'none'}/>
+        autoCapitalize={props.capitalizeOn && props.capitalizeOn == true ? 'words' : 'none'} />
     </View>
   )
 }
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#e4e9f2',
     backgroundColor: colors.lightGrey,
     color: colors.darkGrey,
     borderRadius: 5,
