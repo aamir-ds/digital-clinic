@@ -16,6 +16,7 @@ import PaymentProcess from '../screens/PaymentProcess';
 import PaymentCardDetails from '../screens/PaymentCardDetails';
 import Booking from '../screens/Booking';
 import AccountSettings from '../screens/AccountSettings';
+import DocumentUpload from '../screens/DocumentUpload';
 
 
 
@@ -42,6 +43,12 @@ export default function StackNavigation({ navigation }) {
           headerShown: false,
         }}
         name="All Doctors" component={AllDoctors} />
+      
+      <Stack.Screen
+        // options={{
+        //   headerShown: false,
+        // }}
+        name="Document Upload" component={DocumentUpload} />
 
       <Stack.Screen
         options={{

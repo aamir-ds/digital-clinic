@@ -228,12 +228,19 @@ const homePageListing = [
         navigate: 'All Doctors'
     },
     {
-        name: 'Related Articles',
+        name: 'Document Uploads',
         description: 'Short description',
         id: 849431,
-        icon: 'newspaper-variant-multiple',
-        navigate: 'All Doctors'
+        icon: 'upload',
+        navigate: 'Document Upload'
     }
+    // {
+    //     name: 'Related Articles',
+    //     description: 'Short description',
+    //     id: 849431,
+    //     icon: 'newspaper-variant-multiple',
+    //     navigate: 'All Doctors'
+    // }
 ]
 
 const doctorVisitAnswer = [

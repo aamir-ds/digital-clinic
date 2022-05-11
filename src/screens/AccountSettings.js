@@ -18,29 +18,8 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather'
 import Octi from 'react-native-vector-icons/Octicons'
 import colors from '../config/colors';
-// import {ImagePicker} from 'react-native-image-picker';
 import defaultAvatar from '../assets/images/avatar.png';
-import axios from 'axios';
-
-const ImagePicker = require('react-native-image-picker');
-
-const createFormData = (photo, body) => {
-    const data = new FormData();
-  
-    data.append('photo', {
-      name: photo.fileName,
-      type: photo.type,
-      uri:
-        Platform.OS === 'android' ? photo.uri : photo.uri.replace('file://', ''),
-    });
-  
-    Object.keys(body).forEach((key) => {
-      data.append(key, body[key]);
-    });
-  
-    console.log("Image data", data)
-    return data;
-  };
+import DocumentPicker from "react-native-document-picker";
 
 const AccountSettings = ({navigation}) => {
   useLayoutEffect(() => {
@@ -49,7 +28,7 @@ const AccountSettings = ({navigation}) => {
         <Text
           {...props}
           style={{color: 'white', fontWeight: 'bold', fontSize: 18}}>
-          Edit Account
+            Profile
         </Text>
       ),
       headerShadowVisible: false,
@@ -61,100 +40,46 @@ const AccountSettings = ({navigation}) => {
       headerTintColor: '#fff',
     });
   }, [navigation]);
-  const [modalVisible, setModalVisible] = useState(false);
 
   const [avatar, setAvatar] = useState(defaultAvatar);
 
-  const [title, setTitle] = useState('Profile Photo');
+  const docPicker= async() => {
+    // Pick a single file
+    try {
+      const res = await DocumentPicker.pick({
+       //by using allFiles type, you will able to pick any type of media from user device, 
+    //There can me more options as well
+    //DocumentPicker.types.images: All image types
+    //DocumentPicker.types.plainText: Plain text files
+    //DocumentPicker.types.audio: All audio types
+   //DocumentPicker.types.pdf: PDF documents
+   //DocumentPicker.types.zip: Zip files
+   //DocumentPicker.types.csv: Csv files
+   //DocumentPicker.types.doc: doc files
+   //DocumentPicker.types.docx: docx files
+  //DocumentPicker.types.ppt: ppt files
+  //DocumentPicker.types.pptx: pptx files
+  //DocumentPicker.types.xls: xls files
+  //DocumentPicker.types.xlsx: xlsx files
+  //For selecting more more than one options use the 
+ //type: [DocumentPicker.types.csv,DocumentPicker.types.xls]
+         type: [DocumentPicker.types.allFiles],
+      });
+      console.log("Document uploaded",res[0]
+      );
 
-  const [image, setImage] = useState();
-
-  const handlePicker = async() => {
-
-    ImagePicker.launchCamera({}, async(response) => {
-          setAvatar({uri: response.assets[0].uri})
-
-         const data = new FormData()
-
-         data.append('image', response)
-          try {
-              const res = await axios.post('http://192.168.0.105:8000/uploadImage', data)
-            //   const data = await res.json()
-      
-              console.log("RESPONSE DATA", res)
-            } catch(err){
-              console.log("Error", err.message)
-            }
+      setAvatar({uri: res[0].uri})
+    } catch (err) {
+      if (DocumentPicker.isCancel(err)) {
+        console.log("error -----", err);
+      } else {
+        throw err;
+      }
     }
-    )
-
-    //   if (response.didCancel) {
-    //     console.log('User cancelled image picker');
-    //   } else if (response.error) {
-    //     console.log('ImagePicker Error: ', response.error);
-    //   } else if (response.customButton) {
-    //     console.log('User tapped custom button: ', response.customButton);
-    //   } else {
-    //     setAvatar({uri: response.uri});
-    //     setTitle('Updating...'); // image start to upload on server so on header set text is 'Updating..'
-    //     console.log("Results", response)
-        // fetch('http://localhost:3000/api/upload', {
-        // fetch('http://127.0.0.1:8000'
-        // {
-        //   method: 'POST',
-        //   headers: new Headers({
-        //     'Content-Type': 'application/x-www-form-urlencoded', //Specifying the Content-Type
-        //   }),
-        //   body: createFormData(response, {id: '123'}),
-
-
-        // }
-        // )
-        //   .then((data) => data.json())
-        //   .then((res) => {
-        //     console.log('upload succes', res);
-        //     // setTitle('Profile Photo');
-        //     // setAvatar({uri: response.image});
-        //   })
-        //   .catch((error) => {
-        //     console.log('upload error', error);
-        //     // setTitle('Profile Photo');
-        //   });
-    //   }
-    // });
-  };
+  }
 
   return (
     <View style={styles.mainContainer}>
-      {/* <Modal
-        animationType="fade"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}>
-        <View style={styles.modalContainer}>
-          <View style={styles.modalCard}>
-            <View style={styles.modayBody}>
-              <View style={styles.content}>
-                <View style={styles.imageContainer}>
-                  <Image source={require('../../assets/Icons/success.png')} />
-                </View>
-                <Text style={styles.modalTitle}>Success</Text>
-                <Text style={styles.modalDesc}>Profile photo updated</Text>
-              </View>
-              <Pressable
-                style={styles.modalButtonContainer}
-                onPress={() => setModalVisible(!modalVisible)}>
-                <Text style={[styles.appButtonText, {color: '#fff'}]}>
-                  Got It
-                </Text>
-              </Pressable>
-            </View>
-          </View>
-        </View>
-      </Modal> */}
 
       <View style={styles.dpSection}>
         <View style={styles.info}>
@@ -169,17 +94,10 @@ const AccountSettings = ({navigation}) => {
               source={avatar}
             />
           </TouchableOpacity>
-          {/* <Button title='Change Photo'></Button> */}
           <TouchableOpacity
             style={styles.appButtonContainer}
-            onPress={handlePicker}
-            // onPress={chooseFile}
+            onPress={docPicker}
           >
-            {/* <Image
-              source={require('../../assets/Icons/editIcon.webp')}
-              style={{width: 15, height: 15, marginRight: 5}}
-            /> */}
-            {/* <Feather name="chevron-small-right" size={20} color={colors.primary}/> */}
             <Octi name="pencil" size={20} color="#888"/>
             <Text style={styles.appButtonText}>Change Photo</Text>
           </TouchableOpacity>
