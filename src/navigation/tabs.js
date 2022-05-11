@@ -8,6 +8,7 @@ import Octi from 'react-native-vector-icons/Octicons'
 import colors from '../config/colors'
 import AllDoctors from '../screens/AllDoctors'
 import Appointments from '../screens/Appointments'
+import AccountSettings from '../screens/AccountSettings'
 import Home from '../screens/Home'
 
 
@@ -146,6 +147,45 @@ const Tabs = ({ navigation }) => {
                 }}
                 name="Appointments"
                 component={Appointments}
+            />
+            
+            {/* Profile page */}
+            <Tab.Screen
+                options={{
+                    // headerRight: () => (
+                    //     <View style={{ flexDirection: 'row' }}>
+                    //         <Entypo style={{ marginRight: 20 }} size={18} color={colors.greyFont} name={'calendar'} />
+                    //         <MaterialCommunityIcons style={{ marginRight: 15 }} size={18} color={colors.greyFont} name={'bell-outline'} />
+                    //     </View>
+                    // ),
+                    headerStyle: {
+                        elevation: 0, // remove shadow on Android
+                        shadowOpacity: 0, // remove shadow on iOS
+                    },
+                    headerTitleStyle: {
+                        fontWeight: '600',
+                        fontSize: 20
+
+                    },
+                    tabBarLabel: 'Profile',
+                    tabBarIcon: ({ focused }) => {
+                        return focused ? (
+                            <View style={styles.labelFocusedContainer}>
+                                <Entypo style={{ justifyContent: 'center' }} name="user" color={colors.primary} size={20} />
+
+                            </View>
+                        ) : (
+                            <View style={styles.labelContainer}>
+                                <Entypo style={{ justifyContent: 'center' }} name="user" color={colors.greyFont} size={20} />
+                            </View>
+                        );
+                    },
+                    // tabBarIcon: () => (
+                    //     <Entypo name="calendar" color={colors.primary} size={20} />
+                    // ),
+                }}
+                name="AccountSettings"
+                component={AccountSettings}
             />
 
         </Tab.Navigator >

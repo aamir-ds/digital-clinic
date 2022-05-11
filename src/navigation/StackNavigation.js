@@ -15,6 +15,7 @@ import DoctorCalling from '../screens/DoctorCalling';
 import PaymentProcess from '../screens/PaymentProcess';
 import PaymentCardDetails from '../screens/PaymentCardDetails';
 import Booking from '../screens/Booking';
+import AccountSettings from '../screens/AccountSettings';
 
 
 
@@ -56,6 +57,13 @@ export default function StackNavigation({ navigation }) {
 
         }}
         name="Appointments" component={Appointments} />
+      
+      <Stack.Screen
+        options={{
+          headerShown: false,
+
+        }}
+        name="AccountSettings" component={AccountSettings} />
 
       <Stack.Screen
 

@@ -33,6 +33,10 @@ const DoctorCalling = ({ navigation }) => {
         });
     };
 
+    // state = {
+    //     animated: new Animated.Value(0)
+    // }
+
     useEffect(() => {
         ding.setVolume(1);
         playPause()
@@ -47,6 +51,7 @@ const DoctorCalling = ({ navigation }) => {
         navigation.goBack()
     }
 
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
@@ -59,7 +64,16 @@ const DoctorCalling = ({ navigation }) => {
 
                 <View style={styles.imageContainer}>
                     <View style={[styles.circle, styles.center]}>
-                        <Image source={require('../assets/images/doctorProfile.jpg')} style={styles.profileImg} />
+                        {/* <Image source={require('../assets/images/doctorProfile.jpg')} style={styles.profileImg} /> */}
+                        {/* <Animated.View
+                        style={{
+                            width: 100,
+                            height: 100,
+                            borderRadius: 50,
+                            backgroundColor: 'red'
+                        }}>
+
+                        </Animated.View> */}
                     </View>
                 </View>
 
