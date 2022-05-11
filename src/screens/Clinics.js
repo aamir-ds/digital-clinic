@@ -1,11 +1,16 @@
 import { FlatList, Image, StatusBar, StyleSheet, Text, Pressable, View, TouchableOpacity } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState, useEffect } from 'react'
 import { clinics } from '../config/dummy';
 import colors from '../config/colors';
 import Fa from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Octi from 'react-native-vector-icons/Octicons';
 import Feather from 'react-native-vector-icons/Feather';
+import { useNetInfo } from "@react-native-community/netinfo";
+import Skeleton from '../components/Skeleton';
+import SkeletonCard from '../components/SkeletonCard';
+
+
 
 
 
@@ -62,6 +67,10 @@ const Item = ({ name, distance, address, ratings, image, navigation }) => (
 
 const Clinics = ({ navigation }) => {
 
+    const [loading, setLoading] = useState(true);
+    const netInfo = useNetInfo();
+
+
     useLayoutEffect(() => {
         navigation.setOptions({
 
@@ -90,6 +99,17 @@ const Clinics = ({ navigation }) => {
     }, [navigation]);
 
 
+    useEffect(() => {
+        setLoading(true)
+        loaderFunction()
+    }, [netInfo])
+
+    const loaderFunction = () => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000)
+    }
+
 
 
     const renderItem = ({ item }) => (
@@ -104,15 +124,29 @@ const Clinics = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
-            <FlatList
-                data={clinics}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id}
-                ListHeaderComponent={() => (
-                    <View style={{ padding: 5 }} />
-                )}
-            // ItemSeparatorComponent={ItemSeperator}
-            />
+
+            {netInfo.isConnected ?
+                <>
+                    {loading ?
+                        <SkeletonCard /> :
+                        <FlatList
+                            data={clinics}
+                            renderItem={renderItem}
+                            keyExtractor={(item) => item.id}
+                            ListHeaderComponent={() => (
+                                <View style={{ padding: 5 }} />
+                            )}
+                        // ItemSeparatorComponent={ItemSeperator}
+                        />}
+                </> :
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+
+                    <Image
+                        style={{ height: 300, width: 300 }}
+                        source={require('../assets/images/no-internet.png')}
+                    />
+
+                </View>}
         </View>
     )
 }
