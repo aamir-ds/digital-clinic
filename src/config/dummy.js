@@ -225,7 +225,7 @@ const homePageListing = [
         description: 'Short description',
         id: 84941,
         icon: 'newspaper-variant-outline',
-        navigate: 'All Doctors'
+        navigate: 'Share Files'
     },
     {
         name: 'Document Uploads',

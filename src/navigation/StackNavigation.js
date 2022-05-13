@@ -17,6 +17,7 @@ import PaymentCardDetails from '../screens/PaymentCardDetails';
 import Booking from '../screens/Booking';
 import AccountSettings from '../screens/AccountSettings';
 import DocumentUpload from '../screens/DocumentUpload';
+import ShareFiles from '../screens/ShareFiles';
 
 
 
@@ -86,6 +87,7 @@ export default function StackNavigation({ navigation }) {
       <Stack.Screen name="PaymentProcess" component={PaymentProcess} options={{ headerTitleAlign: 'center', headerTitle: 'Payment' }} />
       <Stack.Screen name="PaymentCardDetails" component={PaymentCardDetails} options={{ headerTitleAlign: 'center', headerTitle: 'Payment' }} />
       <Stack.Screen name="Map" component={Maps} options={{ headerTitleAlign: 'center', headerTitle: 'Map' }} />
+      <Stack.Screen name="Share Files" component={ShareFiles} options={{  headerTitle: 'Share Files' }} />
     </Stack.Navigator>
   )
 }
